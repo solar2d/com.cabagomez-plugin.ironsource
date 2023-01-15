@@ -1,0 +1,6 @@
+framework module ISAdColonyAdapter {
+  umbrella header "ISAdColonyAdapter.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module ISUnityAdsAdapter {
+  umbrella header "ISUnityAdsAdapter.h"
+
+  export *
+  module * { export * }
+}

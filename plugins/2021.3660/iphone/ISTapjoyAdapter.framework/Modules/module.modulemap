@@ -1,0 +1,6 @@
+framework module ISTapjoyAdapter {
+  umbrella header "ISTapjoyAdapter.h"
+
+  export *
+  module * { export * }
+}

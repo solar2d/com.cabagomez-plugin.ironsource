@@ -1,0 +1,6 @@
+framework module ISAdMobAdapter {
+  umbrella header "ISAdMobAdapter.h"
+
+  export *
+  module * { export * }
+}

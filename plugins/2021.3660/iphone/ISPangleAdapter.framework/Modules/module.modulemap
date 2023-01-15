@@ -1,0 +1,6 @@
+framework module ISPangleAdapter {
+  umbrella header "ISPangleAdapter.h"
+
+  export *
+  module * { export * }
+}
