@@ -5,8 +5,6 @@
 //  Created by Thomas So on 10/30/20.
 //
 
-#import <Foundation/Foundation.h>
-
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -19,7 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
  * A custom user segment name with 32 alphanumeric characters or less, as defined in your AppLovin dashboard.
  */
 @property (nonatomic, copy, nullable) NSString *name;
-
 
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;

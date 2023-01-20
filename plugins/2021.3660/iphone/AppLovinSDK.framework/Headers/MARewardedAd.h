@@ -6,11 +6,14 @@
 //  Copyright © 2020 AppLovin Corporation. All rights reserved.
 //
 
-#import <AppLovinSDK/ALSdk.h>
+#import <UIKit/UIKit.h>
+#import <AppLovinSDK/MAAdDelegate.h>
 #import <AppLovinSDK/MAAdRequestDelegate.h>
-#import <AppLovinSDK/MAAdRevenueDelegate.h>
 #import <AppLovinSDK/MAAdReviewDelegate.h>
+#import <AppLovinSDK/MAAdRevenueDelegate.h>
 #import <AppLovinSDK/MARewardedAdDelegate.h>
+
+@class ALSdk;
 
 NS_ASSUME_NONNULL_BEGIN
 

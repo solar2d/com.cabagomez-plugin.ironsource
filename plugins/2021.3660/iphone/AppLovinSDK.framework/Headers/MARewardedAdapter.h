@@ -7,6 +7,7 @@
 //
 
 #import <AppLovinSDK/MAAdapter.h>
+#import <AppLovinSDK/MAAdapterResponseParameters.h>
 #import <AppLovinSDK/MARewardedAdapterDelegate.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -14,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * This protocol defines methods for rewarded (incentivized) adapters.
  */
-@protocol MARewardedAdapter<MAAdapter>
+@protocol MARewardedAdapter <MAAdapter>
 
 /**
  * Load a rewarded ad.

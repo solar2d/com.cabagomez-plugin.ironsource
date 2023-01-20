@@ -5,13 +5,9 @@
 //  Created by Ritam Sarmah on 2/18/22.
 //
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 #import <AppLovinSDK/MACustomAdPlacer.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
-@class MAAdPlacerSettings;
 
 /**
  * This class loads and places native ads into a corresponding @c UITableView. The table view's original data source and delegate methods are wrapped by this class in order to automatically insert ad rows, while maintaining the existing table view's behavior.

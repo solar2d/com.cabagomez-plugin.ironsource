@@ -6,15 +6,15 @@
 //  Copyright © 2020 AppLovin Corporation. All rights reserved.
 //
 
-#import <AppLovinSDK/MAAd.h>
-#import <AppLovinSDK/MAError.h>
+@class MAAd;
+@class MAError;
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  * This protocol defines a listener to be notified about ad events.
  */
-@protocol MAAdDelegate<NSObject>
+@protocol MAAdDelegate <NSObject>
 
 /**
  * The SDK invokes this method when a new ad has been loaded.

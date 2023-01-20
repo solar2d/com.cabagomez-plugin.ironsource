@@ -6,9 +6,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AppLovinSDK/MANativeAdViewBinder.h>
 
 @class MANativeAd;
+@class MANativeAdViewBinder;
 
 NS_ASSUME_NONNULL_BEGIN
 

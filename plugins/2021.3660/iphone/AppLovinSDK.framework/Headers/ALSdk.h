@@ -6,18 +6,14 @@
 //  Copyright © 2020 AppLovin Corporation. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <AppLovinSDK/ALSdkSettings.h>
-#import <AppLovinSDK/ALAdService.h>
-#import <AppLovinSDK/ALEventService.h>
-#import <AppLovinSDK/ALVariableService.h>
-#import <AppLovinSDK/ALSdkConfiguration.h>
-#import <AppLovinSDK/ALErrorCodes.h>
-#import <AppLovinSDK/ALMediationProvider.h>
-#import <AppLovinSDK/ALUserSegment.h>
-#import <AppLovinSDK/ALTargetingData.h>
-#import <AppLovinSDK/MAMediatedNetworkInfo.h>
-#import <AppLovinSDK/MAAdFormat.h>
+@class ALAdService;
+@class ALEventService;
+@class ALSdkConfiguration;
+@class ALSdkSettings;
+@class ALTargetingData;
+@class ALUserSegment;
+@class ALVariableService;
+@class MAMediatedNetworkInfo;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -134,6 +130,12 @@ NS_ASSUME_NONNULL_BEGIN
  * @param amazonAdSizes A map of the MAX Ad Unit ID to Amazon Publisher Services' @c DTBAdSize.
  */
 - (void)showMediationDebuggerWithAmazonAdSize:(nullable NSDictionary<NSString *, NSArray/*DTBAdSize*/ *> *)amazonAdSizes;
+
+/**
+ * Present the Creative Debugger UI.
+ * This debugger tool provides information for recently displayed ads.
+ */
+- (void)showCreativeDebugger;
 
 #pragma mark - SDK Initialization
 

@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/ISAdMobAdapter.h</key>
 		<data>
-		dZJQcBtSk1pEb0NXJrKi9APN+aM=
+		ccN9Nf/bKtHIwj+D4TEOcwBZYdI=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -23,11 +23,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			dZJQcBtSk1pEb0NXJrKi9APN+aM=
+			ccN9Nf/bKtHIwj+D4TEOcwBZYdI=
 			</data>
 			<key>hash2</key>
 			<data>
-			YZZ4FeJpx139dM56o7OwEWGiFxmo+J0mkCvp5PwzJQA=
+			ycLq0+2a7Sa46qHDxBYemwvW7ugmv/ujsb8Tx0xRfg8=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

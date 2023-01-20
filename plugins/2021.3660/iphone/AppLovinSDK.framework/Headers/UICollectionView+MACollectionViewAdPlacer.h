@@ -7,9 +7,9 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @class MACollectionViewAdPlacer;
+
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  * When using an @c MACollectionViewAdPlacer, you should replace the usage of the original @c UICollectionView properties/methods in your code with the prefixed version from this category.
@@ -119,7 +119,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param animated Specify @c YES to animate the change in the selection or @c NO to make the change
  * without animating it.
  * @param scrollPosition An option that specifies where the item should be positioned when scrolling
- finishes.
+ * finishes.
  */
 - (void)al_selectItemAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated scrollPosition:(UICollectionViewScrollPosition)scrollPosition;
 

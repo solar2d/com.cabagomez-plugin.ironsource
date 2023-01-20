@@ -5,14 +5,14 @@
 //  Created by Nana Amoah on 3/29/22.
 //
 
-#import <AppLovinSDK/MAAd.h>
+@class MAAd;
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  * This protocol defines a delegate to be notified when the Ad Review SDK successfully generates a creative id.
  */
-@protocol MAAdReviewDelegate<NSObject>
+@protocol MAAdReviewDelegate <NSObject>
 
 /**
  * The SDK invokes this callback when the Ad Review SDK successfully generates a creative id.

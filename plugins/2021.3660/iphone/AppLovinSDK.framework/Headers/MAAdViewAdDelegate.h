@@ -6,8 +6,9 @@
 //  Copyright © 2020 AppLovin Corporation. All rights reserved.
 //
 
-#import <AppLovinSDK/MAAd.h>
 #import <AppLovinSDK/MAAdDelegate.h>
+
+@class MAAd;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @see <a href="https://dash.applovin.com/documentation/mediation/ios/getting-started/banners">MAX Integration Guide ⇒ iOS ⇒ Banners</a>
  * @see <a href="https://dash.applovin.com/documentation/mediation/ios/getting-started/mrecs">MAX Integration Guide ⇒ iOS ⇒ MRECs</a>
  */
-@protocol MAAdViewAdDelegate<MAAdDelegate>
+@protocol MAAdViewAdDelegate <MAAdDelegate>
 
 /**
  * The SDK invokes this method when the @c MAAdView has expanded to the full screen.

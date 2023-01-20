@@ -6,14 +6,10 @@
 //  Copyright © 2020 AppLovin Corporation. All rights reserved.
 //
 
-#import <AppLovinSDK/ALAd.h>
+@class ALAd;
+@class ALAdService;
 
 NS_ASSUME_NONNULL_BEGIN
-
-/**
- * This service loads an ad.
- */
-@class ALAdService;
 
 /**
  * This protocol defines a listener for ad load events.

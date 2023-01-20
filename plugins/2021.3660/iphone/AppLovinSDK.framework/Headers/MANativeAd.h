@@ -5,13 +5,14 @@
 //  Created by Thomas So on 5/5/20.
 //
 
-#import <AppLovinSDK/MAAdFormat.h>
+#import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
+@class MAAdFormat;
 @class MANativeAdBuilder;
 @class MANativeAdImage;
 @class MANativeAdView;
+
+NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^MANativeAdBuilderBlock) (MANativeAdBuilder *builder);
 
@@ -48,6 +49,9 @@ typedef void (^MANativeAdBuilderBlock) (MANativeAdBuilder *builder);
 
 @end
 
+/**
+ * Represents a native ad to be rendered for an instance of a @c MAAd.
+ */
 @interface MANativeAd : NSObject
 
 /**
@@ -82,7 +86,8 @@ typedef void (^MANativeAdBuilderBlock) (MANativeAdBuilder *builder);
 
 /**
  * The native ad icon image view.
- * Note: This is only used for banners using native APIs. Native ads must provide a `MANativeAdImage` instead.
+ *
+ * This is only used for banners using native APIs. Native ads must provide a  `MANativeAdImage` instead.
  */
 @property (nonatomic, strong, readonly, nullable) UIView *iconView;
 
@@ -125,17 +130,48 @@ typedef void (^MANativeAdBuilderBlock) (MANativeAdBuilder *builder);
 @property (nonatomic, assign, readonly, getter=isExpired) BOOL expired;
 
 /**
- * For internal use only.
- */
-- (void)performClick;
-
-/**
  * This method is called before the ad view is returned to the publisher.
  * The adapters should override this method to register the rendered native ad view and make sure that the view is interactable.
  *
  * @param nativeAdView a rendered native ad view.
  */
-- (void)prepareViewForInteraction:(MANativeAdView *)nativeAdView;
+- (void)prepareViewForInteraction:(MANativeAdView *)nativeAdView __deprecated_msg("This method has been deprecated and will be removed in a future SDK version. Please use -[MANativeAd prepareForInteractionClickableViews:withContainer:] instead.");
+
+/**
+ * *********************
+ * AVAILABLE IN v11.5.2+
+ * *********************
+ *
+ * This method is called before the ad view is returned to the publisher.
+ * The adapters should override this method to register the rendered native ad view and make sure that the view is interactable.
+ *
+ * @param clickableViews The clickable views for the native ad.
+ * @param container The container for the native ad.
+ *
+ * @return @c YES if the call has been successfully handled by a subclass of @c MANativeAd.
+ */
+- (BOOL)prepareForInteractionClickableViews:(NSArray<UIView *> *)clickableViews withContainer:(UIView *)container;
+
+/**
+ * Whether or not to run the @code -[MANativeAd prepareForInteractionClickableViews:withContainer:] @endcode call on the main thread or background thread.
+ *
+ * @return @c YES to run the operation on the main thread, @c NO to run the operation on a background thread. Defaults to @c YES.
+ */
+- (BOOL)shouldPrepareViewForInteractionOnMainThread;
+
+/**
+ * *********************
+ * AVAILABLE IN v11.6.0+
+ * *********************
+ *
+ * Whether or not container clickability is supported.
+ */
+- (BOOL)isContainerClickable;
+
+/**
+ * For supported mediated SDKs, manually invoke a click.
+ */
+- (void)performClick;
 
 - (instancetype)initWithFormat:(MAAdFormat *)format builderBlock:(NS_NOESCAPE MANativeAdBuilderBlock)builderBlock;
 - (instancetype)init NS_UNAVAILABLE;

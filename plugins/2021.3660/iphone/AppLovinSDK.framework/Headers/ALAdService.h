@@ -6,11 +6,12 @@
 //  Copyright © 2020 AppLovin Corporation. All rights reserved.
 //
 
-#import <AppLovinSDK/ALAd.h>
-#import <AppLovinSDK/ALAdSize.h>
-#import <AppLovinSDK/ALAdLoadDelegate.h>
 #import <AppLovinSDK/ALAdDisplayDelegate.h>
+#import <AppLovinSDK/ALAdLoadDelegate.h>
 #import <AppLovinSDK/ALAdVideoPlaybackDelegate.h>
+
+@class ALAd;
+@class ALAdSize;
 
 NS_ASSUME_NONNULL_BEGIN
 

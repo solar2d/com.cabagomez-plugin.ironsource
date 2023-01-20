@@ -5,7 +5,7 @@
 //  Created by Thomas So on 7/16/19.
 //
 
-#import <Foundation/Foundation.h>
+@class ALCMessage;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,7 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
  * Publish the given message to the pub/sub system.
  */
 - (void)publishMessage:(ALCMessage *)message;
-
 
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;

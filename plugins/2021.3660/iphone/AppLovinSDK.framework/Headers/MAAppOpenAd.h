@@ -5,10 +5,12 @@
 //  Created by Andrew Tian on 7/26/22.
 //
 
-#import <AppLovinSDK/ALSdk.h>
 #import <AppLovinSDK/MAAdDelegate.h>
 #import <AppLovinSDK/MAAdRequestDelegate.h>
 #import <AppLovinSDK/MAAdRevenueDelegate.h>
+#import <AppLovinSDK/MAAdReviewDelegate.h>
+
+@class ALSdk;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -49,6 +51,11 @@ NS_ASSUME_NONNULL_BEGIN
  * A delegate that will be notified about ad request events.
  */
 @property (nonatomic, weak, nullable) id<MAAdRequestDelegate> requestDelegate;
+
+/**
+ * A delegate that will be notified about Ad Review events.
+ */
+@property (nonatomic, weak, nullable) id<MAAdReviewDelegate> adReviewDelegate;
 
 /**
  * Load the ad for the current app open ad. Set @code -[MAAppOpenAd delegate] @endcode to assign a delegate that should be notified about ad load state.

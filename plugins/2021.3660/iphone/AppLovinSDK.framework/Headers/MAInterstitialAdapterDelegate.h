@@ -7,14 +7,15 @@
 //
 
 #import <AppLovinSDK/MAAdapterDelegate.h>
-#import <AppLovinSDK/MAAdapterError.h>
+
+@class MAAdapterError;
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Protocol for adapters to forward ad load and display events to the MAX SDK for interstitial ads.
  */
-@protocol MAInterstitialAdapterDelegate<MAAdapterDelegate>
+@protocol MAInterstitialAdapterDelegate <MAAdapterDelegate>
 
 /**
  * This method should called when an ad has been loaded.

@@ -5,12 +5,14 @@
 //  Created by Thomas So on 8/27/18.
 //
 
+#import <UIKit/UIKit.h>
+
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  * This protocol defines basic parameters passed to all adapter events.
  */
-@protocol MAAdapterParameters<NSObject>
+@protocol MAAdapterParameters <NSObject>
 
 /**
  * *********************

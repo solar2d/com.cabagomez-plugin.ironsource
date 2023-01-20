@@ -1,7 +1,7 @@
 # com.cabagomez-plugin.ironsource
 Solar2d Ironsource Plugin.
 
--- The iOS version now only supports ARM64. This means that it only supports iOS 11 and after.
+-- The iOS version now only supports ARM64. This means that it only supports iOS 11 and after. The frameworks for the networks have been bitcode and anything other than arm64 stripped.
 
 -- Tappx banner and interstitial are supported. If you use it and have not registered please use my affiliate link:
 https://dashboard.tappx.com/?h=a386595d4c1005fd21b82c8a44d45766.  
@@ -400,39 +400,35 @@ SDK Version - 6.11.0
 --------------- Tappx         
 Adapter 3.2.4  
 
-Current version for iOS    
-AdColony     
-     SDK - Version 4.9.0.0     
-     Adapter - Version 4.3.15     
+Current version for iOS     
 AppLovin     
-     SDK - Version 11.5.0     
-     Adapter - Version 4.3.35     
+     SDK - Version 11.6.1     
+     Adapter - Version 4.3.37   
 Chartboost    
      SDK - Version 9.1.0     
-     Adapter - Version 4.3.16     
+     Adapter - Version 4.3.12     
 Google (AdMob and Ad Manager)     
-     SDK - Version afma-sdk-i-v9.11.0     
-     Adapter - Version 4.3.36     
+     SDK - Version afma-sdk-i-v9.13.0     
+     Adapter - Version 4.3.39     
 IronSource     
-     SDK - Version 5.105     
-     Adapter - Version 7.2.5     
+     SDK - Version 5.107    
+     Adapter - Version 7.2.6     
 Meta     
-     SDK - Version 6.11.2     
-     Adapter - Version 4.3.37     
+     SDK - Version 6.12.0     
+     Adapter - Version 4.3.38     
 Pangle     
      SDK - Version 4.5.2.3     
      Adapter - Version 4.3.16     
 Tapjoy     
      SDK - Version 12.10.0     
-     Adapter - Version 4.1.21     
+     Adapter - Version 4.1.23     
 UnityAds     
      SDK - Version 4.4.1     
      Adapter - Version 4.3.24     
 Vungle     
-     SDK - Version 6.12.0     
-     Adapter - Version 4.3.22    
-Pangle    
-     No version displayed but working.
+     SDK - Version 6.12.1     
+     Adapter - Version 4.3.23  
+
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,

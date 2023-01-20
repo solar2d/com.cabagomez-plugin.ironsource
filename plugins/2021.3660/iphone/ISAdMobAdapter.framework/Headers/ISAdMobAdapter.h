@@ -2,15 +2,14 @@
 //  ISAdMobAdapter.h
 //  ISAdMobAdapter
 //
-//  Created by Daniil Bystrov on 4/11/16.
-//  Copyright © 2016 IronSource. All rights reserved.
+//  Copyright © 2022 ironSource Mobile Ltd. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "IronSource/ISBaseAdapter+Internal.h"
  
-static NSString * const AdMobAdapterVersion = @"4.3.36";
-static NSString * GitHash = @"02536b816";
+static NSString * const AdMobAdapterVersion = @"4.3.39";
+static NSString * GitHash = @"e281d8ce9";
 
 //System Frameworks For AdMob Adapter
 

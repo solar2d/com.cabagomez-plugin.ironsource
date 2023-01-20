@@ -5,15 +5,15 @@
 //  Copyright © 2020 AppLovin Corporation. All rights reserved.
 //
 
-#import <AppLovinSDK/ALAdSize.h>
-#import <AppLovinSDK/ALAdType.h>
+@class ALAdSize;
+@class ALAdType;
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Represents an ad that has been served from the AppLovin server.
  */
-@interface ALAd : NSObject<NSCopying>
+@interface ALAd : NSObject <NSCopying>
 
 /**
  * The size category of this ad.
@@ -60,7 +60,6 @@ NS_ASSUME_NONNULL_BEGIN
  * If you need to report a broken ad to AppLovin support, please include this number’s @c longValue.
  */
 @property (nonatomic, strong, readonly) NSNumber *adIdNumber;
-
 
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;

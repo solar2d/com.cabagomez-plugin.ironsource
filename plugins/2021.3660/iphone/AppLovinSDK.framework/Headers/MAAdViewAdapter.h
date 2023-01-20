@@ -9,14 +9,15 @@
 #import <AppLovinSDK/MAAdapter.h>
 #import <AppLovinSDK/MAAdapterResponseParameters.h>
 #import <AppLovinSDK/MAAdViewAdapterDelegate.h>
-#import <AppLovinSDK/MAAdFormat.h>
+
+@class MAAdFormat;
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  * This protocol defines methods for ad view-based adapters (banners, mrecs, and leaders).
  */
-@protocol MAAdViewAdapter<MAAdapter>
+@protocol MAAdViewAdapter <MAAdapter>
 
 /**
  * Schedule loading of the next ad view ad.

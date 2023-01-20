@@ -5,14 +5,10 @@
 //  Copyright © 2020 AppLovin Corporation. All rights reserved.
 //
 
-#import <AppLovinSDK/ALAd.h>
+@class ALAd;
+@class ALAdService;
 
 NS_ASSUME_NONNULL_BEGIN
-
-/**
- * This service defines a listener for ad video playback events. Ads that do not contain videos will not trigger these callbacks.
- */
-@class ALAdService;
 
 /**
  * This protocol defines a listener for ad video playback events. Ads that do not contain videos will not trigger these callbacks.

@@ -5,14 +5,23 @@
 //  Created by Ritam Sarmah on 2/16/22.
 //
 
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <AppLovinSDK/MAAdPlacerSettings.h>
+
+@class MAAd;
+@class MANativeAdViewBinder;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol MAAdPlacerDelegate;
-@class MAAdPlacerSettings;
-@class MANativeAdViewBinder;
+@protocol MAAdPlacerDelegate <NSObject>
+
+@optional
+- (void)didLoadAdAtIndexPath:(NSIndexPath *)indexPath;
+- (void)didRemoveAdsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths;
+- (void)didClickAd:(MAAd *)ad;
+- (void)didPayRevenueForAd:(MAAd *)ad;
+
+@end
 
 /**
  * This class loads native ads and calculates ad positioning info within a content stream.
@@ -190,16 +199,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
-
-@end
-
-@protocol MAAdPlacerDelegate <NSObject>
-
-@optional
-- (void)didLoadAdAtIndexPath:(NSIndexPath *)indexPath;
-- (void)didRemoveAdsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths;
-- (void)didClickAd:(MAAd *)ad;
-- (void)didPayRevenueForAd:(MAAd *)ad;
 
 @end
 

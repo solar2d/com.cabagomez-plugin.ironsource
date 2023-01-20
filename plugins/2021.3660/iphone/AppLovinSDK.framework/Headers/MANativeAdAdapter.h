@@ -8,14 +8,13 @@
 #import <AppLovinSDK/MAAdapter.h>
 #import <AppLovinSDK/MAAdapterResponseParameters.h>
 #import <AppLovinSDK/MANativeAdAdapterDelegate.h>
-#import <AppLovinSDK/MAAdFormat.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  * This protocol defines methods for native adapters.
  */
-@protocol MANativeAdAdapter<MAAdapter>
+@protocol MANativeAdAdapter <MAAdapter>
 
 /**
  * Schedule loading of the next native ad.
@@ -30,4 +29,3 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
-

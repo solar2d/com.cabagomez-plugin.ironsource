@@ -5,7 +5,8 @@
 //  Created by Thomas So on 6/3/20.
 //
 
-#import <Foundation/Foundation.h>
+#import <AppLovinSDK/MAAdapter.h>
+#import <AppLovinSDK/MAAdapterResponseParameters.h>
 #import <AppLovinSDK/MARewardedInterstitialAdapterDelegate.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -13,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * This interface defines methods for rewarded interstitial adapters.
  */
-@protocol MARewardedInterstitialAdapter<MAAdapter>
+@protocol MARewardedInterstitialAdapter <MAAdapter>
 
 /**
  * Load a rewarded interstitial ad.

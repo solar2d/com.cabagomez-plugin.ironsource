@@ -6,10 +6,11 @@
 //  Copyright © 2020 AppLovin Corporation. All rights reserved.
 //
 
-#import <AppLovinSDK/MAAdFormat.h>
-#import <AppLovinSDK/MAMediatedNetworkInfo.h>
-#import <AppLovinSDK/MAAdWaterfallInfo.h>
-#import <AppLovinSDK/MANativeAd.h>
+#import <CoreGraphics/CoreGraphics.h>
+
+@class MAAdFormat;
+@class MAAdWaterfallInfo;
+@class MANativeAd;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -90,6 +91,11 @@ NS_ASSUME_NONNULL_BEGIN
  * The underlying waterfall of ad responses.
  */
 @property (nonatomic, strong, readonly) MAAdWaterfallInfo *waterfall;
+
+/**
+ * The latency of the mediation ad load request in seconds.
+ */
+@property (nonatomic, assign, readonly) NSTimeInterval requestLatency;
 
 /**
  * For Native ads only. Get an instance of the @c MANativeAd containing the assets used to render the native ad view.

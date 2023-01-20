@@ -49,7 +49,7 @@ typedef NS_ENUM(NSInteger, MAAdapterInitializationStatus)
 /**
  * This protocol defines a mediation adapter which wraps a third-party ad SDK and will be used by AppLovin to load and display ads.
  */
-@protocol MAAdapter<NSObject>
+@protocol MAAdapter <NSObject>
 
 /**
  * Initialize current adapter. This method will be called at the beginning of the adapter lifecycle.

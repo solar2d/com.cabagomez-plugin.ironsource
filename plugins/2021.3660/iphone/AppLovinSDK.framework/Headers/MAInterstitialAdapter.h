@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * This protocol defines methods for interstitial adapters.
  */
-@protocol MAInterstitialAdapter<MAAdapter>
+@protocol MAInterstitialAdapter <MAAdapter>
 
 /**
  * Load a interstitial ad.

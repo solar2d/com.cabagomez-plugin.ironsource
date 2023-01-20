@@ -5,9 +5,13 @@
 //  Created by Thomas So on 6/3/20.
 //
 
-#import <AppLovinSDK/MAAdRequestDelegate.h>
+#import <UIKit/UIKit.h>
 #import <AppLovinSDK/MAAdRevenueDelegate.h>
+#import <AppLovinSDK/MAAdRequestDelegate.h>
 #import <AppLovinSDK/MAAdReviewDelegate.h>
+#import <AppLovinSDK/MARewardedAdDelegate.h>
+
+@class ALSdk;
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
-#import <AppLovinSDK/ALSdk.h>
-#import <AppLovinSDK/ALAdService.h>
+#import <AppLovinSDK/ALAdDisplayDelegate.h>
+#import <AppLovinSDK/ALAdLoadDelegate.h>
 #import <AppLovinSDK/ALAdViewEventDelegate.h>
+
+@class ALAd;
+@class ALSdk;
+@class ALAdSize;
+@class ALAdType;
 
 NS_ASSUME_NONNULL_BEGIN
 

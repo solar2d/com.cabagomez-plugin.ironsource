@@ -5,8 +5,6 @@
 //  Copyright © 2020 AppLovin Corporation. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -72,7 +70,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign, getter=isMuted) BOOL muted;
 
 /**
- * Whether the creative debugger will be displayed on fullscreen ads after flipping the device screen down twice. Defaults to @c YES.
+ * Whether the Creative Debugger will be displayed after flipping the device screen down twice. Defaults to @c YES.
  *
  * @see <a href="https://dash.applovin.com/documentation/mediation/ios/testing-networks/creative-debugger">MAX Integration Guide ⇒ iOS ⇒ Testing Networks ⇒ Creative Debugger</a>
  */
@@ -114,7 +112,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface ALSdkSettings(ALDeprecated)
+@interface ALSdkSettings (ALDeprecated)
 @property (nonatomic, assign) BOOL isVerboseLogging __deprecated_msg("This property is deprecated and will be removed in a future SDK version. Please use `-[ALSdkSettings isVerboseLoggingEnabled]` instead.");
 @end
 

@@ -5,7 +5,6 @@
 //  Created by Ritam Sarmah on 3/17/22.
 //
 
-#import <Foundation/Foundation.h>
 #import <AppLovinSDK/MAAdPlacer.h>
 
 NS_ASSUME_NONNULL_BEGIN

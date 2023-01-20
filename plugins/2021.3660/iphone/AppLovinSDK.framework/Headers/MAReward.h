@@ -33,7 +33,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, assign, readonly) NSInteger amount;
 
-
 /**
  * Create a reward object.
  */

@@ -6,15 +6,15 @@
 //  Copyright © 2019 AppLovin Corporation. All rights reserved.
 //
 
-#import <AppLovinSDK/MASignalCollectionParameters.h>
 #import <AppLovinSDK/MASignalCollectionDelegate.h>
+#import <AppLovinSDK/MASignalCollectionParameters.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  * This protocol describes a mediation adapter that provides bid signals.
  */
-@protocol MASignalProvider<NSObject>
+@protocol MASignalProvider <NSObject>
 
 /**
  * Retrieve the signal that should be passed up to the server.

@@ -5,11 +5,9 @@
 //  Created by Santosh Bagadi on 11/26/21.
 //
 
-#import <Foundation/Foundation.h>
+@class MANativeAdViewBinderBuilder;
 
 NS_ASSUME_NONNULL_BEGIN
-
-@class MANativeAdViewBinderBuilder;
 
 typedef void (^MANativeAdViewBinderBuilderBlock) (MANativeAdViewBinderBuilder *builder);
 

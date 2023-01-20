@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AppLovinSDK/ALSdk.h>
 #import <AppLovinSDK/MAAdViewAdDelegate.h>
 #import <AppLovinSDK/MAAdRequestDelegate.h>
 #import <AppLovinSDK/MAAdRevenueDelegate.h>
 #import <AppLovinSDK/MAAdReviewDelegate.h>
+
+@class ALSdk;
+@class MAAdFormat;
 
 NS_ASSUME_NONNULL_BEGIN
 

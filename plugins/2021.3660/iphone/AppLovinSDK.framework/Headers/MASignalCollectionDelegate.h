@@ -10,7 +10,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Protocol for adapters to forward signal collection events to the MAX SDK.
  */
-@protocol MASignalCollectionDelegate<NSObject>
+@protocol MASignalCollectionDelegate <NSObject>
 
 /**
  * This method must be called when signal collection has completed.

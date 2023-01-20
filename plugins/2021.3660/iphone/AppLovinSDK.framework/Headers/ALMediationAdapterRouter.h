@@ -5,8 +5,15 @@
 //  Created by Christopher Cong on 10/25/18.
 //
 
-#import <AppLovinSDK/ALMediationAdapter.h>
-#import <AppLovinSDK/MAAdapterDelegate.h>
+#import <UIKit/UIKit.h>
+#import <AppLovinSDK/MAAdapter.h>
+#import <AppLovinSDK/MAAdViewAdapterDelegate.h>
+#import <AppLovinSDK/MAAppOpenAdapterDelegate.h>
+#import <AppLovinSDK/MAInterstitialAdapterDelegate.h>
+#import <AppLovinSDK/MARewardedAdapterDelegate.h>
+
+@class MAAdapterError;
+@class MAReward;
 
 NS_ASSUME_NONNULL_BEGIN
 

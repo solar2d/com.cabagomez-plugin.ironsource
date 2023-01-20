@@ -6,15 +6,16 @@
 //
 
 #import <AppLovinSDK/MAAdapterDelegate.h>
-#import <AppLovinSDK/MAAdapterError.h>
-#import <AppLovinSDK/MANativeAd.h>
+
+@class MAAdapterError;
+@class MANativeAd;
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Protocol for adapters to forward ad load and display events to the MAX SDK for native ads.
  */
-@protocol MANativeAdAdapterDelegate<MAAdapterDelegate>
+@protocol MANativeAdAdapterDelegate <MAAdapterDelegate>
 
 /**
  * This method should called when an ad has been loaded.

@@ -5,16 +5,16 @@
 //  Created by Andrew Tian on 7/14/21.
 //
 
-#import <AppLovinSDK/MAAd.h>
-#import <AppLovinSDK/MANativeAdView.h>
-#import <AppLovinSDK/MAError.h>
+@class MAAd;
+@class MAError;
+@class MANativeAdView;
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  * This protocol defines a listener to be notified about native ad events.
  */
-@protocol MANativeAdDelegate<NSObject>
+@protocol MANativeAdDelegate <NSObject>
 
 /**
  * The SDK invokes this method when a new native ad has been loaded.

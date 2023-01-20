@@ -17,7 +17,7 @@
 /// Keywords set in GADRequest. Returns nil if no keywords are set.
 @property(nonatomic, readonly, copy, nullable) NSArray *userKeywords;
 
-/// The additional parameters set by the application. This property allows you to pass additional
+/// The additional parameters set by the application. This property lets you pass additional
 /// information from your application to your Custom Event object. To do so, create an instance of
 /// GADCustomEventExtras to pass to GADRequest -registerAdNetworkExtras:. The instance should have
 /// an NSDictionary set for a particular custom event label. That NSDictionary becomes the

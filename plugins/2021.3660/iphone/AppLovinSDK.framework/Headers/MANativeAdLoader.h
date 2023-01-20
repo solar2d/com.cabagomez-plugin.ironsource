@@ -5,11 +5,11 @@
 //  Created by Andrew Tian on 7/14/21.
 //
 
-#import <AppLovinSDK/ALSdk.h>
 #import <AppLovinSDK/MAAdRevenueDelegate.h>
 #import <AppLovinSDK/MANativeAdDelegate.h>
-#import <UIKit/UIKit.h>
 
+@class ALSdk;
+@class MAAd;
 @class MANativeAdView;
 
 NS_ASSUME_NONNULL_BEGIN

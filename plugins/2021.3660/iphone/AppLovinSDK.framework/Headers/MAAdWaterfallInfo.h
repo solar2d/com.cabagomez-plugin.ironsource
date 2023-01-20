@@ -5,10 +5,8 @@
 //  Created by Thomas So on 10/30/21.
 //
 
-#import <Foundation/Foundation.h>
-#import <AppLovinSDK/MANetworkResponseInfo.h>
-
 @class MAAd;
+@class MANetworkResponseInfo;
 
 NS_ASSUME_NONNULL_BEGIN
 

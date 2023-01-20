@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * This protocol contains parameters passed to a mediation adapter to load the next ad.
  */
-@protocol MAAdapterResponseParameters<MAAdapterParameters>
+@protocol MAAdapterResponseParameters <MAAdapterParameters>
 
 /**
  * Get zone ID / placement ID / ad unit ID for the adapter to use. This is different than {@link MAAd#adUnitIdentifier}, which is used by AppLovin's SDK specifically.

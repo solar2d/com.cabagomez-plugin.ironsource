@@ -56,6 +56,7 @@ FOUNDATION_EXPORT const unsigned char GoogleMobileAdsVersionString[];
 #import <GoogleMobileAds/GADNativeAd+CustomClickGesture.h>
 #import <GoogleMobileAds/GADNativeAd.h>
 #import <GoogleMobileAds/GADNativeAdAssetIdentifiers.h>
+#import <GoogleMobileAds/GADNativeAdCustomClickGestureOptions.h>
 #import <GoogleMobileAds/GADNativeAdDelegate.h>
 #import <GoogleMobileAds/GADNativeAdImage+Mediation.h>
 #import <GoogleMobileAds/GADNativeAdImage.h>
@@ -65,6 +66,7 @@ FOUNDATION_EXPORT const unsigned char GoogleMobileAdsVersionString[];
 #import <GoogleMobileAds/GADNativeAdViewAdOptions.h>
 #import <GoogleMobileAds/GADNativeMuteThisAdLoaderOptions.h>
 #import <GoogleMobileAds/GADPresentationError.h>
+#import <GoogleMobileAds/GADQueryInfo.h>
 #import <GoogleMobileAds/GADRequest.h>
 #import <GoogleMobileAds/GADRequestConfiguration.h>
 #import <GoogleMobileAds/GADRequestError.h>
@@ -100,5 +102,6 @@ FOUNDATION_EXPORT const unsigned char GoogleMobileAdsVersionString[];
 #import <GoogleMobileAds/Mediation/GADMediationRewardedAd.h>
 #import <GoogleMobileAds/Mediation/GADMediationServerConfiguration.h>
 #import <GoogleMobileAds/Mediation/GADVersionNumber.h>
+#import <GoogleMobileAds/QueryInfo/GADRequest+AdString.h>
 #import <GoogleMobileAds/RTBMediation/GADRTBAdapter.h>
 #import <GoogleMobileAds/RTBMediation/GADRTBRequestParameters.h>

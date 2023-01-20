@@ -5,10 +5,10 @@
 //  Created by Thomas So on 7/4/19.
 //
 
-#import <Foundation/Foundation.h>
 #import <AppLovinSDK/ALCSubscriber.h>
-#import <AppLovinSDK/ALCMessage.h>
-#import <AppLovinSDK/ALCMessagingService.h>
+
+@class ALCCommunicator;
+@class ALCMessagingService;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -51,7 +51,6 @@ NS_ASSUME_NONNULL_BEGIN
  * Returns the default communicator instance.
  */
 @property (class, strong, readonly) ALCCommunicator *defaultCommunicator;
-
 
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;

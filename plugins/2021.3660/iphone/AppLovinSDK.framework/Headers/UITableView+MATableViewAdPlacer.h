@@ -5,12 +5,11 @@
 //  Created by Ritam Sarmah on 2/22/22.
 //
 
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @class MATableViewAdPlacer;
+
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  * When using an @c MATableViewAdPlacer, you should replace the usage of the original @c UITableView properties/methods in your code with the prefixed version from this category.

@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * This protocol defines methods for app open ad adapters.
  */
-@protocol MAAppOpenAdapter<MAAdapter>
+@protocol MAAppOpenAdapter <MAAdapter>
 
 /**
  * Load an app open ad.

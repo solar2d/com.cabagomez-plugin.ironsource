@@ -5,8 +5,6 @@
 //  Created by Thomas So on 1/1/22.
 //
 
-#import <Foundation/Foundation.h>
-
 NS_ASSUME_NONNULL_BEGIN
 
 NS_INLINE BOOL isMainQueue (void)

@@ -5,7 +5,6 @@
 //  Created by Thomas So on 7/4/19.
 //
 
-#import <Foundation/Foundation.h>
 #import <AppLovinSDK/ALCEntity.h>
 
 NS_ASSUME_NONNULL_BEGIN

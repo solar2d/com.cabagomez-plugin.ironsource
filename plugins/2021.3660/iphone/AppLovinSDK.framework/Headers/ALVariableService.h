@@ -6,9 +6,9 @@
 //  Copyright © 2020 AppLovin Corporation. All rights reserved.
 //
 
-NS_ASSUME_NONNULL_BEGIN
-
 @class ALVariableService;
+
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Use this service to retrieve values of variables that were pre-defined on AppLovin’s dashboard.
@@ -57,7 +57,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (nullable NSString *)stringForKey:(NSString *)key defaultValue:(nullable NSString *)defaultValue;
 
-
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
 
@@ -68,7 +67,7 @@ __attribute__ ((deprecated))
 - (void)variableService:(ALVariableService *)variableService didUpdateVariables:(NSDictionary<NSString *, id> *)variables __deprecated_msg("This API has been deprecated. Please use our SDK's initialization callback to retrieve variables instead.");
 @end
 
-@interface ALVariableService(ALDeprecated)
+@interface ALVariableService (ALDeprecated)
 @property (nonatomic, weak, nullable) id<ALVariableServiceDelegate> delegate __deprecated_msg("This API has been deprecated. Please use our SDK's initialization callback to retrieve variables instead.");
 - (void)loadVariables __deprecated_msg("This API has been deprecated. Please use our SDK's initialization callback to retrieve variables instead.");
 @end

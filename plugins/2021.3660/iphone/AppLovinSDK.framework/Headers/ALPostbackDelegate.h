@@ -5,12 +5,9 @@
 //  Copyright © 2020 AppLovin Corporation. All rights reserved.
 //
 
-NS_ASSUME_NONNULL_BEGIN
-
-/**
- * The postback service dispatches postbacks to a developer-specified URL.
- */
 @class ALPostbackService;
+
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  * This protocol allows you to monitor the dispatching of postbacks to a developer-specified URL by the postback service.

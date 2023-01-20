@@ -5,14 +5,14 @@
 //  Created by Andrew Tian on 6/3/21.
 //
 
-#import <AppLovinSDK/MAAd.h>
+@class MAAd;
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  * This protocol defines a delegate to be notified about ad revenue events.
  */
-@protocol MAAdRevenueDelegate<NSObject>
+@protocol MAAdRevenueDelegate <NSObject>
 
 /**
  * The SDK invokes this callback when it detects a revenue event for an ad.

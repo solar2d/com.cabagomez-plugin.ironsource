@@ -7,12 +7,14 @@
 
 #import <AppLovinSDK/MAAdapterParameters.h>
 
+@class MAAdFormat;
+
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  * This protocol contains parameters passed to a mediation adapter to load the signal.
  */
-@protocol MASignalCollectionParameters<MAAdapterParameters>
+@protocol MASignalCollectionParameters <MAAdapterParameters>
 
 /**
  * The ad format we are currently collecting the signal for.

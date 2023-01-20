@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * This class defines a format of an ad.
  */
-@interface MAAdFormat : NSObject<NSCopying>
+@interface MAAdFormat : NSObject <NSCopying>
 
 /**
  * Represents a 320×50 banner advertisement.

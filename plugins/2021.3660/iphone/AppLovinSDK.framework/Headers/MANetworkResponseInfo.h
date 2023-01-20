@@ -5,11 +5,8 @@
 //  Created by Thomas So on 10/30/21.
 //
 
-#import <Foundation/Foundation.h>
-#import <AppLovinSDK/MAMediatedNetworkInfo.h>
-#import <AppLovinSDK/MAErrorCode.h>
-
 @class MAError;
+@class MAMediatedNetworkInfo;
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * This protocol contains parameters passed to a mediation adapter for initialization.
  */
-@protocol MAAdapterInitializationParameters<MAAdapterParameters>
+@protocol MAAdapterInitializationParameters <MAAdapterParameters>
 
 @end
 

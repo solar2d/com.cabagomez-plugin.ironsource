@@ -6,8 +6,6 @@
 //  Copyright © 2020 AppLovin Corporation. All rights reserved.
 //
 
-#import <AppLovinSDK/ALEventTypes.h>
-
 NS_ASSUME_NONNULL_BEGIN
 
 /**

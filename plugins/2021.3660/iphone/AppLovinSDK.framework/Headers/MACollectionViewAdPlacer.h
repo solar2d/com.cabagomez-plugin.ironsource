@@ -5,8 +5,6 @@
 //  Created by Ritam Sarmah on 3/8/22.
 //
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 #import <AppLovinSDK/MACustomAdPlacer.h>
 
 NS_ASSUME_NONNULL_BEGIN

@@ -6,8 +6,9 @@
 //  Copyright © 2020 AppLovin Corporation. All rights reserved.
 //
 
-#import <UIKit/UIView.h>
-#import <AppLovinSDK/ALAd.h>
+#import <UIKit/UIKit.h>
+
+@class ALAd;
 
 NS_ASSUME_NONNULL_BEGIN
 

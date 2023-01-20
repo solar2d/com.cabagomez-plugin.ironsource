@@ -5,8 +5,6 @@
 //  Created by Thomas So on 5/9/21.
 //
 
-#import <Foundation/Foundation.h>
-
 /**
  * This enum contains various error codes that the SDK can return when a MAX ad fails to load or display.
  */

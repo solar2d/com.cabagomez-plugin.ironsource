@@ -5,8 +5,9 @@
 //  Created by Thomas So on 7/4/19.
 //
 
-#import <Foundation/Foundation.h>
-#import <AppLovinSDK/ALCMessage.h>
+#import <AppLovinSDK/ALCEntity.h>
+
+@class ALCMessage;
 
 NS_ASSUME_NONNULL_BEGIN
 

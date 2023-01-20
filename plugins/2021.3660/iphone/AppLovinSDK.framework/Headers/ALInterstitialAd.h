@@ -4,7 +4,12 @@
 //  Copyright © 2020 AppLovin Corporation. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <AppLovinSDK/ALAdDisplayDelegate.h>
+#import <AppLovinSDK/ALAdLoadDelegate.h>
+#import <AppLovinSDK/ALAdVideoPlaybackDelegate.h>
+
+@class ALAd;
+@class ALSdk;
 
 NS_ASSUME_NONNULL_BEGIN
 

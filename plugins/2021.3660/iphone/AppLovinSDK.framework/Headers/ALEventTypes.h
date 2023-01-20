@@ -5,7 +5,6 @@
 //  Copyright © 2020 AppLovin Corporation. All rights reserved.
 //
 
-
 #ifndef ALEventTypes_h
 #define ALEventTypes_h
 

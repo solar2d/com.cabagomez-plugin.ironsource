@@ -15,9 +15,6 @@ local metadata =
 		},
 		frameworks = { 
 			'Ironsource', 
-			-- Adcolony
-			'AdColony',
-			'ISAdColonyAdapter',
 			-- Tapjoy
 			'ISTapjoyAdapter',
 			'Tapjoy',
@@ -45,14 +42,6 @@ local metadata =
 			-- Chartboost
 			'ISChartboostAdapter',
 			'ChartboostSDK',
-			-- Pangle
-			'BUAdSDK',
-			'BUFoundation',
-			'BURelyAdSDK',
-			'BURelyFoundation_Global',
-			'BUVAAuxiliary',
-			'PAGAdSDK',
-			'ISPangleAdapter',
 			-- Other libraries
 			"AdSupport",
 			"AudioToolbox",
@@ -68,6 +57,7 @@ local metadata =
 			"QuartzCore",
 			"Security",
 			"StoreKit",
+			"WebKit",
 			"SystemConfiguration",
 			"NotificationCenter"
 		},

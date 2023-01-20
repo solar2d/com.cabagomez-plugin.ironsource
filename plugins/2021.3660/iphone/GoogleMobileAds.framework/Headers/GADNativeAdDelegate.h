@@ -22,6 +22,9 @@
 /// Called when a click is recorded for an ad.
 - (void)nativeAdDidRecordClick:(nonnull GADNativeAd *)nativeAd;
 
+/// Called when a swipe gesture click is recorded for an ad.
+- (void)nativeAdDidRecordSwipeGestureClick:(nonnull GADNativeAd *)nativeAd;
+
 #pragma mark - Click-Time Lifecycle Notifications
 
 /// Called before presenting the user a full screen view in response to an ad action. Use this

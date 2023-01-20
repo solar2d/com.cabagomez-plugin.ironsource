@@ -6,19 +6,15 @@
 //  Copyright © 2019 AppLovin Corporation. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <AppLovinSDK/MAAdViewAdapter.h>
-#import <AppLovinSDK/MAInterstitialAdapter.h>
-#import <AppLovinSDK/MAAppOpenAdapter.h>
-#import <AppLovinSDK/MARewardedAdapter.h>
-#import <AppLovinSDK/MARewardedInterstitialAdapter.h>
-#import <AppLovinSDK/MANativeAdAdapter.h>
-#import <AppLovinSDK/MASignalProvider.h>
-#import <AppLovinSDK/ALSdk.h>
+#import <AppLovinSDK/MAAdapter.h>
+#import <AppLovinSDK/MAAdapterResponseParameters.h>
+
+@class ALSdk;
+@class MAReward;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ALMediationAdapter : NSObject<MAAdapter>
+@interface ALMediationAdapter : NSObject <MAAdapter>
 
 /**
  * Left here for backwards-compatibility purposes - to be removed when enough time passes
@@ -27,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, readonly) NSString *mediationTag;
 
 // The AppLovin mediation tag to send to mediated ad networks.
-@property (nonatomic, copy, readonly, class) NSString *mediationTag;
+@property (class, nonatomic, copy, readonly) NSString *mediationTag;
 
 // Parent objects
 @property (atomic, weak, readonly) ALSdk *sdk;

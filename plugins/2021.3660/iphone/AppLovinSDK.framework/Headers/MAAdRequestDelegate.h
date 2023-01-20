@@ -10,7 +10,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * This protocol defines a delegate to be notified about ad request events.
  */
-@protocol MAAdRequestDelegate<NSObject>
+@protocol MAAdRequestDelegate <NSObject>
 
 /**
  * The SDK invokes this callback when it sends a request for an ad, which can be for the initial ad load and upcoming ad refreshes.

@@ -1,6 +1,0 @@
-framework module BURelyAdSDK {
-  umbrella header "BURelyAdSDK.h"
-
-  export *
-  module * { export * }
-}
