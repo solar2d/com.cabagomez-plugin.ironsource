@@ -350,16 +350,13 @@ SDK Version - 11.6.1
 Adapter 4.3.10      
 SDK Version - 9.1.1   
 --------------- Google (AdMob and Ad Manager) --------------    
-Adapter 4.3.33      
-SDK Version - 21.3.0    
+Adapter 4.3.34      
+SDK Version - 21.4.0    
 --------------- IronSource --------------    
-Adapter 7.2.6 - VERIFIED    
+Adapter 7.2.7    
 --------------- Facebook --------------    
 Adapter 4.3.38      
-SDK Version - 6.12.0      
---------------- Pangle --------------    
-Adapter 4.3.15      
-SDK Version - 4.7.0.6      
+SDK Version - 6.12.0    
 --------------- Tapjoy --------------    
 Adapter 4.1.23      
 SDK Version - 12.11.1      
@@ -367,8 +364,8 @@ SDK Version - 12.11.1
 Adapter 4.3.24      
 SDK Version - 4.4.1   
 --------------- Vungle --------------    
-Adapter 4.3.18      
-SDK Version - 6.12.0   
+Adapter 4.3.19     
+SDK Version - 6.12.1   
 
 Current versions for Amazon   
 --------------- AdColony       

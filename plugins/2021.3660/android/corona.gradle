@@ -7,11 +7,11 @@ repositories {
 }
 dependencies {
 
-   implementation 'com.ironsource.sdk:mediationsdk:7.2.6' 
+   implementation 'com.ironsource.sdk:mediationsdk:7.2.7' 
 
    // Add AdMob and Ad Manager Network
-   implementation 'com.google.android.gms:play-services-ads:21.3.0'
-   implementation 'com.ironsource.adapters:admobadapter:4.3.33'
+   implementation 'com.google.android.gms:play-services-ads:21.4.0'
+   implementation 'com.ironsource.adapters:admobadapter:4.3.34'
    // Add Applovin Network
    implementation 'com.ironsource.adapters:applovinadapter:4.3.36'
    implementation 'com.applovin:applovin-sdk:11.6.1'
@@ -21,9 +21,6 @@ dependencies {
    // Add Facebook Network
    implementation 'com.ironsource.adapters:facebookadapter:4.3.38'
    implementation 'com.facebook.android:audience-network-sdk:6.12.0'
-   // Add Pangle Network
-   implementation 'com.ironsource.adapters:pangleadapter:4.3.15'
-   implementation 'com.pangle.global:ads-sdk:4.7.0.6'
    // Add Tapjoy Network
    implementation 'com.ironsource.adapters:tapjoyadapter:4.1.23'
    implementation 'com.tapjoy:tapjoy-android-sdk:12.11.1'
@@ -31,8 +28,8 @@ dependencies {
    implementation 'com.ironsource.adapters:unityadsadapter:4.3.24'
    implementation 'com.unity3d.ads:unity-ads:4.4.1'
    // Add Vungle Network
-   implementation 'com.ironsource.adapters:vungleadapter:4.3.18'
-   implementation 'com.vungle:publisher-sdk-android:6.12.0'
+   implementation 'com.ironsource.adapters:vungleadapter:4.3.19'
+   implementation 'com.vungle:publisher-sdk-android:6.12.1'
    
    //Tappx
    implementation 'com.tappx.sdk.android:tappx-sdk:3.+'
