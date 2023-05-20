@@ -369,33 +369,35 @@ SDK Version - 6.12.1
 
 Current versions for Amazon   
 --------------- AdColony       
-Adapter 4.3.12   
+Adapter 4.3.14
+SDK Version - 4.8.0 
+
+--------------- APS Network       
+Adapter 4.3.14   
+SDK Version - 4.8.0   
+
+--------------- AdColony       
+Adapter 4.3.14   
+SDK Version - 4.8.0   
+
 --------------- Chartboost         
 Adapter 4.3.8    
-SDK Version - 8.3.1  
+SDK Version - 8.3.1   
+
 --------------- Google (AdMob and Ad Manager)        
-Adapter 4.3.28    
-SDK Version - 20.6.0    
---------------- InMobi        
-Adapter 4.3.14   
-SDK Version - 10.0.5    
+Adapter 4.3.36    
+SDK Version - 21.5.0   
+
 --------------- IronSource        
-Adapter 7.2.3.1  
-SDK Version - 5.116  
---------------- Meta        
-Adapter 4.3.36   
-SDK Version - 6.11.0   
---------------- Pangle         
-Adapter 4.3.14       
-SDK Version - 4.5.0.4     
+Adapter 7.3.0.1       
+
 --------------- Tapjoy         
-Adapter 4.1.20    
-SDK Version - 12.9.1     
+Adapter 4.1.24    
+SDK Version - 12.11.1    
+
 --------------- Vungle        
-Adapter 4.3.17   
-SDK Version - 6.11.0   
---------------- Tappx         
-Adapter 3.2.4  
+Adapter 4.3.20   
+SDK Version - 6.12.1  
 
 Current version for iOS     
 AppLovin     
