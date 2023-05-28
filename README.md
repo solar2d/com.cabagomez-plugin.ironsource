@@ -3,9 +3,6 @@ Solar2d Ironsource Plugin.
 
 -- The iOS version now only supports ARM64. This means that it only supports iOS 11 and after. The frameworks for the networks have been bitcode and anything other than arm64 stripped.
 
--- Tappx banner and interstitial are supported. If you use it and have not registered please use my affiliate link:
-https://dashboard.tappx.com/?h=a386595d4c1005fd21b82c8a44d45766.  
-
 -- If you find an issue please submit an issue on this repo. If I am able to reproduce it and impacts me, I will try to resolve it. If you need more support than this or want to individually ad plugins, I would recommend the ironsource plugin by Scott Harrison: https://solar2dmarketplace.com/plugins?IronSource_tech-scotth
 
 
@@ -342,43 +339,51 @@ SKAdNetworkItems = {
             },
 ```
 
-Current versions for android:        
---------------- AppLovin --------------    
-Adapter 4.3.36      
-SDK Version - 11.6.1      
---------------- Chartboost --------------    
-Adapter 4.3.10      
-SDK Version - 9.1.1   
---------------- Google (AdMob and Ad Manager) --------------    
-Adapter 4.3.34      
-SDK Version - 21.4.0    
---------------- IronSource --------------    
-Adapter 7.2.7    
---------------- Facebook --------------    
-Adapter 4.3.38      
-SDK Version - 6.12.0    
---------------- Tapjoy --------------    
-Adapter 4.1.23      
-SDK Version - 12.11.1      
---------------- UnityAds --------------    
-Adapter 4.3.24      
-SDK Version - 4.4.1   
---------------- Vungle --------------    
-Adapter 4.3.19     
+Current versions for android:  
+--------------- AdColony       
+Adapter 4.3.14   
+SDK Version - 4.8.0 
+
+--------------- AppLovin     
+Adapter 4.3.38         
+SDK Version - 11.10.0      
+
+--------------- APS Network       
+Adapter 4.3.8   
+SDK Version - Latest    
+
+--------------- Chartboost    
+Adapter 4.3.11      
+SDK Version - 9.2.0     
+
+--------------- Facebook   
+Adapter 4.3.41      
+SDK Version - 6.14.0    
+
+--------------- Google (AdMob and Ad Manager)   
+Adapter 4.3.37      
+SDK Version - 22.1.0    
+
+--------------- IronSource   
+Adapter 7.3.0.1   
+
+--------------- Vungle       
+Adapter 4.3.20     
 SDK Version - 6.12.1   
+
+--------------- Tapjoy       
+Adapter 4.1.24      
+SDK Version - 12.11.1      
+
 
 Current versions for Amazon   
 --------------- AdColony       
-Adapter 4.3.14
+Adapter 4.3.14   
 SDK Version - 4.8.0 
 
 --------------- APS Network       
 Adapter 4.3.14   
-SDK Version - 4.8.0   
-
---------------- AdColony       
-Adapter 4.3.14   
-SDK Version - 4.8.0   
+SDK Version - 4.8.0    
 
 --------------- Chartboost         
 Adapter 4.3.8    
@@ -403,30 +408,38 @@ Current version for iOS
 AppLovin     
      SDK - Version 11.6.1     
      Adapter - Version 4.3.37   
+
 Chartboost    
      SDK - Version 9.1.0     
      Adapter - Version 4.3.12     
+
 Google (AdMob and Ad Manager)     
      SDK - Version afma-sdk-i-v9.13.0     
      Adapter - Version 4.3.39     
+
 IronSource     
      SDK - Version 5.107    
      Adapter - Version 7.2.6     
+
 Meta     
      SDK - Version 6.12.0     
      Adapter - Version 4.3.38     
+
 Pangle     
      SDK - Version 4.5.2.3     
      Adapter - Version 4.3.16     
 Tapjoy     
      SDK - Version 12.10.0     
      Adapter - Version 4.1.23     
+
 UnityAds     
      SDK - Version 4.4.1     
      Adapter - Version 4.3.24     
+
 Vungle     
      SDK - Version 6.12.1     
      Adapter - Version 4.3.23  
+
 
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
