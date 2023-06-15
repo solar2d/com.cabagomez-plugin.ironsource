@@ -10,46 +10,51 @@
 #import <UIKit/UIKit.h>
 #import "ISBannerAdapterDelegate.h"
 #import "ISBannerSize.h"
+#import "ISBiddingDataDelegate.h"
 
 @class ISAdapterConfig;
 @protocol ISBannerAdapterProtocol <NSObject>
 
 @optional
 
-- (void)initBannerWithUserId:(nonnull NSString *)userId
-               adapterConfig:(nonnull ISAdapterConfig *)adapterConfig
-                    delegate:(nonnull id<ISBannerAdapterDelegate>)delegate;
+#pragma mark - for bidders, non bidders and demand only
 
-- (void)loadBannerWithViewController:(nonnull UIViewController *)viewController
-                                size:(nonnull ISBannerSize *)size
-                       adapterConfig:(nonnull ISAdapterConfig *)adapterConfig
-                            delegate:(nonnull id <ISBannerAdapterDelegate>)delegate;
+- (void)destroyBannerWithAdapterConfig:(ISAdapterConfig *)adapterConfig;
 
-- (void)reloadBannerWithAdapterConfig:(nonnull ISAdapterConfig *)adapterConfig
-                             delegate:(nonnull id <ISBannerAdapterDelegate>)delegate;
+- (void)releaseMemoryWithAdapterConfig:(ISAdapterConfig *)adapterConfig;
 
-- (BOOL)shouldBindBannerViewOnReload;
+#pragma mark - for non bidders
 
-- (void)destroyBannerWithAdapterConfig:(nonnull ISAdapterConfig *)adapterConfig;
-
-- (void)releaseMemoryWithAdapterConfig:(nonnull ISAdapterConfig *)adapterConfig;
+- (void)initBannerWithUserId:(NSString *)userId
+               adapterConfig:(ISAdapterConfig *)adapterConfig
+                    delegate:(id<ISBannerAdapterDelegate>)delegate;
 
 
-#pragma mark - for bidders - mediation and demand only
+- (void)loadBannerWithAdapterConfig:(ISAdapterConfig *)adapterConfig
+                             adData:(NSDictionary *)adData
+                     viewController:(UIViewController *)viewController
+                               size:(ISBannerSize *)size
+                           delegate:(id <ISBannerAdapterDelegate>)delegate;
 
-- (nonnull NSDictionary *)getBannerBiddingDataWithAdapterConfig:(nonnull ISAdapterConfig *)adapterConfig;
+#pragma mark - for bidders and demand only
 
+- (NSDictionary *)getBannerBiddingDataWithAdapterConfig:(ISAdapterConfig *)adapterConfig
+                                                 adData:(NSDictionary *)adData;
 
-- (void)initBannerForBiddingWithUserId:(nonnull NSString *)userId
-                               adapterConfig:(nonnull ISAdapterConfig *)adapterConfig
-                                    delegate:(nonnull id<ISBannerAdapterDelegate>)delegate;
+- (void)collectBannerBiddingDataWithAdapterConfig:(ISAdapterConfig *)adapterConfig
+                                           adData:(NSDictionary *)adData
+                                         delegate:(id<ISBiddingDataDelegate>)delegate;
+
+- (void)initBannerForBiddingWithUserId:(NSString *)userId
+                         adapterConfig:(ISAdapterConfig *)adapterConfig
+                              delegate:(id<ISBannerAdapterDelegate>)delegate;
 
 // used for banner, bidders + non-bidders(one-flow) for demand only
-- (void)loadBannerForBiddingWithServerData:(nonnull NSString *)serverData
-                            viewController:(nonnull UIViewController *)viewController
-                                      size:(nonnull ISBannerSize *)size
-                             adapterConfig:(nonnull ISAdapterConfig *)adapterConfig
-                                  delegate:(nonnull id <ISBannerAdapterDelegate>)delegate;
-
+- (void)loadBannerForBiddingWithAdapterConfig:(ISAdapterConfig *)adapterConfig
+                                       adData:(NSDictionary *)adData
+                                   serverData:(NSString *)serverData
+                               viewController:(UIViewController *)viewController
+                                         size:(ISBannerSize *)size
+                                     delegate:(id <ISBannerAdapterDelegate>)delegate;
 
 @end

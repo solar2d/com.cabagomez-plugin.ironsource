@@ -11,7 +11,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ISDataKeys : NSObject
 
-+(NSString*)USER_ID;
+// Keys used in AdData of the configuration
+
++ (NSString *)USER_ID;
+
++ (NSString *)AD_UNIT;
 
 @end
 

@@ -139,24 +139,6 @@ public:
     static void setEarnedCurrencyListener(TJEarnedCurrencyListener* listener);
     
     /**
-     * @deprecated Deprecated since version 11.4.0
-     * @brief ONLY USE FOR NON-MANAGED (by TAPJOY) CURRENCY.<br>
-     *        Sets the multiplier for the virtual currency displayed in placements.<br>
-     *        The default is 1.0
-     *
-     * @param multiplier
-     */
-    static void setCurrencyMultiplier(float multiplier);
-    
-    /**
-     * @deprecated Deprecated since version 11.4.0
-     * @brief Gets the multiplier for the virtual currency display.
-     *
-     * @return Currency multiplier.
-     */
-    static float getCurrencyMultiplier();
-    
-    /**
      * @brief Tracks a purchase
      *
      * @param productId
@@ -289,7 +271,7 @@ public:
      * @param customParam
      *         The custom parameter to assign to this device
      */
-    static void setCustomParameter(const char* referrer);
+    static void setCustomParameter(const char* customParam);
     
     /**
      * @brief Returns the currently set custom parameter.
@@ -313,14 +295,6 @@ public:
      *        the number of friends
      */
     static void setUserFriendCount(int friendCount);
-    
-    /**
-     * @brief Sets the data version of the App or Game.
-     *
-     * @param dataVersion
-     *        the data version
-     */
-    static void setAppDataVersion(const char* dataVersion);
     
     /**
      * @brief Sets a variable of user for the cohort analysis.
@@ -370,42 +344,6 @@ public:
      *        The action ID of the completed action.
      */
     static void actionComplete(const char* actionID);
-    
-    /**
-     * @deprecated Deprecated since version 12.6.0
-     * @brief This can be used by the integrating App to indicate if the user falls in any of the GDPR applicable countries
-     *        (European Economic Area). The value should be set to TRUE when User (Subject) is applicable to GDPR regulations
-     *        and FALSE when User is not applicable to GDPR regulations. In the absence of this call, Tapjoy server makes the
-     *        determination of GDPR applicability.
-     *
-     * @param gdprApplicable
-     *        true if GDPR applies to this user, false otherwise
-     */
-    static void subjectToGDPR(bool gdprApplicable);
-    
-    /**
-     * @deprecated Deprecated since version 12.6.0
-     * @brief This is used for sending User's consent to behavioral advertising such as in the context of GDPR
-     *        The consent value can be "0" (User has not provided consent), "1" (User has provided consent) or a daisybit string as suggested in IAB's Transparency and Consent Framework
-     * @param value
-     *        The user consent string
-     */
-    static void setUserConsent(const char* value);
-    
-    /**
-     * @deprecated Deprecated since version 12.6.0
-     * @brief In the US, the Children’s Online Privacy Protection Act (COPPA) imposes certain requirements on operators of online services that (a) have actual knowledge that the connected
-     *        user is a child under 13 years of age, or (b) operate services (including apps) that are directed to children under 13.
-     *
-     *        Similarly, the GDPR imposes certain requirements in connection with data subjects who are below the applicable local minimum age for online consent (ranging from 13 to 16,
-     *        as established by each member state).
-     *
-     *        For applications that are not directed towards children under 13 years of age, but still have a minority share of users known to be under the applicable minimum age,
-     *        utilize this method to access Tapjoy’s monetization capability. This method will set ad_tracking_enabled to false for Tapjoy which only shows the user contextual ads. No ad tracking will be done on this user.
-     *
-     * @param isBelowConsentAge True if below consent age (COPPA) applies to this user, false otherwise
-     */
-    static void belowConsentAge(bool isBelowConsentAge);
     
 #if defined(ANDROID)
     /**
@@ -570,13 +508,11 @@ public:
     static void setSubjectToGDPR(TJPrivacyPolicyHandle handle, bool gdprApplicable);
     
     /**
-     * @brief Assigns a user ID for this user/device. This is used to identify the user
-     *        in your application.
-     *
-     *        This is REQUIRED for NON-MANAGED currency apps.
-     *
-     * @param userID
-     *        user ID you wish to assign to this device
+     * @brief This is used for sending User's consent to behavioral advertising such as in the context of GDPR
+     * The consent value can be "0" (User has not provided consent), "1" (User has provided consent) or
+     * a daisybit string as suggested in IAB's Transparency and Consent Framework
+     *        
+     *@param consent "0" (User has not provided consent), "1" (User has provided consent) or a daisybit string as suggested in IAB's Transparency and Consent Framework
      */
     static void setUserConsent(TJPrivacyPolicyHandle handle, const char* consent);
     

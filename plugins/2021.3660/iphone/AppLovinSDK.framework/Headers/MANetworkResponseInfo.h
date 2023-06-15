@@ -52,6 +52,11 @@ typedef NS_ENUM(NSInteger, MAAdLoadState)
 @property (nonatomic, copy, readonly) NSDictionary<NSString *, id> *credentials;
 
 /**
+ * Whether or not this response is from a bidding request.
+ */
+@property (nonatomic, assign, readonly, getter=isBidding) BOOL bidding;
+
+/**
  * The amount of time the network took to load (either successfully or not) an ad, in seconds. If an attempt to load an ad has not been made (i.e. the @c loadState is @c MAAdLoadStateAdLoadNotAttempted), the value will be @c -1.
  */
 @property (nonatomic, assign, readonly) NSTimeInterval latency;

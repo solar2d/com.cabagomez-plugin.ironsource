@@ -11,8 +11,6 @@
 
 @interface SSEUrlHandler : NSObject
 
-// will try to open web url in external browser or another installed app
-// (in case the url scheme can be processed by another app)
--(void)openUrl:(NSURL*)url;
++(void)openURL:(NSString *_Nonnull)url completionHandler:(void (^ __nullable)(BOOL success))completion;
 
 @end

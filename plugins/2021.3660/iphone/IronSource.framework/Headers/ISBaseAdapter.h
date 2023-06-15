@@ -22,20 +22,16 @@
 @protocol ISInterstitialAdapterProtocol;
 @protocol ISOfferwallAdapterProtocol;
 
-
-#define ISLoadWhileShowSupportStateString(enum) [@[@"NONE",@"LOAD_WHILE_SHOW_BY_INSTANCE",@"LOAD_WHILE_SHOW_BY_NETWORK"] objectAtIndex:enum]
-
 @interface ISBaseAdapter : NSObject <ISInterstitialAdapterProtocol, ISRewardedVideoAdapterProtocol, ISBannerAdapterProtocol, ISOfferwallAdapterProtocol, ISBiddingDataAdapterProtocol>
 {
-@protected ISLoadWhileShowSupportState LWSState;
+    @protected ISLoadWhileShowSupportState LWSState;
 }
-@property (nonatomic, assign) BOOL interstitialReady;
+
 @property (nonatomic, strong) NSString *adapterName;
 
 /* Configuration */
 
 @property (strong, nonatomic) NSString  *pluginType;
-@property (strong, nonatomic) NSString  *pluginFrameworkVersion;
 @property (strong, nonatomic) NSString  *userId;
 
 - (instancetype)initAdapter:(NSString *)name;
@@ -45,8 +41,6 @@
 - (NSString *)sdkVersion;
 - (NSString *)version;
 - (NSString *)dynamicUserId;
-- (NSArray *)systemFrameworks;
-- (NSString *)sdkName;
 - (ISLoadWhileShowSupportState)getLWSSupportState:(ISAdapterConfig *)adapterConfig;
 //check if the network supports adaptive banners
 - (BOOL)getAdaptiveBannerSupport;

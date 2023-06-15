@@ -208,6 +208,9 @@ didRequestPurchase:(nullable TJActionRequest *)request
 /** Allows plugins to specify a topViewController class (currently only used by Unity) */
 @property (nullable, nonatomic, copy) NSString *topViewControllerClassName;
 
+@property (readonly, nonatomic) NSString *beaconId;
+
+
 /**
  * Creates a new instance of TJPlacement
  * @param placementName The name of the placement
@@ -224,7 +227,7 @@ didRequestPurchase:(nullable TJActionRequest *)request
 /**
  * Shows the content that was received from the server after sending this placement
  */
-- (void)showContentWithViewController:(UIViewController *)viewController;
+- (void)showContentWithViewController:(nullable UIViewController *)viewController;
 
 /**
  * Dismiss the content

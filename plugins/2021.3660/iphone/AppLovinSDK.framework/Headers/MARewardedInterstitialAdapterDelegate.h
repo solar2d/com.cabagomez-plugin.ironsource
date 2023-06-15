@@ -51,9 +51,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * This method is should be called when an ad could not be displayed.
  *
- * @param adapterError An error that indicates the cause of the failure
+ * @param adapterError An error that indicates the cause of the failure.
  */
 - (void)didFailToDisplayRewardedInterstitialAdWithError:(MAAdapterError *)adapterError;
+
+/**
+ * This method is should be called when an ad could not be displayed.
+ *
+ * @param adapterError An error that indicates the cause of the failure.
+ * @param extraInfo Extra info passed from the adapter.
+ */
+- (void)didFailToDisplayRewardedInterstitialAdWithError:(MAAdapterError *)adapterError extraInfo:(nullable NSDictionary<NSString *, id> *)extraInfo;
 
 /**
  * This method should be called when the user has clicked adapter's ad.
@@ -91,6 +99,14 @@ NS_ASSUME_NONNULL_BEGIN
  * @param reward The reward to be granted to the user.
  */
 - (void)didRewardUserWithReward:(MAReward *)reward;
+
+/**
+ * This method should be invoked when a user should be granted a reward.
+ *
+ * @param reward The reward to be granted to the user.
+ * @param extraInfo Extra info passed from the adapter.
+ */
+- (void)didRewardUserWithReward:(MAReward *)reward extraInfo:(nullable NSDictionary<NSString *, id> *)extraInfo;
 
 @end
 

@@ -17,9 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
  * This class displays full-screen ads to the user.
  */
 @interface ALInterstitialAd : NSObject
-
+    
 #pragma mark - Ad Delegates
-
+    
 /**
  * An object that conforms to the @c ALAdLoadDelegate protocol. If you provide a value for @c adLoadDelegate in your instance, the SDK will notify
  * this delegate of ad load events.
@@ -67,6 +67,14 @@ NS_ASSUME_NONNULL_BEGIN
  * @param ad The ad to render into this interstitial.
  */
 - (void)showAd:(ALAd *)ad;
+
+/**
+ * Sets extra info to pass to the SDK.
+ *
+ * @param key   Parameter key.
+ * @param value Parameter value.
+ */
+- (void)setExtraInfoForKey:(NSString *)key value:(nullable id)value;
 
 #pragma mark - Initialization
 

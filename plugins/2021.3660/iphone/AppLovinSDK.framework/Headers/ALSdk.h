@@ -7,6 +7,7 @@
 //
 
 @class ALAdService;
+@class ALCFService;
 @class ALEventService;
 @class ALSdkConfiguration;
 @class ALSdkSettings;
@@ -91,6 +92,13 @@ NS_ASSUME_NONNULL_BEGIN
  * @return Event service. Guaranteed not to be @c NULL.
  */
 @property (nonatomic, strong, readonly) ALEventService *eventService;
+
+/**
+ * Get an instance of the AppLovin internal CF service object for performing user-related tasks.
+ *
+ * @return CF service. Guaranteed not to be @c NULL.
+ */
+@property (nonatomic, strong, readonly) ALCFService *cfService;
 
 /**
  * Get an instance of the AppLovin variable service. This service is used to perform various A/B tests that you have set up on your AppLovin dashboard on your

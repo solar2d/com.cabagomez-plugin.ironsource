@@ -17,9 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 static NSString* const kInvalidAdvertisingId        = @"00000000-0000-0000-0000-000000000000";
 
-static NSString* const kUserIdTypeIDFV              = @"IDFV";
-static NSString* const kUserIdTypeIDFA              = @"IDFA";
-static NSString* const kUserIdTypeUUID              = @"UUID";
+static NSString* const kAdvIdTypeIDFV               = @"IDFV";
+static NSString* const kAdvIdTypeIDFA               = @"IDFA";
+static NSString* const kAdvIdTypeUUID               = @"UUID";
 static NSString* const kXcodeVersion                = @"DTXcode";
 static NSString* const kXcodeBuildVersion           = @"DTXcodeBuild";
 static NSString* const kAppUserID                   = @"auid";

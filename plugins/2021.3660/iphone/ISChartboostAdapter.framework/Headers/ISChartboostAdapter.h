@@ -1,13 +1,16 @@
 //
-// Copyright © 2022 ironSource Mobile Ltd. All rights reserved.
+//  ISChartboostAdapter.h
+//  ISChartboostAdapter
+//
+//  Copyright © 2023 ironSource Mobile Ltd. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "IronSource/ISBaseAdapter+Internal.h"
-#import "IronSource/IronSource.h"
+#import <IronSource/ISBaseAdapter+Internal.h>
+#import <IronSource/IronSource.h>
 
-static NSString * const ChartboostAdapterVersion = @"4.3.12";
-static NSString * Githash = @"";
+static NSString * const ChartboostAdapterVersion = @"4.3.14";
+static NSString * Githash = @"edc43b24d";
 
 //System Frameworks For Chartboost Adapter
 

@@ -60,12 +60,22 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)didFailToDisplayAdViewAdWithError:(MAAdapterError *)adapterError;
 
 /**
+ * This method is should be called when an ad could not be displayed.
+ *
+ * @param adapterError An error object that indicates the cause of the failure.
+ * @param extraInfo Extra info passed from the adapter.
+ */
+- (void)didFailToDisplayAdViewAdWithError:(MAAdapterError *)adapterError extraInfo:(nullable NSDictionary<NSString *, id> *)extraInfo;
+
+/**
  * This method should be called when the user has clicked adapter's ad.
  */
 - (void)didClickAdViewAd;
 
 /**
  * This method should be called when the user has clicked adapter's ad.
+ *
+ * @param extraInfo Extra info passed from the adapter.
  */
 - (void)didClickAdViewAdWithExtraInfo:(nullable NSDictionary<NSString *, id> *)extraInfo;
 
@@ -76,6 +86,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * This method should be called when adapter's ad has been dismissed.
+ *
+ * @param extraInfo Extra info passed from the adapter.
  */
 - (void)didHideAdViewAdWithExtraInfo:(nullable NSDictionary<NSString *, id> *)extraInfo;
 
@@ -85,9 +97,23 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)didExpandAdViewAd;
 
 /**
+ * This method should be called when the ad view has expanded full screen.
+ *
+ * @param extraInfo Extra info passed from the adapter.
+ */
+- (void)didExpandAdViewAdWithExtraInfo:(nullable NSDictionary<NSString *, id> *)extraInfo;
+
+/**
  * This method should be called when the ad view has collapsed from its full screen state.
  */
 - (void)didCollapseAdViewAd;
+
+/**
+ * This method should be called when the ad view has collapsed from its full screen state.
+ *
+ * @param extraInfo Extra info passed from the adapter.
+ */
+- (void)didCollapseAdViewAdWithExtraInfo:(nullable NSDictionary<NSString *, id> *)extraInfo;
 
 @end
 

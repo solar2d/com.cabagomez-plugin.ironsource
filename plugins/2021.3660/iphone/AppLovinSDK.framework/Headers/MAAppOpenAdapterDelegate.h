@@ -72,11 +72,19 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)didHideAppOpenAdWithExtraInfo:(nullable NSDictionary<NSString *, id> *)extraInfo;
 
 /**
- * This method is should be called when an ad could not be displayed.
+ * This method should be called when an ad could not be displayed.
  *
  * @param adapterError An error object that indicates the cause of the failure.
  */
 - (void)didFailToDisplayAppOpenAdWithError:(MAAdapterError *)adapterError;
+
+/**
+ * This method should be called when an ad could not be displayed.
+ *
+ * @param adapterError An error object that indicates the cause of the failure.
+ * @param extraInfo Extra info passed from the adapter.
+ */
+- (void)didFailToDisplayAppOpenAdWithError:(MAAdapterError *)adapterError extraInfo:(nullable NSDictionary<NSString *, id> *)extraInfo;
 
 @end
 

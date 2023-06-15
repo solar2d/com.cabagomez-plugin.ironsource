@@ -404,41 +404,42 @@ SDK Version - 12.11.1
 Adapter 4.3.20   
 SDK Version - 6.12.1  
 
-Current version for iOS     
+Current version for iOS    
+Adcolony     
+     SDK - Version 4.9.0.0    
+     Adapter - Version 4.3.16   
+
 AppLovin     
-     SDK - Version 11.6.1     
-     Adapter - Version 4.3.37   
+     SDK - Version 11.10.1     
+     Adapter - Version 4.3.40   
 
 Chartboost    
-     SDK - Version 9.1.0     
-     Adapter - Version 4.3.12     
+     SDK - Version 9.2.0     
+     Adapter - Version 4.3.14     
 
 Google (AdMob and Ad Manager)     
      SDK - Version afma-sdk-i-v9.13.0     
-     Adapter - Version 4.3.39     
+     Adapter - Version 4.3.43     
 
 IronSource     
-     SDK - Version 5.107    
-     Adapter - Version 7.2.6     
+     SDK - Version 5.109    
+     Adapter - Version 7.3.0     
 
 Meta     
      SDK - Version 6.12.0     
-     Adapter - Version 4.3.38     
-
-Pangle     
-     SDK - Version 4.5.2.3     
-     Adapter - Version 4.3.16     
+     Adapter - Version 4.3.3839     
+   
 Tapjoy     
-     SDK - Version 12.10.0     
-     Adapter - Version 4.1.23     
+     SDK - Version 13.0.0     
+     Adapter - Version 4.1.25     
 
 UnityAds     
-     SDK - Version 4.4.1     
-     Adapter - Version 4.3.24     
+     SDK - Version 4.7.1    
+     Adapter - Version 4.3.30     
 
 Vungle     
-     SDK - Version 6.12.1     
-     Adapter - Version 4.3.23  
+     SDK - Version 7.0.0    
+     Adapter - Version 4.3.27 
 
 
 

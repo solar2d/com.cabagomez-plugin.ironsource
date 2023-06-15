@@ -9,6 +9,7 @@
 
 @class ISPlacementInfo;
 
+__attribute__((deprecated("This class has been deprecated as of SDK 7.3.0. Please use LevelPlayRewardedVideoDelegate instead.")))
 @protocol ISRewardedVideoDelegate <NSObject>
 
 @required
@@ -17,31 +18,32 @@
  
  @param available The new rewarded video availability. YES if available and ready to be shown, NO otherwise.
  */
-- (void)rewardedVideoHasChangedAvailability:(BOOL)available;
+- (void)rewardedVideoHasChangedAvailability:(BOOL)available __attribute__((deprecated("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in LevelPlayRewardedVideoDelegate instead.")));
+
 
 /**
   Called after a rewarded video has been viewed completely and the user is eligible for reward.
 
  @param placementInfo An object that contains the placement's reward name and amount.
  */
-- (void)didReceiveRewardForPlacement:(ISPlacementInfo *)placementInfo;
+- (void)didReceiveRewardForPlacement:(ISPlacementInfo *)placementInfo __attribute__((deprecated("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in LevelPlayRewardedVideoDelegate instead.")));
 
 /**
  Called after a rewarded video has attempted to show but failed.
  
  @param error The reason for the error
  */
-- (void)rewardedVideoDidFailToShowWithError:(NSError *)error;
+- (void)rewardedVideoDidFailToShowWithError:(NSError *)error __attribute__((deprecated("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in LevelPlayRewardedVideoDelegate instead.")));
 
 /**
  Called after a rewarded video has been opened.
  */
-- (void)rewardedVideoDidOpen;
+- (void)rewardedVideoDidOpen __attribute__((deprecated("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in LevelPlayRewardedVideoDelegate instead.")));
 
 /**
  Called after a rewarded video has been dismissed.
  */
-- (void)rewardedVideoDidClose;
+- (void)rewardedVideoDidClose __attribute__((deprecated("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in LevelPlayRewardedVideoDelegate instead.")));
 
 /**
  * Note: the events below are not available for all supported rewarded video ad networks.
@@ -52,17 +54,17 @@
 /**
  Called after a rewarded video has started playing.
  */
-- (void)rewardedVideoDidStart;
+- (void)rewardedVideoDidStart __attribute__((deprecated("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in LevelPlayRewardedVideoDelegate instead.")));
 
 /**
  Called after a rewarded video has finished playing.
  */
-- (void)rewardedVideoDidEnd;
+- (void)rewardedVideoDidEnd __attribute__((deprecated("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in LevelPlayRewardedVideoDelegate instead.")));
 
 /**
  Called after a video has been clicked.
  */
-- (void)didClickRewardedVideo:(ISPlacementInfo *)placementInfo;
+- (void)didClickRewardedVideo:(ISPlacementInfo *)placementInfo __attribute__((deprecated("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in LevelPlayRewardedVideoDelegate instead.")));
 
 @end
 

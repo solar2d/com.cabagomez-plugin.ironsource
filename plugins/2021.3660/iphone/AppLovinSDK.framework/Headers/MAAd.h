@@ -79,6 +79,7 @@ NS_ASSUME_NONNULL_BEGIN
  * - "exact" - If the revenue is the resulting price of a real-time auction.
  * - "estimated" - If the revenue is the price obtained by auto-CPM.
  * - "undefined" - If we do not have permission from the ad network to share impression-level data.
+ * - "" - An empty string, if revenue and precision are not valid (for example, in test mode).
  */
 @property (nonatomic, copy, readonly) NSString *revenuePrecision;
 

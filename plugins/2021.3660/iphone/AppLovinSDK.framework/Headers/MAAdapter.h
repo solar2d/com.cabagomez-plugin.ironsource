@@ -7,6 +7,7 @@
 //
 
 #import <AppLovinSDK/MAAdapterInitializationParameters.h>
+#import <AppLovinSDK/MAAdFormat.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -73,6 +74,54 @@ typedef NS_ENUM(NSInteger, MAAdapterInitializationStatus)
  * Whether or not this adapter is a beta version.
  */
 @property (nonatomic, assign, readonly, getter=isBeta) BOOL beta;
+
+/**
+ * *********************
+ * AVAILABLE IN v11.9.0+
+ * *********************
+ * <p>
+ * Whether or not to initialize the third-party SDK on main thread.
+ *
+ * @return @c 1 if the SDK should be initialized on main thread. @c nil if we should fallback to using the adapter spec level setting.
+ */
+- (nullable NSNumber *)shouldInitializeOnMainThread;
+
+/**
+ * *********************
+ * AVAILABLE IN v11.9.0+
+ * *********************
+ * <p>
+ * Whether or not to collect signals on main thread.
+ *
+ * @return @c 1 if the SDK should collect signals on main thread. @c nil if we should fallback to using the adapter spec level setting.
+ */
+- (nullable NSNumber *)shouldCollectSignalsOnMainThread;
+
+/**
+ * *********************
+ * AVAILABLE IN v11.9.0+
+ * *********************
+ * <p>
+ * Whether or not to load ads on main thread.
+ *
+ * @param adFormat The @c MAAdFormat for which to check if we should load on main thread.
+ *
+ * @return @c 1 if the given ad format should be loaded on main thread. @c nil if we should fallback to using the adapter spec level setting.
+ */
+- (nullable NSNumber *)shouldLoadAdsOnMainThreadForAdFormat:(MAAdFormat *)adFormat;
+
+/**
+ * *********************
+ * AVAILABLE IN v11.9.0+
+ * *********************
+ * <p> 
+ * Whether or not to show ads on main thread.
+ *
+ * @param adFormat The @c MAAdFormat for which to check if we should show on main thread.
+ *
+ * @return @c 1 if the given ad format should be loaded on main thread. @c nil if we should fallback to using the adapter spec level setting.
+ */
+- (nullable NSNumber *)shouldShowAdsOnMainThreadForAdFormat:(MAAdFormat *)adFormat;
 
 /**
  * This method is called when an ad associated with this adapter should be destroyed. Necessary cleanup should be performed here.

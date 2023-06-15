@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
                  adapterConfig:(ISAdapterConfig*)adapterConfig;
 
 /// the network sdk version
--(nullable id<ISAdapterBaseProtocol>)getNetworkAdapter;
+- (nullable id<ISAdapterBaseProtocol>)getNetworkAdapter;
 
 /// When the adapter needs to release certain elements to avoid memory leaks before being destroyed
 - (void)releaseMemory;

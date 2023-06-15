@@ -16,22 +16,19 @@
 #import <Tapjoy/TapjoyAuctionConstants.h>
 #import <Tapjoy/TJPlacement.h>
 #import <Tapjoy/TJPrivacyPolicy.h>
+#import <Tapjoy/TJOfferwallDiscoverView.h>
+#import <Tapjoy/TapjoyPluginAPI.h>
+
 
 #define TJC_DEPRECATION_WARNING(VERSION) __attribute__((deprecated("Go to dev.tapjoy.com for instructions on how to fix this warning")))
-#define TJ_DEPRECATED_CLASS     __attribute__((deprecated("TapjoyConnect Class is deprecated, use Tapjoy Class")))
-#define TJC_HIGHEST_UNSUPPORTED_SYSTEM_VERISON	@"4.3.5"
+#define TJC_MINIMUM_SUPPORTED_SYSTEM_VERISON	@"10.0"
 
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^currencyCompletion)(NSDictionary * _Nullable parameters, NSError * _Nullable error);
 typedef void (^networkCompletion)(BOOL success, NSError * _Nullable error);
 
-@class TJCCurrencyManager;
-@class TJCVideoManager;
-@class TJCViewHandler;
-@class TJCNetReachability;
-@class TJCUtil;
-@class TJCLog;
+
 @class TJPlacement;
 
 /**	
@@ -54,8 +51,6 @@ typedef void (^networkCompletion)(BOOL success, NSError * _Nullable error);
 /** The name of the plugin used. If no plugin is used, this value is set to "native" by default. */
 @property (nullable, nonatomic, copy) NSString *plugin;
 
-/** The currency multiplier value, used to adjust currency earned. */
-@property (nonatomic, assign) float currencyMultiplier;
 
 @property (nullable, nonatomic, copy) NSString *appGroupID;
 @property (nullable, nonatomic, copy) NSString *store;
@@ -64,11 +59,7 @@ typedef void (^networkCompletion)(BOOL success, NSError * _Nullable error);
 @property (nullable, nonatomic, copy) NSDictionary *userTokenConfig;
 @property (nullable, nonatomic, copy) NSString *customParameter;
 
-@property (nullable, nonatomic, strong) TJCCurrencyManager *currencyManager;
-@property (nullable, nonatomic, strong) TJCVideoManager *videoManager;
-@property (nullable, nonatomic, strong) TJCViewHandler *viewHandler;
-@property (nullable, nonatomic, strong) TJCUtil *util;
-@property (nullable, nonatomic, strong) TJCLog *log;
+
 
 
 /**
@@ -142,22 +133,6 @@ typedef void (^networkCompletion)(BOOL success, NSError * _Nullable error);
  *
  */
 + (void)endSession;
-
-/**
- * This method is called to set data version of your application.
- *
- * @param appDataVersion The application data version.
- */
-+ (void)setAppDataVersion:(nullable NSString *)appDataVersion TJC_DEPRECATION_WARNING(11.11.1);
-
-/**
- * This method is called to set LaunchOptions.
- * Call this method in application:didFinishLaunchingWithOptions:
- * NOTE: From 11.2.2, you don't have to call this method.
- *
- * @param launchOptions the same parameter that passed on application:didFinishLaunchingWithOptions:
- */
-+ (void)setApplicationLaunchingOptions:(nullable NSDictionary *)launchOptions TJC_DEPRECATION_WARNING(11.2.2);
 
 /**
  * This method is called to set RemoteNotificationUserInfo.
@@ -403,21 +378,6 @@ typedef void (^networkCompletion)(BOOL success, NSError * _Nullable error);
 //
 + (nullable NSString *)getCustomParameter;
 
-/**
- * Sets the currency multiplier for virtual currency to be earned. The default is 1.0.
- *
- * Only used for non-managed (by Tapjoy) currency.
- * 
- * @param mult The currency multiplier.
- */
-+ (void)setCurrencyMultiplier:(float)mult TJC_DEPRECATION_WARNING(11.4.0);
-
-/**
- * Gets the currency multiplier for virtual currency to be earned.
- *
- * @return The currency multiplier value.
- */
-+ (float)getCurrencyMultiplier TJC_DEPRECATION_WARNING(11.4.0);
 
 /**
  * Toggle logging to the console.
@@ -531,41 +491,6 @@ typedef void (^networkCompletion)(BOOL success, NSError * _Nullable error);
 + (void)showDefaultEarnedCurrencyAlert;
 
 /**
- * This is used for sending User's consent to behavioral advertising such as in the context of GDPR
- * The consent value can be "0" (User has not provided consent), "1" (User has provided consent) or
- * a daisybit string as suggested in IAB's Transparency and Consent Framework
- *
- * @param value "0" (User has not provided consent), "1" (User has provided consent) or a daisybit string as suggested in IAB's Transparency and Consent Framework
- **/
-+ (void)setUserConsent:(NSString*) value TJC_DEPRECATION_WARNING(12.6.0);
-
-/**
- * This can be used by the integrating App to indicate if the user falls in any of the GDPR applicable countries
- * (European Economic Area). The value should be set to YES when User (Subject) is applicable to GDPR regulations
- * and NO when User is not applicable to GDPR regulations. In the absence of this call, Tapjoy server makes the
- * determination of GDPR applicability.
- *
- * @param gdprApplicability YES if the user is affected by GDPR, NO if they are not.
- */
-+(void)subjectToGDPR:(BOOL) gdprApplicability TJC_DEPRECATION_WARNING(12.6.0);
-
-/**
- * In the US, the Children’s Online Privacy Protection Act (COPPA) imposes certain requirements on operators of online services that (a)
- * have actual knowledge that the connected user is a child under 13 years of age, or (b) operate services (including apps) that are
- * directed to children under 13.
- *
- * Similarly, the GDPR imposes certain requirements in connection with data subjects who are below the applicable local minimum age for
- * online consent (ranging from 13 to 16, as established by each member state).
- *
- * For applications that are not directed towards children under 13 years of age, but still have a minority share of users known to be
- * under the applicable minimum age, utilize this method to access Tapjoy’s monetization capability. This method will set
- * ad_tracking_enabled to false for Tapjoy which only shows the user contextual ads. No ad tracking will be done on this user.
- *
- * @param isBelowConsentAge YES if the user is affected by COPPA, NO if they are not.
- */
-+(void)belowConsentAge:(BOOL) isBelowConsentAge TJC_DEPRECATION_WARNING(12.6.0);
-
-/**
  * Returns the TJPrivacyPolicy instance for calling methods to set GDPR, User's consent, below consent age ,and US Privacy policy flags
  * 
  * @return The globally accessible TJPrivacyPolicy singleton object.
@@ -588,7 +513,8 @@ typedef void (^networkCompletion)(BOOL success, NSError * _Nullable error);
 
 @protocol TJCTopViewControllerProtocol <NSObject>
 @required
-@property (nonatomic, assign) BOOL canRotate;
+@property (nonatomic, assign) UIInterfaceOrientation lockedOrientation;
+@property (assign, nonatomic) BOOL canRotate;
 @end
 
 #endif

@@ -9,11 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "ISInterstitialAdapterDelegate.h"
+#import "ISBiddingDataDelegate.h"
 
 @class ISAdapterConfig;
 @protocol ISInterstitialAdapterProtocol <NSObject>
 
 @optional
+
+#pragma mark - for bidders, non bidders and demand only
 
 - (void)showInterstitialWithViewController:(UIViewController *)viewController
                              adapterConfig:(ISAdapterConfig *)adapterConfig
@@ -23,28 +26,33 @@
 
 
 
-#pragma mark - for traditional, non bidders, demand only
+#pragma mark - for non bidders and demand only
+
 - (void)initInterstitialWithUserId:(NSString *)userId
                      adapterConfig:(ISAdapterConfig *)adapterConfig
                           delegate:(id<ISInterstitialAdapterDelegate>)delegate;
 
 - (void)loadInterstitialWithAdapterConfig:(ISAdapterConfig *)adapterConfig
+                                   adData:(NSDictionary *)adData
                                  delegate:(id<ISInterstitialAdapterDelegate>)delegate;
 
+#pragma mark - for bidders and demand only
 
-#pragma mark - for bidders - mediation and demand only
+- (NSDictionary *)getInterstitialBiddingDataWithAdapterConfig:(ISAdapterConfig *)adapterConfig
+                                                       adData:(NSDictionary *)adData;
 
-- (NSDictionary *)getInterstitialBiddingDataWithAdapterConfig:(ISAdapterConfig *)adapterConfig;
-
+- (void)collectInterstitialBiddingDataWithAdapterConfig:(ISAdapterConfig *)adapterConfig
+                                                 adData:(NSDictionary *)adData
+                                               delegate:(id<ISBiddingDataDelegate>)delegate;
 
 - (void)initInterstitialForBiddingWithUserId:(NSString *)userId
                                adapterConfig:(ISAdapterConfig *)adapterConfig
                                     delegate:(id<ISInterstitialAdapterDelegate>)delegate;
 
-- (void)loadInterstitialForBiddingWithServerData:(NSString *)serverData
-                                   adapterConfig:(ISAdapterConfig *)adapterConfig
-                                        delegate:(id<ISInterstitialAdapterDelegate>)delegate;
-
+- (void)loadInterstitialForBiddingWithAdapterConfig:(ISAdapterConfig *)adapterConfig
+                                             adData:(NSDictionary *)adData
+                                         serverData:(NSString *)serverData
+                                           delegate:(id<ISInterstitialAdapterDelegate>)delegate;
 
 
 @end

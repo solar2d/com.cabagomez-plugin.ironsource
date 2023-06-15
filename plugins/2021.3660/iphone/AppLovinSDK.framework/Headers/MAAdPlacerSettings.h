@@ -20,6 +20,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, readonly) NSString *adUnitIdentifier;
 
 /**
+ * The placement to tie the future ad events to.
+ */
+@property (nonatomic, copy, nullable) NSString *placement;
+
+/**
  * The fixed index paths to place ads at in a stream in sorted order. Can be modified using @c addFixedPosition: and @c resetFixedPositions.
  */
 @property (nonatomic, strong, readonly) NSOrderedSet<NSIndexPath *> *fixedPositions;

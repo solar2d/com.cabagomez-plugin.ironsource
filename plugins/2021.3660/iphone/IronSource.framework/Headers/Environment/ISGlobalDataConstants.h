@@ -144,4 +144,10 @@ static NSString * const kGD_IronSourceSkan                        = @"ironsource
 // Network debug params
 static NSString * const kGD_NetworkDebugKey                       = @"debug";
 
+//Test Suite
+static NSString * const kGD_TestSuite                             = @"tss";
+static NSString * const kGD_UseTestAds                            = @"ts";
+static int const kGD_TrueIntValue                                 = 1;
+static int const kGD_FalseIntValue                                = 0;
+
 #endif /* ISGlobalDataConstants */

@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)didLoadAdForNativeAd:(MANativeAd *)nativeAd withExtraInfo:(nullable NSDictionary<NSString *, id> *)extraInfo;
 
 /**
- * This method is should be called when an ad could not be loaded.
+ * This method should be called when an ad could not be loaded.
  *
  * @param adapterError An error object that indicates the cause of ad failure.
  */
@@ -44,6 +44,13 @@ NS_ASSUME_NONNULL_BEGIN
  * This method should be called when the user has clicked adapter's ad.
  */
 - (void)didClickNativeAd;
+
+/**
+ * This method should be called when the user has clicked adapter's ad.
+ *
+ * @param extraInfo Extra info passed from the adapter.
+ */
+- (void)didClickNativeAdWithExtraInfo:(nullable NSDictionary<NSString *, id> *)extraInfo;
 
 @end
 

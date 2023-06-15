@@ -14,8 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)onNetworkInitCallbackSuccess;
 - (void)onNetworkInitCallbackFailed:(NSString*)errorMessage;
-@optional
-- (void)onNetworkInitCallbackLoadSuccess:(NSString*)placement;
 
 @end
 

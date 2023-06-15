@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
  * This interface represents a view-based ad — i.e. banner, MREC, or leader.
  */
 @interface ALAdView : UIView
-
+    
 /**
  * @name Ad Delegates
  */
@@ -71,6 +71,14 @@ NS_ASSUME_NONNULL_BEGIN
  * @code -[ALAdView loadNextAd] @endcode.
  */
 @property (nonatomic, assign, getter=isAutoloadEnabled, setter=setAutoloadEnabled:) BOOL autoload;
+
+/**
+ * Sets extra info to pass to the SDK.
+ *
+ * @param key   Parameter key.
+ * @param value Parameter value.
+ */
+- (void)setExtraInfoForKey:(NSString *)key value:(nullable id)value;
 
 /**
  * @name Loading and Rendering Ads

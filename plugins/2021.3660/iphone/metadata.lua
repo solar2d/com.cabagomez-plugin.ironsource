@@ -11,37 +11,36 @@ local metadata =
 			"xml2",
 			"c++abi",
 			"resolv.9",
-			'plugin_ironsource'
+			"plugin_ironsource"
 		},
 		frameworks = { 
 			'Ironsource', 
+			--AdColony
+			'AdColony',
+			'ISAdColonyAdapter',
+			-- Admob
+			'GoogleMobileAds',
+			'UserMessagingPlatform',
+			'ISAdMobAdapter',
+			-- Applovin
+			'AppLovinSDK',
+			'ISAppLovinAdapter',
+			-- Chartboost
+			'ISChartboostAdapter',
+			'ChartboostSDK',
+			-- Facebook
+			'FBSDKCoreKit_Basics',
+			'FBAudienceNetwork',
+			'ISFacebookAdapter',
 			-- Tapjoy
 			'ISTapjoyAdapter',
 			'Tapjoy',
 			-- Vungle
 			'ISVungleAdapter', 
-			'VungleSDK',
-			-- Facebook
-			'FBSDKCoreKit_Basics',
-			'FBAudienceNetwork',
-			'ISFacebookAdapter',
-			-- Admob
-			'GoogleMobileAds',
-			'GoogleUtilities',
-			'GoogleAppMeasurement',
-			'nanopb',
-			'UserMessagingPlatform',
-			'PromisesObjC',
-			'ISAdMobAdapter',
-			-- Applovin
-			'AppLovinSDK',
-			'ISAppLovinAdapter',
+			'VungleAdsSDK',
 			-- Unity
-			'ISUnityAdsAdapter',
 			'UnityAds',
-			-- Chartboost
-			'ISChartboostAdapter',
-			'ChartboostSDK',
+			'ISUnityAdsAdapter',
 			-- Other libraries
 			"AdSupport",
 			"AudioToolbox",

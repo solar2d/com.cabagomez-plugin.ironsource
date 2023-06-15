@@ -7,11 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-@class ISBaseSMASH;
 
 @protocol ISOfferwallAdapterDelegate <NSObject>
 
-- (void)adapterOfferwallHasChangedAvailability:(BOOL)available;
+- (void)adapterOfferwallHasChangedAvailability:(BOOL)available withError:(NSError *)error;
 
 - (void)adapterOfferwallDidShow;
 

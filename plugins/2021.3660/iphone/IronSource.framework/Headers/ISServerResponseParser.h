@@ -18,6 +18,7 @@
 #import "ISExternalSettings.h"
 #import "ISSKAdNetworkSettings.h"
 #import "ISPixelSettings.h"
+#import "ISTestSuiteSettings.h"
 
 typedef NS_ENUM(NSInteger, ISResponseOrigin) {
     RESPONSE_ORIGIN_NOT_SET,
@@ -54,6 +55,7 @@ typedef NS_ENUM(NSInteger, ISResponseOrigin) {
 @property (nonatomic, strong) ISExternalSettings                  *externalSettings;
 @property (nonatomic, strong) ISSKAdNetworkSettings               *skanSettings;
 @property (nonatomic, strong) ISPixelSettings                     *pixelSettings;
+@property (nonatomic, strong) ISTestSuiteSettings                 *testSuiteSettings;
 
 @property (nonatomic, strong) NSString                            *segmentName;
 @property (nonatomic, strong) NSString                            *segmentId;
@@ -61,6 +63,8 @@ typedef NS_ENUM(NSInteger, ISResponseOrigin) {
 @property (nonatomic,assign) BOOL                                 showIntegrationHelper;
 
 @property (nonatomic, assign) ISResponseOrigin                    responseOrigin;
+
+@property (nonatomic, strong) NSDictionary                        *originServerResponse;
 
 + (ISServerResponseParser *)sharedInstance;
 - (void)parseObject:(id)object;

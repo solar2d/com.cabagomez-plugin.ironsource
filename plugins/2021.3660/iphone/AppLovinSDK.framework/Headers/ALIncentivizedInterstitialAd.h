@@ -20,9 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
  * exchange for watching a video.
  */
 @interface ALIncentivizedInterstitialAd : NSObject
-
+    
 #pragma mark - Ad Delegates
-
+    
 /**
  * An object that conforms to the @c ALAdDisplayDelegate protocol. If you provide a value for @c adDisplayDelegate in your instance, the SDK will
  * notify this delegate of ad show/hide events.
@@ -203,6 +203,14 @@ NS_ASSUME_NONNULL_BEGIN
  * @see <a href="https://dash.applovin.com/documentation/mediation/s2s-rewarded-callback-api">MAX Integration Guide ⇒ MAX S2S Rewarded Callback API</a>
  */
 - (void)showAd:(ALAd *)ad andNotify:(nullable id<ALAdRewardDelegate>)adRewardDelegate;
+
+/**
+ * Sets extra info to pass to the SDK.
+ *
+ * @param key   Parameter key.
+ * @param value Parameter value.
+ */
+- (void)setExtraInfoForKey:(NSString *)key value:(nullable id)value;
 
 - (instancetype)init __attribute__((unavailable("Use initWithSdk:, initWithZoneIdentifier:, or [ALIncentivizedInterstitialAd shared] instead.")));
 + (instancetype)new NS_UNAVAILABLE;

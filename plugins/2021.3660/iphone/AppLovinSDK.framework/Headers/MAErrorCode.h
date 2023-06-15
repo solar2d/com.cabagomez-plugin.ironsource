@@ -48,5 +48,10 @@ typedef NS_ENUM(NSInteger, MAErrorCode)
     /**
      * This error code indicates you are attempting to show a fullscreen ad before the one has been loaded.
      */
-    MAErrorCodeFullscreenAdNotReady = -24
+    MAErrorCodeFullscreenAdNotReady = -24,
+    
+    /**
+     * This error code indicates you attempted to present a fullscreen ad from an invalid view controller.
+     */
+    MAErrorCodeFullscreenAdInvalidViewController = -25
 };

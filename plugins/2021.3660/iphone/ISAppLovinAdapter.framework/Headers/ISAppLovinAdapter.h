@@ -2,14 +2,14 @@
 //  ISAppLovinAdapter.h
 //  ISAppLovinAdapter
 //
-//  Copyright © 2022 IronSource. All rights reserved.
+//  Copyright © 2023 ironSource Mobile Ltd. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "IronSource/ISBaseAdapter+Internal.h"
+#import <IronSource/ISBaseAdapter+Internal.h>
 
-static NSString * const AppLovinAdapterVersion = @"4.3.37";
-static NSString * GitHash = @"bb8205f96";
+static NSString * const AppLovinAdapterVersion = @"4.3.40";
+static NSString * Githash = @"994eafbc9";
 
 //System Frameworks For AppLovin Adapter
 @import AdSupport;

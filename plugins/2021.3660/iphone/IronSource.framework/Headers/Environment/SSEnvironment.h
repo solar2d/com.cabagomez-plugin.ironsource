@@ -7,7 +7,6 @@
 //
 
 #import <Environment/SSEOrientationContext.h>
-#import <Environment/SSEConnectionType.h>
 #import <Environment/SSEDeviceContext.h>
 #import <Environment/SSEScreenContext.h>
 #import <Environment/SSEDeviceStatus.h>

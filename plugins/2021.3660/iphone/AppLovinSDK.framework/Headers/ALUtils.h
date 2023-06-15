@@ -25,6 +25,11 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIInterfaceOrientationMask)currentOrientationMask;
 
 /**
+ * @return The device display dimensions, respecting safe area.
+ */
++ (CGRect)deviceSafeAreaDimensions;
+
+/**
  * @return If the app is running in an iOS simulator.
  */
 @property (class, nonatomic, readonly, getter=isSimulator) BOOL simulator;

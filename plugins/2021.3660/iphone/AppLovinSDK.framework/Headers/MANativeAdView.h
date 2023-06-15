@@ -36,6 +36,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) IBOutlet UILabel *bodyLabel;
 
 /**
+ * The native ad CTA button.
+ */
+@property (nonatomic, weak, nullable) IBOutlet UIButton *callToActionButton;
+
+/**
  * The native ad icon ImageView.
  */
 @property (nonatomic, weak) IBOutlet UIImageView *iconImageView;
@@ -56,9 +61,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) IBOutlet UIView *mediaContentView;
 
 /**
- * The native ad CTA button.
+ * The native ad star rating view for holding the star rating view.
  */
-@property (nonatomic, weak, nullable) IBOutlet UIButton *callToActionButton;
+@property (nonatomic, weak) IBOutlet UIView *starRatingContentView;
 
 /**
  * Binds the native asset ad views to this native ad using view tags.

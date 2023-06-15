@@ -119,6 +119,13 @@ typedef NS_ENUM(NSUInteger, ISErrorCode) {
     ERROR_CONSENT_VIEW_CANNOT_BE_OPENED = 1607,
     ERROR_CONSENT_VIEW_LOAD_DURING_LOAD = 1608,
     
+    //TestSuite error codes
+    ERROR_CODE_TEST_SUITE_SDK_NOT_INITIALIZED          = 1721,
+    ERROR_CODE_TEST_SUITE_DISABLED                     = 1722,
+    ERROR_CODE_TEST_SUITE_EXCEPTION_ON_LAUNCH          = 1723,
+    ERROR_CODE_TEST_SUITE_WEB_CONTROLLER_NOT_LOADED    = 1724,
+    ERROR_CODE_TEST_SUITE_NO_NETWORK_CONNECTIVITY      = 1725,
+    
     //Smash TS error codes
     ERROR_CODE_BIDDING_DATA_EXCEPTION = 5001,
     ERROR_CODE_IS_READY_EXCEPTION = 5002,
@@ -141,6 +148,7 @@ typedef NS_ENUM(NSUInteger, ISErrorCode) {
 + (NSError *)createError:(ISErrorCode)errorCode;
 + (NSError *)createError:(ISErrorCode)errorCode withParams:(NSArray*)params;
 + (NSError *)createError:(ISErrorCode)errorCode withMessage:(NSString *)message;
++ (NSError *)createErrorWithDomain:(NSString *)domain code:(ISErrorCode)code message:(NSString *)message;
 + (NSError *)appendError:(NSError *)error withPrefix:(NSString *)prefix;
 + (NSError *)appendError:(NSError *)error withSuffix:(NSString *)suffix;
 + (ISErrorCode)getCode:(ISErrorCode)errorCode;

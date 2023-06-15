@@ -8,12 +8,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * This class contains settings that enable the AppLovin consent flow.
+ * This class contains settings that enable the AppLovin Terms Flow.
  */
 @interface ALConsentFlowSettings : NSObject
 
 /**
- * Set this to @c YES to enable the consent flow. You must also provide your privacy policy and terms of service URLs in this object, and you must provide a
+ * Set this to @c YES to enable the Terms Flow. You must also provide your privacy policy and terms of service URLs in this object, and you must provide a
  * @c NSUserTrackingUsageDescription string in your @code Info.plist @endcode file.
  *
  * This defaults to the value that you entered into your @code Info.plist @endcode file via @c AppLovinConsentFlowInfo ⇒ @c AppLovinConsentFlowEnabled.
@@ -21,14 +21,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign, getter=isEnabled) BOOL enabled;
 
 /**
- * URL for your company’s privacy policy. This is required in order to enable the consent flow.
+ * URL for your company’s privacy policy. This is required in order to enable the Terms Flow.
  *
  * This defaults to the value that you entered into your @code Info.plist @endcode file via @c AppLovinConsentFlowInfo ⇒ @c AppLovinConsentFlowPrivacyPolicy.
  */
 @property (nonatomic, copy, nullable) NSURL *privacyPolicyURL;
 
 /**
- * URL for your company’s terms of service. This is optional; you can enable the consent flow with or without it.
+ * URL for your company’s terms of service. This is optional; you can enable the Terms Flow with or without it.
  *
  * This defaults to the value that you entered into your @code Info.plist @endcode file via @c AppLovinConsentFlowInfo ⇒ @c AppLovinConsentFlowTermsOfService.
  */
@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ALSdkSettings : NSObject
 
 /**
- * Settings relating to the AppLovin consent flow.
+ * Settings relating to the AppLovin Terms Flow.
  */
 @property (nonatomic, strong, readonly) ALConsentFlowSettings *consentFlowSettings;
 

@@ -19,6 +19,6 @@ framework module ChartboostSDK {
 }
 
 module ChartboostSDK.Swift {
-    header "ChartboostSDK-Swift.h"
-    requires objc
+  header "ChartboostSDK-Swift.h"
+  requires objc
 }

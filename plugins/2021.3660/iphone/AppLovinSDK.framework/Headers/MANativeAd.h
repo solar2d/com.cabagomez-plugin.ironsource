@@ -28,6 +28,7 @@ typedef void (^MANativeAdBuilderBlock) (MANativeAdBuilder *builder);
 @property (nonatomic, strong, nullable) UIView *optionsView;
 @property (nonatomic, strong, nullable) UIView *mediaView;
 @property (nonatomic, assign) CGFloat mediaContentAspectRatio;
+@property (nonatomic, strong, nullable) NSNumber *starRating;
 
 @end
 
@@ -115,7 +116,6 @@ typedef void (^MANativeAdBuilderBlock) (MANativeAdBuilder *builder);
  * myTarget  v5.15.2.1
  * Pangle  v4.5.2.4.1
  * Smaato  v21.7.6.1
- * VerizonAds  v2.0.0.4
  */
 @property (nonatomic, strong, readonly, nullable) MANativeAdImage *mainImage;
 
@@ -123,6 +123,11 @@ typedef void (^MANativeAdBuilderBlock) (MANativeAdBuilder *builder);
  * The aspect ratio for the media view if provided by the network. Otherwise returns 0.0f.
  */
 @property (nonatomic, assign, readonly) CGFloat mediaContentAspectRatio;
+
+/**
+ * The star rating of the native ad in the [0.0, 5.0] range if provided by the network. Otherwise returns @c nil.
+ */
+@property (nonatomic, strong, readonly, nullable) NSNumber *starRating;
 
 /**
  * Whether or not the ad is expired.

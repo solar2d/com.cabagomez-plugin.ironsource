@@ -35,6 +35,8 @@
 #import <AppLovinSDK/ALSdkSettings.h>
 #import <AppLovinSDK/ALTargetingData.h>
 #import <AppLovinSDK/ALUserSegment.h>
+#import <AppLovinSDK/ALCFService.h>
+#import <AppLovinSDK/ALCFError.h>
 #import <AppLovinSDK/ALUtils.h>
 #import <AppLovinSDK/ALVariableService.h>
 #import <AppLovinSDK/MAAd.h>

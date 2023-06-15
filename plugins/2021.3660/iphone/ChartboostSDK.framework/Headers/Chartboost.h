@@ -101,12 +101,9 @@ typedef NS_ENUM(NSUInteger, CBLoggingLevel) {
 + (void)setLoggingLevel:(CBLoggingLevel)loggingLevel;
 
 /*!
- @brief Mute/unmute Chartboost ads.
- @param muted `true` to mute ads, `false` to unmute them.
- @discussion The default value is `false` (non-muted).
- Due to limitations of Apple's WebKit framework and its WKWebView class, used by Chartboost to display ads, some ads may not be muted regardless of this setting.
+ @brief Returns the token used to authenticate with the Chartboost servers.
  */
-+ (void)setMuted:(BOOL)muted;
++ (nullable NSString *)bidderToken;
 
 @end
 
