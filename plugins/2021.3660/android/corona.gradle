@@ -9,9 +9,6 @@ dependencies {
 
    implementation 'com.ironsource.sdk:mediationsdk:7.3.0.1' 
 
-   // Add AdColony Network
-   implementation 'com.ironsource.adapters:adcolonyadapter:4.3.14'
-   implementation 'com.adcolony:sdk:4.8.0'
    // Add Applovin Network
    implementation 'com.ironsource.adapters:applovinadapter:4.3.38'
    implementation 'com.applovin:applovin-sdk:11.10.0'
@@ -33,4 +30,8 @@ dependencies {
    // Add Tapjoy Network
    implementation 'com.ironsource.adapters:tapjoyadapter:4.1.24'
    implementation 'com.tapjoy:tapjoy-android-sdk:12.11.1'
+   // Add UnityAds Network
+   implementation 'com.ironsource.adapters:unityadsadapter:4.3.30'
+   implementation 'com.unity3d.ads:unity-ads:4.7.1'
+   
 }
