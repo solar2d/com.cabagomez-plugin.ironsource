@@ -3,6 +3,7 @@ repositories {
    mavenCentral()
    maven {url 'https://android-sdk.is.com/'} 
    maven { url "https://sdk.tapjoy.com/"}
+   maven { url "https://s3.amazonaws.com/smaato-sdk-releases/" }
 }
 
 dependencies {
@@ -30,5 +31,8 @@ dependencies {
    // Add Tapjoy Network
    implementation 'com.ironsource.adapters:tapjoyadapter:4.1.24'
    implementation 'com.tapjoy:tapjoy-android-sdk:12.11.1'
+   // Add Smaato
+   implementation 'com.smaato.android.sdk:smaato-sdk-banner:22.0.2'
+   implementation 'com.smaato.android.sdk:smaato-sdk-in-app-bidding:22.0.2'
    
 }
