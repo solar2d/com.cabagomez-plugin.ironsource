@@ -3,6 +3,10 @@ Solar2d Ironsource Plugin.
 
 -- The iOS version now only supports ARM64. This means that it only supports iOS 11 and after. The frameworks for the networks have been bitcode and anything other than arm64 stripped.
 
+-- User messaging platform (UMP) for consent is now integrated into the plugin (Android Only)
+
+-- APS instructions have been updated.
+
 -- If you find an issue please submit an issue on this repo. If I am able to reproduce it and impacts me, I will try to resolve it. If you need more support than this or want to individually ad plugins, I would recommend the ironsource plugin by Scott Harrison: https://solar2dmarketplace.com/plugins?IronSource_tech-scotth
 
 
@@ -51,7 +55,11 @@ ironsource.init(
             ccpaDoNotSell=false, -- Optional. False = Sell the data. True = do not sell. Default is false.
             isAutoLoad = true, -- Optional. True = Banner and Interstitial will autoload. Default is true.
             consentView = false, -- Optional. True = send consent view events. iOS only. Default is false.
-            attStatus = "authorized" -- Optional. Sending "authorized" will net Facebook know that tracking is enabled. Otherwise it will set it to not enabled.
+            attStatus = "authorized", -- Optional. Sending "authorized" will let Facebook know that tracking is enabled. Otherwise it will set it to not enabled.
+            showConsentDialog = true, -- Optional. Enables consent dialog.
+            iAmInEurope = true, -- Optional. Tests the consent dialog by placing the user in the EU.
+            deviceTestId = "DABA74EACEC5434B8BFB152A3504B10A" -- Optional. REQUIRED if iAmInEurope is set to true.
+
         } -- Table with options.
     )
 ```
@@ -82,9 +90,19 @@ ironsource.init(
 
 8. Load.
 ```
-   ironsource.load( "<adType>" ) -- Ad type. Valid values are: "interstitial", "banner", "consentView"ß.
+   ironsource.load( "<adType>", -- Ad type. Valid values are: "interstitial", "banner". 
+        "<network>" -- Optional. Only one supported is "aps". Amazon ads have to be loaded intentionally.
+    ) 
    -- Ironsource autoloads rewarded ads and the offerwall.
+```   
+Load all ads network except Amazon:   
 ```
+ironsource.load( "interstitial" )
+```   
+Load Amazon ad:   
+```
+ironsource.load( "interstitial", "aps")
+```   
 
 9. Set custom properties.   
 ```
@@ -93,18 +111,8 @@ ironsource.setCustomProperty(
     "<keyValue>"
 )
 ```  
-10. If using:   
-AdColony add these schemes (iOS only):   
-```
-    LSApplicationQueriesSchemes = 
-    {   
-            "fb",
-            "instagram",
-            "tumblr",
-            "twitter"
-    }
-```     
-11. Logs example:
+
+10. Logs example:
 
 loaded ("interstitial", "banner")
 ```
@@ -340,29 +348,25 @@ SKAdNetworkItems = {
 ```
 
 Current versions for android:  
---------------- AdColony       
-Adapter 4.3.14   
-SDK Version - 4.8.0 
-
 --------------- AppLovin     
-Adapter 4.3.38         
+Adapter 4.3.39         
 SDK Version - 11.10.0      
 
 --------------- APS Network       
-Adapter 4.3.8   
-SDK Version - Latest    
+Adapter 4.3.9   
+SDK Version - 9.8.+    
 
 --------------- Chartboost    
-Adapter 4.3.11      
-SDK Version - 9.2.0     
+Adapter 4.3.12      
+SDK Version - 9.3.1     
 
 --------------- Facebook   
-Adapter 4.3.41      
+Adapter 4.3.43     
 SDK Version - 6.14.0    
 
 --------------- Google (AdMob and Ad Manager)   
-Adapter 4.3.37      
-SDK Version - 22.1.0    
+Adapter 4.3.39     
+SDK Version - 22.2.0    
 
 --------------- IronSource   
 Adapter 7.3.0.1   
@@ -372,8 +376,12 @@ Adapter 4.3.20
 SDK Version - 6.12.1   
 
 --------------- Tapjoy       
-Adapter 4.1.24      
-SDK Version - 12.11.1      
+Adapter 4.1.25      
+SDK Version - 13.0.1      
+
+--------------- Unity       
+Adapter 4.3.31      
+SDK Version - 4.6.1      
 
 
 Current versions for Amazon   
