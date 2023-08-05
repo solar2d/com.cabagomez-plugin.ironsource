@@ -350,7 +350,7 @@ SKAdNetworkItems = {
 Current versions for android:  
 --------------- AppLovin     
 Adapter 4.3.39         
-SDK Version - 11.10.0      
+SDK Version - 11.10.1      
 
 --------------- APS Network       
 Adapter 4.3.9   
@@ -361,18 +361,18 @@ Adapter 4.3.12
 SDK Version - 9.3.1     
 
 --------------- Facebook   
-Adapter 4.3.43     
-SDK Version - 6.14.0    
+Adapter 4.3.44       
+SDK Version - 6.15.0    
 
 --------------- Google (AdMob and Ad Manager)   
 Adapter 4.3.39     
 SDK Version - 22.2.0    
 
 --------------- IronSource   
-Adapter 7.3.0.1   
+Adapter 7.4.0   
 
 --------------- Vungle       
-Adapter 4.3.20     
+Adapter 4.3.21     
 SDK Version - 6.12.1   
 
 --------------- Tapjoy       
