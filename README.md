@@ -385,32 +385,32 @@ SDK Version - 4.6.1
 
 
 Current versions for Amazon   
---------------- AdColony       
-Adapter 4.3.14   
-SDK Version - 4.8.0 
-
 --------------- APS Network       
-Adapter 4.3.14   
-SDK Version - 4.8.0    
+Adapter 4.3.9   
+SDK Version - 9.8.+    
 
---------------- Chartboost         
-Adapter 4.3.8    
-SDK Version - 8.3.1   
+--------------- Chartboost    
+Adapter 4.3.12      
+SDK Version - 9.3.1     
 
---------------- Google (AdMob and Ad Manager)        
-Adapter 4.3.36    
-SDK Version - 21.5.0   
+--------------- Facebook   
+Adapter 4.3.44       
+SDK Version - 6.15.0    
 
---------------- IronSource        
-Adapter 7.3.0.1       
+--------------- Google (AdMob and Ad Manager)   
+Adapter 4.3.39     
+SDK Version - 22.2.0    
 
---------------- Tapjoy         
-Adapter 4.1.24    
-SDK Version - 12.11.1    
+--------------- IronSource   
+Adapter 7.4.0   
 
---------------- Vungle        
-Adapter 4.3.20   
-SDK Version - 6.12.1  
+--------------- Vungle       
+Adapter 4.3.21     
+SDK Version - 6.12.1   
+
+--------------- Tapjoy       
+Adapter 4.1.25      
+SDK Version - 13.0.1      
 
 Current version for iOS    
 Adcolony     
