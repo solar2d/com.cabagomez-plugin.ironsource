@@ -14,14 +14,14 @@ local metadata =
 			"plugin_ironsource"
 		},
 		frameworks = { 
-			'Ironsource', 
-			--AdColony
-			'AdColony',
-			'ISAdColonyAdapter',
+			'Ironsource',
 			-- Admob
 			'GoogleMobileAds',
 			'UserMessagingPlatform',
 			'ISAdMobAdapter',
+			-- APS
+			'DTBiOSSDK',
+			'ISAPSAdapter',
 			-- Applovin
 			'AppLovinSDK',
 			'ISAppLovinAdapter',

@@ -6,6 +6,6 @@ framework module VungleAdsSDK {
 }
 
 module VungleAdsSDK.Swift {
-    header "VungleAdsSDK-Swift.h"
-    requires objc
+  header "VungleAdsSDK-Swift.h"
+  requires objc
 }

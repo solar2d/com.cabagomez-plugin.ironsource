@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <Tapjoy/TJEntryPoint.h>
 
 #define TJC_DEPRECATION_WARNING(VERSION) __attribute__((deprecated("Go to dev.tapjoy.com for instructions on how to fix this warning")))
 
@@ -140,30 +141,35 @@ didRequestPurchase:(nullable TJActionRequest *)request
 @end
 
 /**
+ * Deprecated since 13.2.0
  * Delegate used to receive video events from TJPlacement
  */
+TJC_DEPRECATION_WARNING(13.2.0)
 @protocol TJPlacementVideoDelegate <NSObject>
 
 @optional
 
 /**
+ * Deprecated since 13.2.0
  * Called when a placement video starts playing.
  *
  */
-- (void)videoDidStart:(TJPlacement *)placement;
+- (void)videoDidStart:(TJPlacement *)placement TJC_DEPRECATION_WARNING(13.2.0);
 
 /**
+ * Deprecated since 13.2.0
  * Called when a placement video has completed playing.
  *
  */
-- (void)videoDidComplete:(TJPlacement *)placement;
+- (void)videoDidComplete:(TJPlacement *)placement TJC_DEPRECATION_WARNING(13.2.0);
 
 /**
+ * Deprecated since 13.2.0
  * Called when a placement video related error occurs.
  *
  * @param errorMsg Error message.
  */
-- (void)videoDidFail:(TJPlacement *)placement error:(nullable NSString *)errorMsg;
+- (void)videoDidFail:(TJPlacement *)placement error:(nullable NSString *)errorMsg TJC_DEPRECATION_WARNING(13.2.0);
 @end
 
 /**
@@ -190,8 +196,11 @@ didRequestPurchase:(nullable TJActionRequest *)request
 /** The TJPlacementDelegate used to handle responses that are received upon sending this placement*/
 @property (nullable, nonatomic, weak) id<TJPlacementDelegate> delegate;
 
-/** The delegate that implements the TJPlacementVideoDelegate protocol */
-@property (nullable, nonatomic, weak) id<TJPlacementVideoDelegate> videoDelegate;
+/**
+ * Deprecated since 13.2.0
+ * The delegate that implements the TJPlacementVideoDelegate protocol
+ */
+@property (nullable, nonatomic, weak) id<TJPlacementVideoDelegate> videoDelegate TJC_DEPRECATION_WARNING(13.2.0);
 
 /** The name of the placement */
 @property (nonatomic, copy) NSString *placementName;
@@ -210,6 +219,8 @@ didRequestPurchase:(nullable TJActionRequest *)request
 
 @property (readonly, nonatomic) NSString *beaconId;
 
+/** The point where Offerwall content is being presented. */
+@property (nonatomic, assign) TJEntryPoint entryPoint;
 
 /**
  * Creates a new instance of TJPlacement
@@ -234,26 +245,80 @@ didRequestPurchase:(nullable TJActionRequest *)request
  */
 + (void)dismissContent;
 
-/** Mediation params(used by mediation adapters only) */
-@property (nullable, nonatomic, copy) NSString *mediationAgent;
-@property (nullable, nonatomic, copy) NSString *mediationId;
+/**
+ * Deprecated since 13.2.0
+ * Mediation params(used by mediation adapters only)
+ *
+ */
+@property (nullable, nonatomic, copy) NSString *mediationAgent TJC_DEPRECATION_WARNING(13.2.0);
+@property (nullable, nonatomic, copy) NSString *mediationId TJC_DEPRECATION_WARNING(13.2.0);
 
 + (nullable instancetype)placementWithName:(NSString *)placementName
                    mediationAgent:(nullable NSString *)mediationAgent
                       mediationId:(nullable NSString *)mediationId
-                         delegate:(nullable id<TJPlacementDelegate>)delegate;
+                         delegate:(nullable id<TJPlacementDelegate>)delegate TJC_DEPRECATION_WARNING(13.2.0);
 
-@property (nullable, nonatomic, copy) NSString *adapterVersion;
+@property (nullable, nonatomic, copy) NSString *adapterVersion TJC_DEPRECATION_WARNING(13.2.0);
 
-/** Programmatic mediation */
-@property (nullable, nonatomic, copy) NSDictionary *auctionData;
+/**
+ * Deprecated since 13.2.0
+ * Programmatic mediation
+ */
+@property (nullable, nonatomic, copy) NSDictionary *auctionData TJC_DEPRECATION_WARNING(13.2.0);
 
-/** Used by limited SDK request Only **/
-@property (nonatomic, assign) BOOL isLimited;
+/**
+ * Deprecated since 13.2.0
+ * Used by limited SDK request Only
+ */
+@property (nonatomic, assign) BOOL isLimited TJC_DEPRECATION_WARNING(13.2.0);
 
+/**
+ * Deprecated since 13.2.0
+ */
 + (nullable instancetype)limitedPlacementWithName:(NSString *)placementName
                           mediationAgent:(nullable NSString *)mediationAgent
-                                delegate:(nullable id<TJPlacementDelegate>)delegate;
+                                delegate:(nullable id<TJPlacementDelegate>)delegate TJC_DEPRECATION_WARNING(13.2.0);
+@end
+
+@interface TJPlacement (Currency)
+
+/**
+ * Sets the currency balance. Only the balance of self-managed currencies can be set in this way.
+ *
+ * @param balance the amount of the currency.  Must be greater than or equal to 0.
+ * @param currencyId the ID of the currency.
+ * @param completion block notifies that the currency balance has been set locally. Error parameter is nil if successful.
+ */
+- (void)setBalance:(NSInteger)balance
+     forCurrencyId:(NSString *)currencyId
+    withCompletion:(void (^ _Nullable)(NSError * _Nullable error))completion;
+
+/**
+ * Gets the currency balance.
+ *
+ * @param currencyId the ID of the currency. If set to nil, will return the balance of Tapjoy-manaet currency.
+ * @return the amount of the currency balance, -1 if not available.
+ */
+- (NSInteger)getBalanceForCurrencyId:(nullable NSString *)currencyId;
+
+/**
+ * Sets the currency amount required
+ *
+ * @param requiredAmount The amount of currency the user needs. Must be greater than 0.
+ * @param currencyId the ID of the currency.
+ * @param completion block notifies that required amount of currency has been set locally. Error parameter is nil if successful.
+ */
+- (void)setRequiredAmount:(NSInteger)requiredAmount
+                    forCurrencyId:(NSString *)currencyId
+                   withCompletion:(void (^ _Nullable)(NSError * _Nullable error))completion;
+
+/**
+ * Gets the currency amount required.
+ *
+ * @param currencyId the ID of the currency.
+ * @return The amount of currency the user needs. -1 if not available.
+ */
+- (NSInteger)getRequiredAmountForCurrencyId:(NSString *)currencyId;
 @end
 
 

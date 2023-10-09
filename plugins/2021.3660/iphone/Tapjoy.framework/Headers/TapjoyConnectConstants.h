@@ -5,14 +5,13 @@
 // By using the Tapjoy SDK in your software, you agree to the terms of the Tapjoy SDK License Agreement.
 //
 // The Tapjoy SDK is bound by the Tapjoy SDK License Agreement and can be found here: https://www.tapjoy.com/sdk/license
-
+#define TJC_DEPRECATION_WARNING(VERSION) __attribute__((deprecated("Go to dev.tapjoy.com for instructions on how to fix this warning")))
 
 #define TJC_CONNECT_SUCCESS					@"TJC_Connect_Success"
 #define TJC_CONNECT_FAILED					@"TJC_Connect_Failed"
 
-#define TJC_LIMITED_CONNECT_SUCCESS                    @"TJC_Limited_Connect_Success"
-#define TJC_LIMITED_CONNECT_FAILED                    @"TJC_Limited_Connect_Failed"
-
+extern NSString *const TJC_LIMITED_CONNECT_SUCCESS TJC_DEPRECATION_WARNING(13.2.0);
+extern NSString *const TJC_LIMITED_CONNECT_FAILED TJC_DEPRECATION_WARNING(13.2.0);
 
 // This notification is fired after getCurrencyBalance has been called, and indicates that user currency amount has been received from the server.
 #define TJC_GET_CURRENCY_RESPONSE_NOTIFICATION				@"TJC_GET_CURRENCY_RESPONSE_NOTIFICATION"
@@ -51,3 +50,6 @@
 #define TJC_OPTION_DISABLE_GENERIC_ERROR_ALERT  @"TJC_OPTION_DISABLE_GENERIC_ERROR_ALERT"
 #define TJC_OPTION_PLACEMENT_TIMEOUT            @"TJC_OPTION_PLACEMENT_TIMEOUT"
 #define TJC_OPTION_DISABLE_VENDOR_ID            @"TJC_OPTION_DISABLE_VENDOR_ID"
+
+// Connect user info keys
+#define TJC_CONNECT_USER_INFO_ERROR             @"error"

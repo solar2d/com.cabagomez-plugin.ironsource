@@ -1,0 +1,6 @@
+framework module ISAPSAdapter {
+  umbrella header "ISAPSAdapter.h"
+
+  export *
+  module * { export * }
+}

@@ -1,16 +1,19 @@
+#import <Foundation/Foundation.h>
+#define TJC_DEPRECATION_WARNING(VERSION) __attribute__((deprecated("Go to dev.tapjoy.com for instructions on how to fix this warning")))
+
 // Auction constants
 // Price of winning auction bid
-#define TJ_AUCTION_CLEARING_PRICE @"clearing_price"
+extern NSString *const TJ_AUCTION_CLEARING_PRICE TJC_DEPRECATION_WARNING(13.2.0);
 
 // Auction data
-#define TJ_AUCTION_DATA @"ext_data"
+extern NSString *const TJ_AUCTION_DATA TJC_DEPRECATION_WARNING(13.2.0);
 
 // Type of auction
-#define TJ_AUCTION_TYPE @"type"
+extern NSString *const TJ_AUCTION_TYPE TJC_DEPRECATION_WARNING(13.2.0);
 
 // Auction id
-#define TJ_AUCTION_ID @"id"
+extern NSString *const TJ_AUCTION_ID TJC_DEPRECATION_WARNING(13.2.0);
 
 // Auction type values
-#define TJ_AUCTION_TYPE_FIRST_PRICE @1
-#define TJ_AUCTION_TYPE_SECOND_PRICE @2
+extern const NSInteger TJ_AUCTION_TYPE_FIRST_PRICE TJC_DEPRECATION_WARNING(13.2.0);
+extern const NSInteger TJ_AUCTION_TYPE_SECOND_PRICE TJC_DEPRECATION_WARNING(13.2.0);

@@ -18,6 +18,8 @@
 #import <Tapjoy/TJPrivacyPolicy.h>
 #import <Tapjoy/TJOfferwallDiscoverView.h>
 #import <Tapjoy/TapjoyPluginAPI.h>
+#import <Tapjoy/TJSegment.h>
+#import <Tapjoy/TJEntryPoint.h>
 
 
 #define TJC_DEPRECATION_WARNING(VERSION) __attribute__((deprecated("Go to dev.tapjoy.com for instructions on how to fix this warning")))
@@ -53,7 +55,7 @@ typedef void (^networkCompletion)(BOOL success, NSError * _Nullable error);
 
 
 @property (nullable, nonatomic, copy) NSString *appGroupID;
-@property (nullable, nonatomic, copy) NSString *store;
+@property (nullable, nonatomic, copy) NSString *store TJC_DEPRECATION_WARNING(13.2.0);
 @property (nullable, nonatomic, copy) NSString *analyticsApiKey;
 @property (nullable, nonatomic, copy) NSString *managedDeviceID;
 @property (nullable, nonatomic, copy) NSDictionary *userTokenConfig;
@@ -111,10 +113,11 @@ typedef void (^networkCompletion)(BOOL success, NSError * _Nullable error);
 + (nullable NSString *)getSupportURL:(nullable NSString *)currencyID;
 
 /**
+ * Deprecated since 13.2.0
  * This method returns a user token for programmatic mediation.
  *
  */
-+ (nullable NSString *)getUserToken;
++ (nullable NSString *)getUserToken TJC_DEPRECATION_WARNING(13.2.0);
 
 /**
  *
@@ -135,19 +138,28 @@ typedef void (^networkCompletion)(BOOL success, NSError * _Nullable error);
 + (void)endSession;
 
 /**
+ * Returns the TJPrivacyPolicy instance for calling methods to set GDPR, User's consent, below consent age ,and US Privacy policy flags
+ *
+ * @return The globally accessible TJPrivacyPolicy singleton object.
+ */
++ (TJPrivacyPolicy *)getPrivacyPolicy;
+
+/**
+ * Deprecated since 13.2.0
  * This method is called to set RemoteNotificationUserInfo.
  * Call this method in application:didReceiveRemoteNotification:
  *
  * @param userInfo the same parameter that passed on application:didReceiveRemoteNotification:
  */
-+ (void)setReceiveRemoteNotification:(nullable NSDictionary *)userInfo;
++ (void)setReceiveRemoteNotification:(nullable NSDictionary *)userInfo TJC_DEPRECATION_WARNING(13.2.0);
 
-/** 
+/**
+ * Deprecated since 13.2.0
  * This method is called to send APN device token to Tapjoy server.
  * 
  * @param deviceToken the same parameter that passed on application:didRegisterForRemoteNotificationsWithDeviceToken:
  */
-+ (void)setDeviceToken:(nullable NSData *)deviceToken;
++ (void)setDeviceToken:(nullable NSData *)deviceToken TJC_DEPRECATION_WARNING(13.2.0);
 
 /**
  * Sets the default UIViewController to show a content of the placement having no specific view controller given.
@@ -165,19 +177,36 @@ typedef void (^networkCompletion)(BOOL success, NSError * _Nullable error);
 + (void)setUserLevel:(int)userLevel;
 
 /**
+ * This method sets the maximum level.
+ *
+ * @param maxLevel
+ *        the maximum possible level.
+ */
++ (void)setMaxLevel:(int)maxLevel;
+
+/**
+ *This method retrieves the maximum possible level
+ *
+ *@return maxLevel
+ */
++ (NSNumber *)getMaxLevel;
+
+/**
+ * Deprecated since 13.2.0
  * This method is callled to sets the friends count of the user.
  *
  * @param friendCount the number of friends
  */
-+ (void)setUserFriendCount:(int)friendCount;
++ (void)setUserFriendCount:(int)friendCount TJC_DEPRECATION_WARNING(13.2.0);
 
 /**
+ * Deprecated since 13.2.0
  * This method is called to set a variable of the cohort.
  *
  * @param index the index of the cohort to set (1,2,3,4,5)
  * @param value the value of the property to set
  */
-+ (void)setUserCohortVariable:(int)index value:(nullable NSString *)value;
++ (void)setUserCohortVariable:(int)index value:(nullable NSString *)value TJC_DEPRECATION_WARNING(13.2.0);
 
 /**
  * Returns a string set which contains tags on the user.
@@ -225,6 +254,7 @@ typedef void (^networkCompletion)(BOOL success, NSError * _Nullable error);
 + (void)trackPurchase:(nullable NSString *)productIdentifier currencyCode:(nullable NSString *)currencyCode price:(double)price campaignId:(nullable NSString *)campaignId transactionId:(nullable NSString *)transactionId;
 
 /**
+ * Deprecated since 13.2.0
  * This method is called to track an event of the given name with category, parameter1, parameter2 and values.
  *
  * @param name the name of event
@@ -235,9 +265,10 @@ typedef void (^networkCompletion)(BOOL success, NSError * _Nullable error);
 + (void)trackEvent:(NSString *)name
           category:(nullable NSString *)category
         parameter1:(nullable NSString *)parameter1
-        parameter2:(nullable NSString *)parameter2;
+        parameter2:(nullable NSString *)parameter2 TJC_DEPRECATION_WARNING(13.2.0);
 
 /**
+ * Deprecated since 13.2.0
  * This method is called to track an event of the given name with category, parameter1, parameter2 and values.
  *
  * @param name the name of event
@@ -250,9 +281,10 @@ typedef void (^networkCompletion)(BOOL success, NSError * _Nullable error);
           category:(nullable NSString *)category
         parameter1:(nullable NSString *)parameter1
         parameter2:(nullable NSString *)parameter2
-             value:(int64_t)value;
+             value:(int64_t)value TJC_DEPRECATION_WARNING(13.2.0);
 
 /**
+ * Deprecated since 13.2.0
  * This method is called to track an event of the given name with category, parameter1, parameter2 and values.
  *
  * @param name the name of event
@@ -267,9 +299,10 @@ typedef void (^networkCompletion)(BOOL success, NSError * _Nullable error);
         parameter1:(nullable NSString *)parameter1
         parameter2:(nullable NSString *)parameter2
         value1name:(nullable NSString *)value1name
-            value1:(int64_t)value1;
+            value1:(int64_t)value1 TJC_DEPRECATION_WARNING(13.2.0);
 
 /**
+ * Deprecated since 13.2.0
  * This method is called to track an event of the given name with category, parameter1, parameter2 and values.
  *
  * @param name the name of event
@@ -288,9 +321,10 @@ typedef void (^networkCompletion)(BOOL success, NSError * _Nullable error);
         value1name:(nullable NSString *)value1name
             value1:(int64_t)value1
         value2name:(nullable NSString *)value2name
-            value2:(int64_t)value2;
+            value2:(int64_t)value2 TJC_DEPRECATION_WARNING(13.2.0);
 
 /**
+ * Deprecated since 13.2.0
  * This method is called to track an event of the given name with category, parameter1, parameter2 and values.
  *
  * @param name the name of event
@@ -313,9 +347,10 @@ typedef void (^networkCompletion)(BOOL success, NSError * _Nullable error);
         value2name:(nullable NSString *)value2name
             value2:(int64_t)value2
         value3name:(nullable NSString *)value3name
-            value3:(int64_t)value3;
+            value3:(int64_t)value3 TJC_DEPRECATION_WARNING(13.2.0);
 
 /**
+ * Deprecated since 13.2.0
  * This method is called to track an event of the given name with category, parameter1, parameter2 and values.
  *
  * @param name the name of event
@@ -328,7 +363,7 @@ typedef void (^networkCompletion)(BOOL success, NSError * _Nullable error);
           category:(nullable NSString *)category
         parameter1:(nullable NSString *)parameter1
         parameter2:(nullable NSString *)parameter2
-            values:(nullable NSDictionary *)values;
+            values:(nullable NSDictionary *)values TJC_DEPRECATION_WARNING(13.2.0);
 
 
 /**
@@ -392,48 +427,77 @@ typedef void (^networkCompletion)(BOOL success, NSError * _Nullable error);
  * @return The Tapjoy SDK version.
  */
 + (NSString *)getVersion;
+/**
+ * Sets the segment of the user
+ *
+ * @param userSegment TJSegment enum 0 (non-payer), 1 (payer), 2 (VIP), -1 (unknown)
+ */
++ (void)setUserSegment:(TJSegment)userSegment;
 
-/** Used by limited SDK only **/
-@property (nullable, nonatomic, copy) NSString *limitedSdkKey;
-@property (nullable, nonatomic, copy) NSString *limitedAppID;
-@property (nullable, nonatomic, copy) NSString *limitedSecretKey;
-@property (nullable, nonatomic, copy) NSString *limitedAppGroupID;
-+ (BOOL)isLimitedConnected;
-+ (void)limitedConnect:(NSString *)sdkKey;
+/**
+ * Gets the segment of the user
+ *
+ * @return TJSegment enum 0 (non-payer), 1 (payer), 2 (VIP), -1 (unknown).
+ */
++ (TJSegment)getUserSegment;
+
+/**
+ * Deprecated since 13.2.0
+ * Used by limited SDK only
+ */
+@property (nullable, nonatomic, copy) NSString *limitedSdkKey TJC_DEPRECATION_WARNING(13.2.0);
+@property (nullable, nonatomic, copy) NSString *limitedAppID TJC_DEPRECATION_WARNING(13.2.0);
+@property (nullable, nonatomic, copy) NSString *limitedSecretKey TJC_DEPRECATION_WARNING(13.2.0);
+@property (nullable, nonatomic, copy) NSString *limitedAppGroupID TJC_DEPRECATION_WARNING(13.2.0);
+/**
+ * Deprecated since 13.2.0
+ */
++ (BOOL)isLimitedConnected TJC_DEPRECATION_WARNING(13.2.0);
+/**
+ * Deprecated since 13.2.0
+ */
++ (void)limitedConnect:(NSString *)sdkKey TJC_DEPRECATION_WARNING(13.2.0);
 
 @end
 
 /**
+ * Deprecated since 13.2.0
  * The Tapjoy Video Ad Delegate Protocol.
+ * 
  */
+TJC_DEPRECATION_WARNING(13.2.0)
 @protocol TJCVideoAdDelegate <NSObject>
 
 @optional
 
 /**
+ * Deprecated since 13.2.0
  * Called when a video starts playing.
  *
  */
-- (void)videoAdBegan;
+- (void)videoAdBegan TJC_DEPRECATION_WARNING(13.2.0);
 
 /**
+ * Deprecated since 13.2.0
  * Called when a video ad is closed.
  *
  */
-- (void)videoAdClosed;
+- (void)videoAdClosed TJC_DEPRECATION_WARNING(13.2.0);
 
 /**
+ * Deprecated since 13.2.0
  * Called when a video has completed playing.
  *
  */
-- (void)videoAdCompleted;
+- (void)videoAdCompleted TJC_DEPRECATION_WARNING(13.2.0);
 
 /**
+ * Deprecated since 13.2.0
  * Called when a video related error occurs.
  *
  * @param errorMsg Error message.
  */
-- (void)videoAdError:(nullable NSString *)errorMsg;
+- (void)videoAdError:(nullable NSString *)errorMsg TJC_DEPRECATION_WARNING(13.2.0);
 
 @end
 
@@ -489,25 +553,18 @@ typedef void (^networkCompletion)(BOOL success, NSError * _Nullable error);
  *
  */
 + (void)showDefaultEarnedCurrencyAlert;
-
-/**
- * Returns the TJPrivacyPolicy instance for calling methods to set GDPR, User's consent, below consent age ,and US Privacy policy flags
- * 
- * @return The globally accessible TJPrivacyPolicy singleton object.
- */
-+(TJPrivacyPolicy *)getPrivacyPolicy;
-
 @end
 
 
 @interface Tapjoy (TJCVideoManager)
 
 /**
+ * Deprecated since 13.2.0
  * Sets the class that implements the TJCVideoAdDelegate protocol.
  *
  * @param delegate The class that implements the TJCVideoAdDelegate protocol.
  */
-+ (void)setVideoAdDelegate:(nullable id<TJCVideoAdDelegate>)delegate;
++ (void)setVideoAdDelegate:(nullable id<TJCVideoAdDelegate>)delegate TJC_DEPRECATION_WARNING(13.2.0);
 
 @end
 

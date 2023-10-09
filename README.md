@@ -412,21 +412,21 @@ SDK Version - 6.12.1
 Adapter 4.1.25      
 SDK Version - 13.0.1      
 
-Current version for iOS    
-Adcolony     
-     SDK - Version 4.9.0.0    
-     Adapter - Version 4.3.16   
-
+Current version for iOS       
 AppLovin     
-     SDK - Version 11.10.1     
+     SDK - Version 11.11.3    
      Adapter - Version 4.3.40   
 
 Chartboost    
      SDK - Version 9.2.0     
      Adapter - Version 4.3.14     
 
+APS    
+     SDK - Version 4.6.0     
+     Adapter - Version 4.3.14     
+
 Google (AdMob and Ad Manager)     
-     SDK - Version afma-sdk-i-v9.13.0     
+     SDK - Version afma-sdk-i-v10.12.0     
      Adapter - Version 4.3.43     
 
 IronSource     
@@ -435,10 +435,10 @@ IronSource
 
 Meta     
      SDK - Version 6.12.0     
-     Adapter - Version 4.3.3839     
+     Adapter - Version 4.3.39     
    
 Tapjoy     
-     SDK - Version 13.0.0     
+     SDK - Version 13.2.0     
      Adapter - Version 4.1.25     
 
 UnityAds     
@@ -446,7 +446,7 @@ UnityAds
      Adapter - Version 4.3.30     
 
 Vungle     
-     SDK - Version 7.0.0    
+     SDK - Version 7.1.0    
      Adapter - Version 4.3.27 
 
 

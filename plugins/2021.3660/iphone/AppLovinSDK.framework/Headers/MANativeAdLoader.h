@@ -6,6 +6,7 @@
 //
 
 #import <AppLovinSDK/MAAdRevenueDelegate.h>
+#import <AppLovinSDK/MAAdReviewDelegate.h>
 #import <AppLovinSDK/MANativeAdDelegate.h>
 
 @class ALSdk;
@@ -46,6 +47,11 @@ NS_ASSUME_NONNULL_BEGIN
  * A delegate that will be notified about ad revenue events.
  */
 @property (nonatomic, weak, nullable) id<MAAdRevenueDelegate> revenueDelegate;
+
+/**
+ * A delegate that will be notified about Ad Review events.
+ */
+@property (nonatomic, weak, nullable) id<MAAdReviewDelegate> adReviewDelegate;
 
 /**
  * Load a new MAX native ad. Set @code -[MANativeAdLoader nativeAdDelegate] @endcode to assign a delegate that should be notified about ad load state.

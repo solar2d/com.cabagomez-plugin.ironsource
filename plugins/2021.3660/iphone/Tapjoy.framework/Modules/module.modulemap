@@ -1,9 +1,11 @@
 framework module Tapjoy {
-    umbrella header "Tapjoy.h"
+    module iOS {
+        umbrella header "Tapjoy.h"
+    }
 
-    export *
-    module * {
-        export *
+    module Cpp {
+        requires iOS
+        header "TapjoyCpp.h"
+        header "TapjoyConnectFlag.h"
     }
 }
-

@@ -17,6 +17,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MACollectionViewAdPlacer : MACustomAdPlacer
 
 /**
+ * Whether or not unfilled ad positions should be collapsed to appear hidden. Defaults to @c YES.
+ *
+ * The default behavior works best for collection views that have a single content item per row/column. If the collection view has multiple items per row/column, disabling this feature may prevent items from unexpected re-positioning, depending on configured content size and ad positions.
+ */
+@property (nonatomic, assign, getter=shouldCollapseEmptyAds) BOOL collapseEmptyAds;
+
+/**
  * Initializes an ad placer for use with the provided collection view.
  *
  * @param collectionView A collection view to place ads in.

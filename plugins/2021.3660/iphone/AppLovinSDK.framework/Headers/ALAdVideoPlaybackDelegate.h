@@ -10,9 +10,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- * This protocol defines a listener for ad video playback events. Ads that do not contain videos will not trigger these callbacks.
- */
 @protocol ALAdVideoPlaybackDelegate <NSObject>
 
 /**

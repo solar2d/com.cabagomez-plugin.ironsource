@@ -30,40 +30,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, copy, readonly, nullable) NSString *zoneIdentifier;
 
-/**
- * Whether or not the current ad is a video advertisement.
- */
-@property (nonatomic, assign, readonly, getter=isVideoAd) BOOL videoAd;
-
-/**
- * Gets the ad value for a given key.
- *
- * @param key The key for which you want to retrieve the ad value.
- *
- * @return The arbitrary ad value corresponding to @c key, or @c nil if no such value exists for @c key.
- */
-- (nullable NSString *)adValueForKey:(NSString *)key;
-
-/**
- * Gets the ad value for a given key, or a default value if no such value exists.
- *
- * @param key          The key for which you want to retrieve the ad value.
- * @param defaultValue The default value to return if the value of @c key does not exist or is @c nil.
- *
- * @return The arbitrary ad value corresponding to @c key, or the value of @c defaultValue if no such value exists for @c key.
- */
-- (nullable NSString *)adValueForKey:(NSString *)key defaultValue:(nullable NSString *)defaultValue;
-
-/**
- * A unique ID that identifies this advertisement.
- *
- * If you need to report a broken ad to AppLovin support, please include this number’s @c longValue.
- */
-@property (nonatomic, strong, readonly) NSNumber *adIdNumber;
-
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
 
+@end
+
+@interface ALAd (ALDeprecated)
+@property (nonatomic, strong, readonly) NSNumber *adIdNumber __deprecated_msg("This API has been deprecated and will be removed in a future release.");
+@property (nonatomic, assign, readonly, getter=isVideoAd) BOOL videoAd __deprecated_msg("This API has been deprecated and will be removed in a future release.");
+- (nullable NSString *)adValueForKey:(NSString *)key __deprecated_msg("This API has been deprecated and will be removed in a future release.");
+- (nullable NSString *)adValueForKey:(NSString *)key defaultValue:(nullable NSString *)defaultValue __deprecated_msg("This API has been deprecated and will be removed in a future release.");
 @end
 
 NS_ASSUME_NONNULL_END
