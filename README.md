@@ -3,7 +3,7 @@ Solar2d Ironsource Plugin.
 
 -- The iOS version now only supports ARM64. This means that it only supports iOS 11 and after. The frameworks for the networks have been bitcode and anything other than arm64 stripped.
 
--- User messaging platform (UMP) for consent is now integrated into the plugin (Android Only)
+-- User messaging platform (UMP) for consent is now integrated into the plugin.
 
 -- APS instructions have been updated.
 
