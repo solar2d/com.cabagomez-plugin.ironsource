@@ -2,14 +2,15 @@
 //  LevelPlayRewardedVideoDelegate.h
 //  IronSource
 //
-//  Created by Hadar Pur on 31/05/2022.
 //  Copyright © 2022 IronSource. All rights reserved.
 //
+#import "ISAdInfo.h"
+#import "LevelPlayRewardedVideoBaseDelegate.h"
 
 #ifndef LevelPlayRewardedVideoDelegate_h
 #define LevelPlayRewardedVideoDelegate_h
 
-#import "ISAdInfo.h"
+
 
 @protocol LevelPlayRewardedVideoDelegate <LevelPlayRewardedVideoBaseDelegate>
 

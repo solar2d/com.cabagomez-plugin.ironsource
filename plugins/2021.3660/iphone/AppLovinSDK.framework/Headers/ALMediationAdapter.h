@@ -66,6 +66,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)log:(NSString *)format, ...;
 
+// Helper methods for Swift, since variadic arguments are not supported/necessary
+- (void)logDebug:(NSString *)message;
+- (void)logInfo:(NSString *)message;
+- (void)logWarn:(NSString *)message;
+- (void)logError:(NSString *)message;
+- (void)logUserError:(NSString *)message;
+
 @end
 
 @interface ALMediationAdapter (ALDeprecated)

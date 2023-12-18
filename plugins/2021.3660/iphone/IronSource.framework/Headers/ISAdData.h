@@ -6,6 +6,8 @@
 //  Copyright © 2021 ironSource. All rights reserved.
 //
 #import <Foundation/Foundation.h>
+#import "ISBannerSize.h"
+#import "ISAdapterConfig.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,6 +22,15 @@ NS_ASSUME_NONNULL_BEGIN
 // The configuration holding userId, banner size, ad unit data from auction response and adapter config
 @property (nonatomic, strong, readonly, nullable) NSDictionary              *adUnitData;
 
++ (instancetype)adDataWithAdapterConfiguration:(ISAdapterConfig *)config
+                                        adUnit:(ISAdUnit *)adUnit
+                                        userId:(NSString *)userId;
+
++ (instancetype)adDataWithAdapterConfiguration:(ISAdapterConfig *)config
+                                        adUnit:(ISAdUnit *)adUnit
+                                        userId:(NSString *)userId
+                                    bannerSize:(ISBannerSize *)bannerSize;
+
 - (instancetype)initWithServerData:(nullable NSString *)serverData
                      configuration:(NSDictionary *)configuration
                         adUnitData:(nullable NSDictionary *)adUnitData;
@@ -31,6 +42,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)getBoolean:(NSString *)key;
 
 - (nullable NSNumber *)getNumber:(NSString *)key;
+
+- (nullable NSDictionary *)getAdUnitData;
 
 @end
 

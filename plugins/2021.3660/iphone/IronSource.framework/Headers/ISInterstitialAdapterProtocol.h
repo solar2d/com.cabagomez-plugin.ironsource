@@ -10,9 +10,10 @@
 #import <UIKit/UIKit.h>
 #import "ISInterstitialAdapterDelegate.h"
 #import "ISBiddingDataDelegate.h"
+#import "ISAdUnitAdapterProtocol.h"
 
 @class ISAdapterConfig;
-@protocol ISInterstitialAdapterProtocol <NSObject>
+@protocol ISInterstitialAdapterProtocol <ISAdUnitAdapterProtocol>
 
 @optional
 
@@ -23,8 +24,6 @@
                                   delegate:(id<ISInterstitialAdapterDelegate>)delegate;
 
 - (BOOL)hasInterstitialWithAdapterConfig:(ISAdapterConfig *)adapterConfig;
-
-
 
 #pragma mark - for non bidders and demand only
 
@@ -53,6 +52,5 @@
                                              adData:(NSDictionary *)adData
                                          serverData:(NSString *)serverData
                                            delegate:(id<ISInterstitialAdapterDelegate>)delegate;
-
 
 @end

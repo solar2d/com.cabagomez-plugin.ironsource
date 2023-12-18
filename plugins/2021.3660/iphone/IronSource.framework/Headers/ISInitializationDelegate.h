@@ -2,7 +2,6 @@
 //  ISInitializationDelegate.h
 //  IronSource
 //
-//  Created by Hadar Pur on 06/01/2022.
 //  Copyright © 2022 IronSource. All rights reserved.
 //
 

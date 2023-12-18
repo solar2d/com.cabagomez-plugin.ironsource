@@ -37,6 +37,7 @@
 @property (strong, nonatomic, readonly) NSDictionary  *rewardedVideoSettings;
 //The banner settings contains the provider configs which may be changed with the banner configuration during the flow, so it's not defined as readonly.
 @property (strong, nonatomic)           NSDictionary  *bannerSettings;
+@property (strong, nonatomic, readonly) NSDictionary  *nativeAdSettings;
 
 @property (strong, nonatomic, readonly) NSString      *providerDefaultInstance; /* Name of Adapter class to load (fallback to reflectionName) */
 @property (strong, nonatomic, readonly) NSString      *customNetwork; /* name of the custom network is exists */
@@ -54,6 +55,12 @@
 - (void)setInterstitialSettings:(NSDictionary *)interstitialSettings;
 - (void)setRewardedVideoSettings:(NSDictionary *)rewardedVideoSettings;
 - (void)setBannerSettings:(NSDictionary *)bannerSettings;
+- (void)setNativeAdSettings:(NSDictionary *)nativeAdSettings;
 - (void)setProviderDefaultInstance:(NSString *)providerDefaultInstance;
+- (void)setIsOneFlow:(BOOL)isOneFlow;
 - (NSString *)customNetworkAdapterNameForAdUnit:(ISAdUnit *)adUnit;
+- (NSDictionary *)adUnitSettings;
+- (NSString *)demandSourceName;
+- (NSNumber *)isOneFlow;
+
 @end

@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "ISRewardedVideoAdapterDelegate.h"
+#import "ISBiddingDataDelegate.h"
+#import "ISAdUnitAdapterProtocol.h"
 
 @class ISAdapterConfig;
-@protocol ISRewardedVideoAdapterProtocol <NSObject>
+@protocol ISRewardedVideoAdapterProtocol <ISAdUnitAdapterProtocol>
 
 @optional
 
@@ -23,7 +25,7 @@
                               adapterConfig:(ISAdapterConfig *)adapterConfig
                                    delegate:(id<ISRewardedVideoAdapterDelegate>)delegate;
 
-#pragma mark - for non bidders
+#pragma mark - shared
 
 - (void)initAndLoadRewardedVideoWithUserId:(NSString *)userId
                              adapterConfig:(ISAdapterConfig *)adapterConfig
@@ -33,6 +35,8 @@
 - (void)initRewardedVideoForCallbacksWithUserId:(NSString *)userId
                                   adapterConfig:(ISAdapterConfig *)adapterConfig
                                        delegate:(id<ISRewardedVideoAdapterDelegate>)delegate;
+
+#pragma mark - for non bidders
 
 - (void)loadRewardedVideoWithAdapterConfig:(ISAdapterConfig *)adapterConfig
                                     adData:(NSDictionary *)adData
@@ -46,10 +50,6 @@
 - (void)collectRewardedVideoBiddingDataWithAdapterConfig:(ISAdapterConfig *)adapterConfig
                                                   adData:(NSDictionary *)adData
                                                 delegate:(id<ISBiddingDataDelegate>)delegate;
-
-- (void)initRewardedVideoForBiddingWithUserId:(NSString *)userId
-                                adapterConfig:(ISAdapterConfig *)adapterConfig
-                                     delegate:(id<ISRewardedVideoAdapterDelegate>)delegate;
 
 - (void)loadRewardedVideoForBiddingWithAdapterConfig:(ISAdapterConfig *)adapterConfig
                                               adData:(NSDictionary *)adData

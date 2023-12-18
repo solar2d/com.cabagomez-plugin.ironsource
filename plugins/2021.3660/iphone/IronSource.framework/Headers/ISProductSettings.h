@@ -14,7 +14,7 @@
 @property (readonly, assign)    NSUInteger      maxNumOfAdaptersToLoadOnStart;
 @property (readonly, assign)    BOOL            advancedLoading;
 @property (readonly, assign)    NSUInteger      adapterTimeOutInSeconds;
-@property (assign)              NSInteger       bannerInterval;
+@property (assign)              NSInteger       bannerIntervalSec;
 @property (assign)              NSInteger       loadRVInterval;
 @property (assign)              NSUInteger      delayLoadFailureNotificationInSeconds;
 @property (readonly,assign)     NSInteger       expiredDurationInMinutes;
@@ -22,6 +22,9 @@
 @property (readonly,assign)     BOOL            isOneFlow;
 @property (readonly,assign)     BOOL            isBiddingDataAsyncEnabled;
 @property (readonly,strong)     NSMeasurement   *biddingDataAsyncTimeout;
+@property (readonly,assign)     BOOL            disableRemoveAllViewsOnReload;
+@property (readonly,assign)     BOOL            threadPerManager;
+@property (readonly,assign)     BOOL            sharedManagersThread;
 
 
 - (instancetype) initWithplacements:(NSArray *)placements
@@ -33,5 +36,9 @@ delayLoadFailureNotificationInSeconds:(NSUInteger)delayLoadFailure
             delayLoadFailureTimeout:(NSInteger)delayLoadFailureTimeout
                           isOneFlow:(BOOL)isOneFlow
           isBiddingDataAsyncEnabled:(BOOL)isBiddingDataAsyncEnabled
-            biddingDataAsyncTimeout:(NSMeasurement *)biddingDataAsyncTimeout;
+            biddingDataAsyncTimeout:(NSMeasurement *)biddingDataAsyncTimeout
+      disableRemoveAllViewsOnReload:(BOOL)disableRemoveAllViewsOnReload
+                   threadPerManager:(BOOL)threadPerManager
+               sharedManagersThread:(BOOL)sharedManagersThread;
+
 @end

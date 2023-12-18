@@ -32,15 +32,20 @@ local metadata =
 			'FBSDKCoreKit_Basics',
 			'FBAudienceNetwork',
 			'ISFacebookAdapter',
-			-- Tapjoy
-			'ISTapjoyAdapter',
-			'Tapjoy',
 			-- Vungle
 			'ISVungleAdapter', 
 			'VungleAdsSDK',
 			-- Unity
 			'UnityAds',
 			'ISUnityAdsAdapter',
+			-- Smaato
+			'ISSmaatoAdapter',
+			'SmaatoSDKBanner',
+			'SmaatoSDKCore',
+			'SmaatoSDKRichMedia',
+			'SmaatoSDKInAppBidding',
+			'SmaatoSDKOpenMeasurement',
+			'OMSDK_Smaato',
 			-- Other libraries
 			"AdSupport",
 			"AudioToolbox",

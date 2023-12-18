@@ -6,6 +6,7 @@
 //
 
 #import <AppLovinSDK/MAAdDelegate.h>
+#import <AppLovinSDK/MAAdExpirationDelegate.h>
 #import <AppLovinSDK/MAAdRequestDelegate.h>
 #import <AppLovinSDK/MAAdRevenueDelegate.h>
 #import <AppLovinSDK/MAAdReviewDelegate.h>
@@ -51,6 +52,11 @@ NS_ASSUME_NONNULL_BEGIN
  * A delegate that will be notified about ad request events.
  */
 @property (nonatomic, weak, nullable) id<MAAdRequestDelegate> requestDelegate;
+
+/**
+ * A delegate that will be notified about ad expiration events.
+ */
+@property (nonatomic, weak, nullable) id<MAAdExpirationDelegate> expirationDelegate;
 
 /**
  * A delegate that will be notified about Ad Review events.

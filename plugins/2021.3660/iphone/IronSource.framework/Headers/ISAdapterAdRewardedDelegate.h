@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol ISAdapterAdRewardedDelegate <ISAdapterAdInteractionDelegate>
 
+// mandatory callbacks
+
 -(void)adRewarded;
 
 @end

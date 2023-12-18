@@ -12,8 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol ISNetworkInitCallbackProtocol <NSObject>
 
+@optional
+
 - (void)onNetworkInitCallbackSuccess;
-- (void)onNetworkInitCallbackFailed:(NSString*)errorMessage;
+- (void)onNetworkInitCallbackFailed:(NSString *)errorMessage;
 
 @end
 

@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol ISNetworkInitializationDelegate<NSObject>
 
+// mandatory callbacks
+
 - (void)onInitDidSucceed;
 
 /// @param errorCode the error code if available, general ones in AdapterErrors

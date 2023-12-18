@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol ISAdapterAdDelegate <NSObject>
 
+// Mandatory callbacks
+
 -(void)adDidLoad;
 
 /// @param errorType the load error type, including NO_FILL
@@ -25,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
                           errorCode:(NSInteger)errorCode
                        errorMessage:(nullable NSString*)errorMessage;
 
+-(void)adDidOpen;
+    
 -(void)adDidClick;
 
 @end

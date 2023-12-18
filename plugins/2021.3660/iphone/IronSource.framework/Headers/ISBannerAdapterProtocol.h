@@ -11,17 +11,16 @@
 #import "ISBannerAdapterDelegate.h"
 #import "ISBannerSize.h"
 #import "ISBiddingDataDelegate.h"
+#import "ISAdUnitAdapterProtocol.h"
 
 @class ISAdapterConfig;
-@protocol ISBannerAdapterProtocol <NSObject>
+@protocol ISBannerAdapterProtocol <ISAdUnitAdapterProtocol>
 
 @optional
 
 #pragma mark - for bidders, non bidders and demand only
 
 - (void)destroyBannerWithAdapterConfig:(ISAdapterConfig *)adapterConfig;
-
-- (void)releaseMemoryWithAdapterConfig:(ISAdapterConfig *)adapterConfig;
 
 #pragma mark - for non bidders
 

@@ -1,0 +1,6 @@
+framework module SmaatoSDKInAppBidding {
+  umbrella header "SmaatoSDKInAppBidding.h"
+
+  export *
+  module * { export * }
+}

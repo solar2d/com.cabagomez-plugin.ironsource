@@ -16,18 +16,27 @@
 #import "ISInterstitialAdapterDelegate.h"
 #import "ISBannerAdapterDelegate.h"
 #import "ISOfferwallAdapterDelegate.h"
+#import "ISNativeAdAdapterDelegate.h"
 
 #import "ISConfigurations.h"
 #import "ISMetaDataUtils.h"
 #import "ISMetaDataConstants.h"
 
 #import "ISError.h"
-#import "Environment/ISConcurrentMutableSet.h"
-#import "Environment/ISConcurrentMutableDictionary.h"
+#import "ISConcurrentMutableSet.h"
+#import "ISConcurrentMutableDictionary.h"
 #import "ISNetworkInitCallbackProtocol.h"
 #import "ISLog.h"
 
-@protocol ISNetworkInitCallbackProtocol;
+#import "ISBaseRewardedVideoAdapter.h"
+#import "ISBaseInterstitialAdapter.h"
+#import "ISBaseBannerAdapter.h"
+#import "ISBaseNativeAdAdapter.h"
+
+#import "ISAdapterNativeAdData.h"
+#import "ISAdapterNativeAdViewBinder.h"
+#import "ISNativeAdViewHolder.h"
+#import "UIView+ISNativeView.h"
 
 @interface ISBaseAdapter ()
 

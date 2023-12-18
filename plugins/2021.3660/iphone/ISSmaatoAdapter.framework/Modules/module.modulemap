@@ -1,0 +1,6 @@
+framework module ISSmaatoAdapter {
+  umbrella header "ISSmaatoAdapter.h"
+
+  export *
+  module * { export * }
+}

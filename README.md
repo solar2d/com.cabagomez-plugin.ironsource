@@ -414,48 +414,39 @@ SDK Version - 13.0.1
 
 Current version for iOS       
 AppLovin     
-     SDK - Version 11.11.3    
+     SDK - Version 12.1.0    
      Adapter - Version 4.3.40   
 
 Chartboost    
-     SDK - Version 9.2.0     
+     SDK - Version 9.6.0    
      Adapter - Version 4.3.14     
 
 APS    
      SDK - Version 4.6.0     
-     Adapter - Version 4.3.14     
+     Adapter - Version 4.3.7    
 
 Google (AdMob and Ad Manager)     
      SDK - Version afma-sdk-i-v10.12.0     
      Adapter - Version 4.3.43     
 
 IronSource     
-     SDK - Version 5.109    
-     Adapter - Version 7.3.0     
+     SDK - Version 7.6.0    
+     Adapter - Version 7.6.0     
 
 Meta     
      SDK - Version 6.12.0     
-     Adapter - Version 4.3.39     
-   
-Tapjoy     
-     SDK - Version 13.2.0     
-     Adapter - Version 4.1.25     
+     Adapter - Version 4.3.39        
+
+Smaato   
+     SDK - Version 22.5.0   
+     Adapter - 4.3.10
 
 UnityAds     
-     SDK - Version 4.7.1    
+     SDK - Version 4.9.2   
      Adapter - Version 4.3.30     
 
 Vungle     
      SDK - Version 7.1.0    
-     Adapter - Version 4.3.27 
+     Adapter - Version 4.3.27  
 
-
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
 

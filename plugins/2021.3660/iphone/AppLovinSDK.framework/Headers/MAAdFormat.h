@@ -104,6 +104,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, assign, readonly, getter=isAdViewAd) BOOL adViewAd;
 
+/**
+ * Whether or not the ad format is a banner or leader.
+ */
+@property (nonatomic, assign, readonly, getter=isBannerOrLeaderAd) BOOL bannerOrLeaderAd;
+
+/**
+ * @return human-readable representation of the format.
+ */
+@property (nonatomic, copy, readonly) NSString *displayName;
+
 - (instancetype)init NS_UNAVAILABLE;
 - (instancetype)new NS_UNAVAILABLE;
 

@@ -18,3 +18,8 @@ framework module AppLovinSDK {
     link framework "UIKit"
     link framework "WebKit"
 }
+
+module AppLovinSDK.Swift {
+  header "AppLovinSDK-Swift.h"
+  requires objc
+}

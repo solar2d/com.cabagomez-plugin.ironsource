@@ -25,6 +25,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, readonly) NSString *bidResponse;
 
 /**
+ * @return if this is a server bid response.
+ */
+@property (nonatomic, assign, readonly, getter=isBidding) BOOL bidding;
+
+/**
  * For header bidding only: server bid expiration time.
  *
  * @return Expiration time for the bidding server response. -1 is default meaning the bid never expires.

@@ -2,7 +2,6 @@
 //  ISConsentViewDelegate.h
 //  IronSource
 //
-//  Created by Hadar Pur on 08/10/2020.
 //  Copyright © 2020 ironSource. All rights reserved.
 //
 

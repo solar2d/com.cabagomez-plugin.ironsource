@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol ISAdapterAdInteractionDelegate<ISAdapterAdDelegate>
 
--(void)adDidOpen;
+// Mandatory callbacks
 
 -(void)adDidClose;
 
@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param errorMessage the error message if available
 -(void)adDidFailToShowWithErrorCode:(NSInteger)errorCode
                        errorMessage:(nullable NSString*)errorMessage;
+
+// Optional callbacks
 
 -(void)adDidShowSucceed;
 

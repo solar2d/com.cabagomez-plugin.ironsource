@@ -14,6 +14,27 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ALSdkConfiguration : NSObject
 
 /**
+ * This enum represents the user's geography used to determine the type of consent flow shown to the user.
+ */
+typedef NS_ENUM(NSInteger, ALConsentFlowUserGeography)
+{
+    /**
+     * User's geography is unknown.
+     */
+    ALConsentFlowUserGeographyUnknown,
+    
+    /**
+     * The user is in GDPR region.
+     */
+    ALConsentFlowUserGeographyGDPR,
+    
+    /**
+     * The user is in a non-GDPR region.
+     */
+    ALConsentFlowUserGeographyOther
+};
+
+/**
  * AppLovin SDK-defined app tracking transparency status values (extended to include "unavailable" state on iOS before iOS14).
  */
 typedef NS_ENUM(NSInteger, ALAppTrackingTransparencyStatus)
@@ -43,6 +64,12 @@ typedef NS_ENUM(NSInteger, ALAppTrackingTransparencyStatus)
      */
     ALAppTrackingTransparencyStatusAuthorized
 };
+
+/**
+ * Get the user's geography used to determine the type of consent flow shown to the user.
+ * If no such determination could be made, @c ALConsentFlowUserGeographyUnknown will be returned.
+ */
+@property (nonatomic, assign, readonly) ALConsentFlowUserGeography consentFlowUserGeography;
 
 /**
  * Gets the country code for this user. The value of this property will be an empty string if no country code is available for this user.

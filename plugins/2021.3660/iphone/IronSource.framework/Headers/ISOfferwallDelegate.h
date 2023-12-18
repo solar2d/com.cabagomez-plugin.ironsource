@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
+__attribute__((deprecated("This class is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.")))
 @protocol ISOfferwallDelegate <NSObject>
 
 @required
@@ -15,24 +16,24 @@
  
  @param available The new offerwall availability. YES if available and ready to be shown, NO otherwise.
  */
-- (void)offerwallHasChangedAvailability:(BOOL)available;
+- (void)offerwallHasChangedAvailability:(BOOL)available __attribute__((deprecated("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.")));
 
 /**
  Called after the offerwall has been displayed on the screen.
  */
-- (void)offerwallDidShow; 
+- (void)offerwallDidShow __attribute__((deprecated("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.")));
 
 /**
  Called after the offerwall has attempted to show but failed.
  
  @param error The reason for the error.
  */
-- (void)offerwallDidFailToShowWithError:(NSError *)error;
+- (void)offerwallDidFailToShowWithError:(NSError *)error __attribute__((deprecated("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.")));
 
 /**
  Called after the offerwall has been dismissed.
  */
-- (void)offerwallDidClose;
+- (void)offerwallDidClose __attribute__((deprecated("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.")));
 
 /**
  @abstract Called each time the user completes an offer.
@@ -48,14 +49,14 @@
  
  @return The publisher should return a BOOL stating if he handled this call (notified the user for example). if the return value is NO, the 'credits' value will be added to the next call.
  */
-- (BOOL)didReceiveOfferwallCredits:(NSDictionary *)creditInfo;
+- (BOOL)didReceiveOfferwallCredits:(NSDictionary *)creditInfo __attribute__((deprecated("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.")));
 
 /**
  Called after the 'offerwallCredits' method has attempted to retrieve user's credits info but failed.
  
  @param error The reason for the error.
  */
-- (void)didFailToReceiveOfferwallCreditsWithError:(NSError *)error;
+- (void)didFailToReceiveOfferwallCreditsWithError:(NSError *)error __attribute__((deprecated("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.")));
 
 @end
 

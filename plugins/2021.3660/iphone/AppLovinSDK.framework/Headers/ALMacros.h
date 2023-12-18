@@ -83,4 +83,18 @@ NS_INLINE void dispatchSyncOnMainQueue (dispatch_block_t __nonnull block)
     }
 }
 
+NS_INLINE void dispatchOnGlobalQueueAfter (dispatch_queue_priority_t priority, double delay, dispatch_block_t __nonnull block)
+{
+    dispatch_queue_t globalQueue = dispatch_get_global_queue(priority, 0);
+    
+    if ( delay > 0 )
+    {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t) (delay * NSEC_PER_SEC)), globalQueue, block);
+    }
+    else
+    {
+        dispatch_async(globalQueue, block);
+    }
+}
+
 NS_ASSUME_NONNULL_END

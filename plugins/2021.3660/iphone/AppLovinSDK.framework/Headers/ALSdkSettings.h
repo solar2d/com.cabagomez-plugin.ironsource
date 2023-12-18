@@ -5,6 +5,8 @@
 //  Copyright © 2020 AppLovin Corporation. All rights reserved.
 //
 
+#import <AppLovinSDK/ALSdkConfiguration.h>
+
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -40,14 +42,28 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ * This interface contains settings that enable the MAX Terms and Privacy Policy Flow.
+ */
+@interface ALTermsAndPrivacyPolicyFlowSettings : ALConsentFlowSettings
+
+/**
+ * Set debug user geography. You may use this to test CMP flow by setting this to @c ALConsentFlowUserGeographyGDPR.
+ *
+ * NOTE: The debug geography is used only when the app is in debug mode.
+ */
+@property (nonatomic, assign) ALConsentFlowUserGeography debugUserGeography;
+
+@end
+
+/**
  * This class contains settings for the AppLovin SDK.
  */
 @interface ALSdkSettings : NSObject
 
 /**
- * Settings relating to the AppLovin Terms Flow.
+ * Settings relating to the MAX Terms and Privacy Policy Flow.
  */
-@property (nonatomic, strong, readonly) ALConsentFlowSettings *consentFlowSettings;
+@property (nonatomic, strong, readonly) ALTermsAndPrivacyPolicyFlowSettings *termsAndPrivacyPolicyFlowSettings;
 
 /**
  * A toggle for verbose logging for the SDK. This is set to @c NO by default. Set it to @c NO if you want the SDK to be silent (this is recommended for App Store
@@ -114,6 +130,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ALSdkSettings (ALDeprecated)
 @property (nonatomic, assign) BOOL isVerboseLogging __deprecated_msg("This property is deprecated and will be removed in a future SDK version. Please use `-[ALSdkSettings isVerboseLoggingEnabled]` instead.");
+@property (nonatomic, strong, readonly) ALConsentFlowSettings *consentFlowSettings __deprecated_msg("This property is deprecated and will be removed in a future SDK version. Use the new MAX Terms and Privacy Policy Flow instead (see ALSdkSettings.termsAndPrivacyPolicyFlowSettings)");
 @end
 
 NS_ASSUME_NONNULL_END

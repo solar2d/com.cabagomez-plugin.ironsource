@@ -10,7 +10,6 @@
 
 @protocol ISRewardedVideoAdapterDelegate <NSObject>
 
-
 - (void)adapterRewardedVideoHasChangedAvailability:(BOOL)available;
 
 - (void)adapterRewardedVideoDidFailToLoadWithError:(NSError *)error;
@@ -22,7 +21,6 @@
 - (void)adapterRewardedVideoDidOpen;
 
 - (void)adapterRewardedVideoDidClose;
-
 
 #pragma mark - demand only
 

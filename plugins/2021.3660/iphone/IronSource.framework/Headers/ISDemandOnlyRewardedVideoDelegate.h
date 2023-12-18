@@ -15,13 +15,13 @@
 
 - (void)rewardedVideoDidOpen:(NSString *)instanceId;
 
-- (void)rewardedVideoDidClose:(NSString *)instanceId;
-
 - (void)rewardedVideoDidFailToShowWithError:(NSError *)error instanceId:(NSString *)instanceId;
 
 - (void)rewardedVideoDidClick:(NSString *)instanceId;
 
 - (void)rewardedVideoAdRewarded:(NSString *)instanceId;
+
+- (void)rewardedVideoDidClose:(NSString *)instanceId;
 
 @end
 
