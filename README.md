@@ -349,39 +349,43 @@ SKAdNetworkItems = {
 
 Current versions for android:  
 --------------- AppLovin     
-Adapter 4.3.39         
-SDK Version - 11.10.1      
+Adapter 4.3.41         
+SDK Version - 12.1.0      
 
 --------------- APS Network       
-Adapter 4.3.9   
+Adapter 4.3.10   
 SDK Version - 9.8.+    
 
 --------------- Chartboost    
-Adapter 4.3.12      
-SDK Version - 9.3.1     
+Adapter 4.3.14      
+SDK Version - 9.6.0        
 
 --------------- Facebook   
-Adapter 4.3.44       
-SDK Version - 6.15.0    
+Adapter 4.3.45        
+SDK Version - 6.16.0    
 
 --------------- Google (AdMob and Ad Manager)   
-Adapter 4.3.39     
-SDK Version - 22.2.0    
+Adapter 4.3.41     
+SDK Version - 22.6.0    
 
 --------------- IronSource   
-Adapter 7.4.0   
+Adapter 7.7.0   
+
+--------------- Pangle     
+Adapter 4.3.23     
+SDK Version - 5.6.0.4   
+
+--------------- Smaato     
+Adapter 4.3.9     
+SDK Version - 22.0.2    
 
 --------------- Vungle       
 Adapter 4.3.21     
-SDK Version - 6.12.1   
-
---------------- Tapjoy       
-Adapter 4.1.25      
-SDK Version - 13.0.1      
+SDK Version - 7.1.0   
 
 --------------- Unity       
-Adapter 4.3.31      
-SDK Version - 4.6.1      
+Adapter 4.3.34        
+SDK Version - 4.9.2        
 
 
 Current versions for Amazon   
