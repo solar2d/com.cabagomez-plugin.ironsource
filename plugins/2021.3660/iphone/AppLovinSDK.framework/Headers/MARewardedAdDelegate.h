@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 __deprecated_msg("This API is deprecated because not all adapters support this callback. Please use -[MAAdDelegate didDisplayAd:] instead");
 
 - (void)didCompleteRewardedVideoForAd:(MAAd *)ad
-__deprecated_msg("This function is deprecated because not all adapters support this callback. Please use -[MAAdDelegate didHideAd:] instead");
+__deprecated_msg("This API is deprecated because not all adapters support this callback. Please use -[MAAdDelegate didHideAd:] instead");
 
 @end
 

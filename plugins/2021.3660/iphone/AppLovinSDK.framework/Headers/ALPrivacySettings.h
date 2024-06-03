@@ -88,6 +88,59 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (BOOL)isDoNotSellSet;
 
+/**
+ * Parses the IABTCF_VendorConsents string to determine the consent status of the IAB vendor with the provided ID.
+ *
+ * NOTE: Must be called after AppLovin MAX SDK has been initialized.
+ *
+ * @param vendorIdentifier Vendor ID as defined in the Global Vendor List.
+ *
+ * @return @c 1 if the vendor has consent, @c 0 if not, or @c nil if TC data is not available on disk.
+ *
+ * @see <a href="https://vendor-list.consensu.org/v3/vendor-list.json">Current Version of Global Vendor List</a>
+ */
++ (nullable NSNumber *)tcfVendorConsentStatusForIdentifier:(NSInteger)vendorIdentifier;
+
+/**
+ * Parses the IABTCF_AddtlConsent string to determine the consent status of the advertising entity with the provided Ad Technology Provider (ATP) ID.
+ *
+ * NOTE: Must be called after AppLovin MAX SDK has been initialized.
+ *
+ * @param atpIdentifier ATP ID of the advertising entity (e.g. 89 for Meta Audience Network).
+ *
+ * @return @c 1 if the advertising entity has consent, @c 0 if not, or @c nil if no AC string is available on disk or the ATP network was not listed in the CMP flow.
+ *
+ * @see <a href="https://support.google.com/admanager/answer/9681920">Google’s Additional Consent Mode technical specification</a>
+ * @see <a href="https://storage.googleapis.com/tcfac/additional-consent-providers.csv">List of Google ATPs and their IDs</a>
+ */
++ (nullable NSNumber *)additionalConsentStatusForIdentifier:(NSInteger)atpIdentifier;
+
+/**
+ * Parses the IABTCF_PurposeConsents String to determine the consent status of the IAB defined data processing purpose.
+ *
+ * NOTE: Must be called after AppLovin MAX SDK has been initialized.
+ *
+ * @param purposeIdentifier Purpose ID.
+ *
+ * @return @c 1 if the purpose has consent, @c 0 if not, or @c nil if TC data is not available on disk.
+ *
+ * @see <a href="https://iabeurope.eu/iab-europe-transparency-consent-framework-policies">IAB Europe Transparency & Consent Framework Policies (Appendix A)</a> for purpose definitions.
+ */
++ (nullable NSNumber *)purposeConsentStatusForIdentifier:(NSInteger)purposeIdentifier;
+
+/**
+ * Parses the IABTCF_SpecialFeaturesOptIns String to determine the opt-in status of the IAB defined special feature.
+ *
+ * NOTE: Must be called after AppLovin MAX SDK has been initialized.
+ *
+ * @param specialFeatureIdentifier Special feature ID.
+ *
+ * @return @c 1 if the user opted in for the special feature, @c 0 if not, or @c nil if TC data is not available on disk.
+ *
+ * @see <a href="https://iabeurope.eu/iab-europe-transparency-consent-framework-policies">IAB Europe Transparency & Consent Framework Policies (Appendix A)</a> for special features definitions.
+ */
++ (nullable NSNumber *)specialFeatureOptInStatusForIdentifier:(NSInteger)specialFeatureIdentifier;
+
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
 

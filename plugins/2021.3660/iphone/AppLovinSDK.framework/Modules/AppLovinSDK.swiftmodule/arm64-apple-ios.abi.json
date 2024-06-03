@@ -1096,6 +1096,202 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "NativeAdViewAdapterDelegate",
+        "printedName": "NativeAdViewAdapterDelegate",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "templateName",
+            "printedName": "templateName",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11AppLovinSDK27NativeAdViewAdapterDelegateC12templateNameSSSgvp",
+            "mangledName": "$s11AppLovinSDK27NativeAdViewAdapterDelegateC12templateNameSSSgvp",
+            "moduleName": "AppLovinSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11AppLovinSDK27NativeAdViewAdapterDelegateC12templateNameSSSgvg",
+                "mangledName": "$s11AppLovinSDK27NativeAdViewAdapterDelegateC12templateNameSSSgvg",
+                "moduleName": "AppLovinSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : AppLovinSDK.ALMediationAdapter>",
+                "sugared_genericSig": "<T where T : AppLovinSDK.ALMediationAdapter>",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(adapter:delegate:adFormat:parameters:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NativeAdViewAdapterDelegate",
+                "printedName": "AppLovinSDK.NativeAdViewAdapterDelegate<τ_0_0>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:11AppLovinSDK27NativeAdViewAdapterDelegateC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MAAdViewAdapterDelegate",
+                "printedName": "AppLovinSDK.MAAdViewAdapterDelegate",
+                "usr": "c:objc(pl)MAAdViewAdapterDelegate"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MAAdFormat",
+                "printedName": "AppLovinSDK.MAAdFormat",
+                "usr": "c:objc(cs)MAAdFormat"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MAAdapterResponseParameters",
+                "printedName": "AppLovinSDK.MAAdapterResponseParameters",
+                "usr": "c:objc(pl)MAAdapterResponseParameters"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11AppLovinSDK27NativeAdViewAdapterDelegateC7adapter8delegate8adFormat10parametersACyxGx_So04MAAdfgH0_pSo0nL0CSo27MAAdapterResponseParameters_ptcfc",
+            "mangledName": "$s11AppLovinSDK27NativeAdViewAdapterDelegateC7adapter8delegate8adFormat10parametersACyxGx_So04MAAdfgH0_pSo0nL0CSo27MAAdapterResponseParameters_ptcfc",
+            "moduleName": "AppLovinSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppLovinSDK.ALMediationAdapter>",
+            "sugared_genericSig": "<T where T : AppLovinSDK.ALMediationAdapter>",
+            "overriding": true,
+            "declAttributes": [
+              "AccessControl",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:11AppLovinSDK27NativeAdViewAdapterDelegateC",
+        "mangledName": "$s11AppLovinSDK27NativeAdViewAdapterDelegateC",
+        "moduleName": "AppLovinSDK",
+        "genericSig": "<τ_0_0 where τ_0_0 : AppLovinSDK.ALMediationAdapter>",
+        "sugared_genericSig": "<T where T : AppLovinSDK.ALMediationAdapter>",
+        "isOpen": true,
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "superclassUsr": "s:11AppLovinSDK21AdViewAdapterDelegateC",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "AppLovinSDK.AdViewAdapterDelegate<τ_0_0>",
+          "AppLovinSDK.AdapterDelegate<τ_0_0, AppLovinSDK.MAAdViewAdapterDelegate>",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "NativeAdAdapterDelegate",
         "printedName": "NativeAdAdapterDelegate",
         "children": [
@@ -4085,91 +4281,91 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK@2\/iOS-SDK\/sdk\/Public\/AdapterDelegate.swift",
+      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK\/iOS-SDK\/sdk\/Public\/AdapterDelegate.swift",
       "kind": "StringLiteral",
       "offset": 805,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK@2\/iOS-SDK\/sdk\/Public\/AdapterDelegate.swift",
+      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK\/iOS-SDK\/sdk\/Public\/AdapterDelegate.swift",
       "kind": "StringLiteral",
       "offset": 980,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK@2\/iOS-SDK\/sdk\/Public\/AdapterDelegate.swift",
+      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK\/iOS-SDK\/sdk\/Public\/AdapterDelegate.swift",
       "kind": "StringLiteral",
       "offset": 115,
       "length": 15,
       "value": "\"AppLovinSDK.AdapterDelegate\""
     },
     {
-      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK@2\/iOS-SDK\/sdk\/Public\/AdapterDelegate.swift",
+      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK\/iOS-SDK\/sdk\/Public\/AdapterDelegate.swift",
       "kind": "StringLiteral",
       "offset": 1649,
       "length": 27,
       "value": "\"AppLovinSDK.InterstitialAdapterDelegate\""
     },
     {
-      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK@2\/iOS-SDK\/sdk\/Public\/AdapterDelegate.swift",
+      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK\/iOS-SDK\/sdk\/Public\/AdapterDelegate.swift",
       "kind": "BooleanLiteral",
       "offset": 2195,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK@2\/iOS-SDK\/sdk\/Public\/AdapterDelegate.swift",
+      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK\/iOS-SDK\/sdk\/Public\/AdapterDelegate.swift",
       "kind": "StringLiteral",
       "offset": 2052,
       "length": 23,
       "value": "\"AppLovinSDK.RewardedAdapterDelegate\""
     },
     {
-      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK@2\/iOS-SDK\/sdk\/Public\/AdapterDelegate.swift",
+      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK\/iOS-SDK\/sdk\/Public\/AdapterDelegate.swift",
       "kind": "StringLiteral",
-      "offset": 2992,
+      "offset": 3493,
       "length": 23,
       "value": "\"AppLovinSDK.NativeAdAdapterDelegate\""
     },
     {
-      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK@2\/iOS-SDK\/sdk\/Public\/ALMediationAdapter+Log.swift",
+      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK\/iOS-SDK\/sdk\/Public\/ALMediationAdapter+Log.swift",
       "kind": "BooleanLiteral",
       "offset": 681,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK@2\/iOS-SDK\/sdk\/Public\/ALMediationAdapter+Log.swift",
+      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK\/iOS-SDK\/sdk\/Public\/ALMediationAdapter+Log.swift",
       "kind": "StringLiteral",
       "offset": 1645,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK@2\/iOS-SDK\/sdk\/Public\/ALMediationAdapter+Log.swift",
+      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK\/iOS-SDK\/sdk\/Public\/ALMediationAdapter+Log.swift",
       "kind": "StringLiteral",
       "offset": 1666,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK@2\/iOS-SDK\/sdk\/Public\/ALMediationAdapter+Log.swift",
+      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK\/iOS-SDK\/sdk\/Public\/ALMediationAdapter+Log.swift",
       "kind": "StringLiteral",
       "offset": 2462,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK@2\/iOS-SDK\/sdk\/Public\/ALMediationAdapter+Log.swift",
+      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK\/iOS-SDK\/sdk\/Public\/ALMediationAdapter+Log.swift",
       "kind": "StringLiteral",
       "offset": 3305,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK@2\/iOS-SDK\/sdk\/Public\/ALMediationAdapter+Log.swift",
+      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK\/iOS-SDK\/sdk\/Public\/ALMediationAdapter+Log.swift",
       "kind": "StringLiteral",
       "offset": 3914,
       "length": 2,

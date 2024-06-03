@@ -16,9 +16,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * A custom user segment name with 32 alphanumeric characters or less, as defined in your AppLovin dashboard.
  */
-@property (nonatomic, copy, nullable) NSString *name;
+@property (nonatomic, copy, nullable) NSString *name __deprecated_msg("This method is deprecated and will be removed in a future SDK version. Please initialize a ALUserSegment instance in ALSdkInitializationConfiguration");
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithName:(NSString *)name;
+
+- (instancetype)init __attribute__((unavailable("Please initialize a ALUserSegment instance in ALSdkInitializationConfiguration")));
 + (instancetype)new NS_UNAVAILABLE;
 
 @end

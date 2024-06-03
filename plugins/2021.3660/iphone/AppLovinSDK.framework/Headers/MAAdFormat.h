@@ -29,11 +29,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (class, nonatomic, strong, readonly) MAAdFormat *leader;
 
 /**
- * Represents a cross-promo advertisement.
- */
-@property (class, nonatomic, strong, readonly) MAAdFormat *crossPromo;
-
-/**
  * Represents a full-screen advertisement.
  */
 @property (class, nonatomic, strong, readonly) MAAdFormat *interstitial;

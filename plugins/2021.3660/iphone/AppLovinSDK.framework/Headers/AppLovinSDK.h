@@ -13,6 +13,7 @@
 #import <AppLovinSDK/ALAdType.h>
 #import <AppLovinSDK/ALAdView.h>
 #import <AppLovinSDK/ALAtomicBoolean.h>
+#import <AppLovinSDK/ALAtomicReference.h>
 #import <AppLovinSDK/ALCCommunicator.h>
 #import <AppLovinSDK/ALCEntity.h>
 #import <AppLovinSDK/ALCMessage.h>
@@ -34,6 +35,7 @@
 #import <AppLovinSDK/ALPrivacySettings.h>
 #import <AppLovinSDK/ALSdk.h>
 #import <AppLovinSDK/ALSdkConfiguration.h>
+#import <AppLovinSDK/ALSdkInitializationConfiguration.h>
 #import <AppLovinSDK/ALSdkSettings.h>
 #import <AppLovinSDK/ALTargetingData.h>
 #import <AppLovinSDK/ALUserSegment.h>

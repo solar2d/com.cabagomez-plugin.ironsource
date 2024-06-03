@@ -5,58 +5,12 @@
 //  Copyright © 2020 AppLovin Corporation. All rights reserved.
 //
 
-#import <AppLovinSDK/ALSdkConfiguration.h>
+#import <AppLovinSDK/ALTermsAndPrivacyPolicyFlowSettings.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * This class contains settings that enable the AppLovin Terms Flow.
- */
-@interface ALConsentFlowSettings : NSObject
-
-/**
- * Set this to @c YES to enable the Terms Flow. You must also provide your privacy policy and terms of service URLs in this object, and you must provide a
- * @c NSUserTrackingUsageDescription string in your @code Info.plist @endcode file.
- *
- * This defaults to the value that you entered into your @code Info.plist @endcode file via @c AppLovinConsentFlowInfo ⇒ @c AppLovinConsentFlowEnabled.
- */
-@property (nonatomic, assign, getter=isEnabled) BOOL enabled;
-
-/**
- * URL for your company’s privacy policy. This is required in order to enable the Terms Flow.
- *
- * This defaults to the value that you entered into your @code Info.plist @endcode file via @c AppLovinConsentFlowInfo ⇒ @c AppLovinConsentFlowPrivacyPolicy.
- */
-@property (nonatomic, copy, nullable) NSURL *privacyPolicyURL;
-
-/**
- * URL for your company’s terms of service. This is optional; you can enable the Terms Flow with or without it.
- *
- * This defaults to the value that you entered into your @code Info.plist @endcode file via @c AppLovinConsentFlowInfo ⇒ @c AppLovinConsentFlowTermsOfService.
- */
-@property (nonatomic, copy, nullable) NSURL *termsOfServiceURL;
-
-- (instancetype)init NS_UNAVAILABLE;
-+ (instancetype)new NS_UNAVAILABLE;
-
-@end
-
-/**
- * This interface contains settings that enable the MAX Terms and Privacy Policy Flow.
- */
-@interface ALTermsAndPrivacyPolicyFlowSettings : ALConsentFlowSettings
-
-/**
- * Set debug user geography. You may use this to test CMP flow by setting this to @c ALConsentFlowUserGeographyGDPR.
- *
- * NOTE: The debug geography is used only when the app is in debug mode.
- */
-@property (nonatomic, assign) ALConsentFlowUserGeography debugUserGeography;
-
-@end
-
-/**
- * This class contains settings for the AppLovin SDK.
+ * This class contains mutable settings for the AppLovin SDK.
  */
 @interface ALSdkSettings : NSObject
 
@@ -93,25 +47,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign, getter=isCreativeDebuggerEnabled) BOOL creativeDebuggerEnabled;
 
 /**
- * Enable devices to receive test ads by passing in the advertising identifier (IDFA) of each test device.
- * Refer to AppLovin logs for the IDFA of your current device.
- */
-@property (nonatomic, copy) NSArray<NSString *> *testDeviceAdvertisingIdentifiers;
-
-/**
- * The MAX ad unit IDs that you will use for this instance of the SDK. This initializes third-party SDKs with the credentials configured for these ad unit IDs.
- */
-@property (nonatomic, copy) NSArray<NSString *> *initializationAdUnitIdentifiers;
-
-/**
- * Whether or not the AppLovin SDK listens to exceptions. Defaults to @c YES.
- */
-@property (nonatomic, assign, getter=isExceptionHandlerEnabled) BOOL exceptionHandlerEnabled;
-
-/**
  * Whether or not the AppLovin SDK will collect the device location from `CLLocationManager` if available. Defaults to @c YES.
  */
 @property (nonatomic, assign, getter=isLocationCollectionEnabled) BOOL locationCollectionEnabled;
+
+/**
+ * An identifier for the current user. This identifier will be tied to SDK events and AppLovin’s optional S2S postbacks.
+ *
+ * If you use reward validation, you can optionally set an identifier that AppLovin will include with its currency validation postbacks (for example, a username
+ * or email address). AppLovin will include this in the postback when AppLovin pings your currency endpoint from our server.
+ *
+ * @see <a href="https://dash.applovin.com/documentation/mediation/s2s-rewarded-callback-api#setting-an-internal-user-id">MAX Integration Guide ⇒ MAX S2S Rewarded Callback API ⇒ Setting an Internal User ID</a>
+ */
+@property (nonatomic, copy, nullable) NSString *userIdentifier;
 
 /**
  * A copy of the extra parameters that are currently set.
@@ -126,11 +74,17 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)setExtraParameterForKey:(NSString *)key value:(nullable NSString *)value;
 
+@property (nonatomic, copy) NSArray<NSString *> *testDeviceAdvertisingIdentifiers __deprecated_msg("This property is deprecated and will be removed in a future SDK version. Please use the new ALSdkInitializationConfiguration (see ALSdkInitializationConfiguration.testDeviceAdvertisingIdentifiers)");
+@property (nonatomic, copy) NSArray<NSString *> *initializationAdUnitIdentifiers __deprecated_msg("This property is deprecated and will be removed in a future SDK version. version. Please use the new ALSdkInitializationConfiguration (see ALSdkInitializationConfiguration.initializationAdUnitIdentifiers");
+@property (nonatomic, assign, getter=isExceptionHandlerEnabled) BOOL exceptionHandlerEnabled __deprecated_msg("This property is deprecated and will be removed in a future SDK version. Please use the new ALSdkInitializationConfiguration (see ALSdkInitializationConfiguration.exceptionHandlerEnabled)");
 @end
 
 @interface ALSdkSettings (ALDeprecated)
 @property (nonatomic, assign) BOOL isVerboseLogging __deprecated_msg("This property is deprecated and will be removed in a future SDK version. Please use `-[ALSdkSettings isVerboseLoggingEnabled]` instead.");
-@property (nonatomic, strong, readonly) ALConsentFlowSettings *consentFlowSettings __deprecated_msg("This property is deprecated and will be removed in a future SDK version. Use the new MAX Terms and Privacy Policy Flow instead (see ALSdkSettings.termsAndPrivacyPolicyFlowSettings)");
+@property (nonatomic, strong, readonly) ALConsentFlowSettings *consentFlowSettings __deprecated_msg("This property is deprecated and will be removed in a future SDK version. Please use the new MAX Terms and Privacy Policy Flow instead (see ALSdkSettings.termsAndPrivacyPolicyFlowSettings)");
+
+- (instancetype)init __deprecated_msg("This method is deprecated and will be removed in a future SDK version. Please use `ALSdkInitializationConfiguration.settings` instead");
++ (instancetype)new __deprecated_msg("This method is deprecated and will be removed in a future SDK version. Please use ` ALSdkInitializationConfiguration.settings` instead");
 @end
 
 NS_ASSUME_NONNULL_END

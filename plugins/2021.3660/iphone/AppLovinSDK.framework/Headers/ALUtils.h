@@ -30,36 +30,19 @@ NS_ASSUME_NONNULL_BEGIN
 + (CGRect)deviceSafeAreaDimensions;
 
 /**
- * Parses the IAB TCF String to determine the consent status for the IAB vendor with the provided ID.
- *
- * @param vendorIdentifier Vendor ID as defined in the Global Vendor List.
- *
- * @return The consent status of the IAB vendor. Returns @c 1 if the vendor has consent, @c 0 if not, or @c nil if no TCF string is available on disk.
- *
- * @see <a href="https://vendor-list.consensu.org/v3/vendor-list.json">Current Version of Global Vendor List</a>
- */
-+ (nullable NSNumber *)tcfConsentStatusForVendorIdentifier:(NSInteger)vendorIdentifier;
-
-/**
- * Parses the Google UMP's Additional Consent (AC) string to determine the consent status for the advertising entity represented by the provided Ad Technology Provider (ATP) ID.
- *
- * @param atpIdentifier The ID representing the advertising entity (e.g. 89 for Meta Audience Network).
- *
- * @return The consent status of the advertising entity. 
- * Returns @c 1 if the entity has consent, @c 0 if not, or @c nil if no AC string is available on disk or ATP network was not listed in the CMP flow.
- *
- * @see <a href="https://support.google.com/admanager/answer/9681920">Google’s Additional Consent Mode technical specification</a>
- * @see <a href="https://storage.googleapis.com/tcfac/additional-consent-providers.csv">List of Google ATPs and their IDs</a>
- */
-+ (nullable NSNumber *)additionalConsentStatusForATPIdentifier:(NSInteger)atpIdentifier;
-
-/**
  * @return If the app is running in an iOS simulator.
  */
 @property (class, nonatomic, readonly, getter=isSimulator) BOOL simulator;
 
 - (instancetype)init NS_UNAVAILABLE;
 
+@end
+
+@interface ALUtils (ALDeprecated)
++ (nullable NSNumber *)tcfConsentStatusForVendorIdentifier:(NSInteger)vendorIdentifier
+__deprecated_msg("This method has been deprecated and will be removed in a future SDK version. Please use -[ALPrivacySettings tcfVendorConsentStatusForIdentifier:] instead.");
++ (nullable NSNumber *)additionalConsentStatusForATPIdentifier:(NSInteger)atpIdentifier
+__deprecated_msg("This method has been deprecated and will be removed in a future SDK version. Please use -[ALPrivacySettings additionalConsentStatusForIdentifier:] instead.");
 @end
 
 @interface NSString (ALSdk)

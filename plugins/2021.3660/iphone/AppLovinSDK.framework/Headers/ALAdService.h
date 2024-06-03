@@ -21,6 +21,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ALAdService : NSObject
 
 /**
+ * @param bidToken The bid token that was collected.
+ * @param errorMessage The reason for failure to collect the bid token.
+ */
+typedef void (^ALBidTokenCollectionCompletionHandler)(NSString *_Nullable bidToken, NSString *_Nullable errorMessage);
+
+/**
  * Fetches a new ad, of a given size, and notifies a supplied delegate on completion.
  *
  * @param adSize    Size of an ad to load.
@@ -40,6 +46,14 @@ NS_ASSUME_NONNULL_BEGIN
  * A token used for advanced header bidding.
  */
 @property (nonatomic, copy, readonly) NSString *bidToken;
+
+/**
+ * Asynchronously generates a token used for advanced header bidding.
+ *
+ * @param completion A completion handler to notify whether or not the bid token collection was successful.
+ *                  This will be called on the main thread. Must not be null.
+ */
+- (void)collectBidTokenWithCompletion:(ALBidTokenCollectionCompletionHandler)completion;
 
 /**
  * Fetches a new ad for the given ad token. The provided ad token must be one that was received from AppLovin S2S API.

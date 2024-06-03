@@ -26,6 +26,16 @@ typedef NS_ENUM(NSInteger, MAErrorCode)
     MAErrorCodeAdLoadFailed = -5001,
     
     /**
+     * This error code indicates that the SDK failed to load an ad because the publisher provided an invalid ad unit identifier.
+     * Possible reasons for an invalid ad unit identifier:
+     * 1. Ad unit identifier is malformed or does not exist
+     * 2. Ad unit is disabled
+     * 3. Ad unit is not associated with the current app's package name
+     * 4. Ad unit was created within the last 30-60 minutes
+     */
+    MAErrorCodeInvalidAdUnitIdentifier = -5603,
+    
+    /**
      * This error code indicates that the ad request failed due to a generic network error. See the message field in the error object for more details.
      */
     MAErrorCodeNetworkError = -1000,
@@ -53,5 +63,15 @@ typedef NS_ENUM(NSInteger, MAErrorCode)
     /**
      * This error code indicates you attempted to present a fullscreen ad from an invalid view controller.
      */
-    MAErrorCodeFullscreenAdInvalidViewController = -25
+    MAErrorCodeFullscreenAdInvalidViewController = -25,
+    
+    /**
+     * This error code indicates you are attempting to load a fullscreen ad while another fullscreen ad is already loading.
+     */
+    MAErrorCodeFullscreenAdAlreadyLoading = -26,
+    
+    /**
+     * This error code indicates you are attempting to load a fullscreen ad while another fullscreen ad is still showing.
+     */
+    MAErrorCodeFullscreenAdLoadWhileShowing = -27
 };

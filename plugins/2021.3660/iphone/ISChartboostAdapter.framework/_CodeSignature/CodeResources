@@ -4,9 +4,17 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>ChartboostSDKResources.bundle/Contents/Info.plist</key>
+		<data>
+		seGbPnN6H7SBPGq5jwQ0IBsQiPA=
+		</data>
+		<key>ChartboostSDKResources.bundle/Contents/Resources/omsdk-v1.js</key>
+		<data>
+		UPsyQ4QhueEUHFjFPzJBwqY+ezo=
+		</data>
 		<key>Headers/ISChartboostAdapter.h</key>
 		<data>
-		NT//Gopyzw200DnYwjQOmExMQoU=
+		zalbLhu3iLT9d5CZbRc9QNn1aNw=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -19,15 +27,37 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>ChartboostSDKResources.bundle/Contents/Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			seGbPnN6H7SBPGq5jwQ0IBsQiPA=
+			</data>
+			<key>hash2</key>
+			<data>
+			sc7eC7jva9UWzT8GPbmkBurBoOvBDUhluDuZHuSOg4Y=
+			</data>
+		</dict>
+		<key>ChartboostSDKResources.bundle/Contents/Resources/omsdk-v1.js</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			UPsyQ4QhueEUHFjFPzJBwqY+ezo=
+			</data>
+			<key>hash2</key>
+			<data>
+			ShR/8hidaXo8kuwWQMmddy/BUzb0V0wNJBtDy9CTvc4=
+			</data>
+		</dict>
 		<key>Headers/ISChartboostAdapter.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			NT//Gopyzw200DnYwjQOmExMQoU=
+			zalbLhu3iLT9d5CZbRc9QNn1aNw=
 			</data>
 			<key>hash2</key>
 			<data>
-			MSC/s7whXIT8jSLXcttWVe/h4OKsNYuwWEFImhwmjqE=
+			bRFBfA0bR9dUguNU6hugVCJutvQgciY6LWre1efLg5w=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

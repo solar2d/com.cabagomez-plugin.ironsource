@@ -89,16 +89,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)didHideRewardedAdWithExtraInfo:(nullable NSDictionary<NSString *, id> *)extraInfo;
 
 /**
- * This method should be invoked when rewarded video has started video playback.
- */
-- (void)didStartRewardedAdVideo;
-
-/**
- * This method should be invoked when rewarded video has completed video playback.
- */
-- (void)didCompleteRewardedAdVideo;
-
-/**
  * This method should be invoked when a user should be granted a reward.
  *
  * @param reward The reward to be granted to the user.
@@ -112,6 +102,14 @@ NS_ASSUME_NONNULL_BEGIN
  * @param extraInfo Extra info passed from the adapter.
  */
 - (void)didRewardUserWithReward:(MAReward *)reward extraInfo:(nullable NSDictionary<NSString *, id> *)extraInfo;
+
+@optional
+
+- (void)didStartRewardedAdVideo
+__deprecated_msg("This API is deprecated because not all adapters support this callback. Please use -[MARewardedAdapterDelegate didDisplayRewardedAd:] instead");
+
+- (void)didCompleteRewardedAdVideo
+__deprecated_msg("This API is deprecated because not all adapters support this callback. Please use -[MARewardedAdapterDelegate didHideRewardedAd:] instead");
 
 @end
 

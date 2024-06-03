@@ -1,11 +1,9 @@
 # com.cabagomez-plugin.ironsource
 Solar2d Ironsource Plugin.
 
--- The iOS version now only supports ARM64. This means that it only supports iOS 11 and after. The frameworks for the networks have been bitcode and anything other than arm64 stripped.
-
+-- The iOS version only supports iOS 12 and after. 
+-- The frameworks for the networks have been bitcode and anything other than arm64 stripped.
 -- User messaging platform (UMP) for consent is now integrated into the plugin.
-
--- APS instructions have been updated.
 
 -- If you find an issue please submit an issue on this repo. If I am able to reproduce it and impacts me, I will try to resolve it. If you need more support than this or want to individually ad plugins, I would recommend the ironsource plugin by Scott Harrison: https://solar2dmarketplace.com/plugins?IronSource_tech-scotth
 
@@ -17,7 +15,7 @@ Solar2d Ironsource Plugin.
             publisherId = "com.cabagomez"
         },
 ```   
-2. Plugin supports Android 21 and iOS 11 and above. Add to your build settings file:   
+2. Plugin supports Android 21 and iOS 12 and above. Add to your build settings file:   
 For android:   
 ```  
 android =
@@ -31,11 +29,11 @@ iphone =
 	{
         plist =
 		{
-            MinimumOSVersion = "11",
+            MinimumOSVersion = "12",
         }
     }
 ```   
-3. Refrence the plugin:
+3. Reference the plugin:
 ```
 local ironsource = require("plugin.ironsource")
 ```
@@ -43,7 +41,7 @@ local ironsource = require("plugin.ironsource")
 4. Init. 
 ```
 ironsource.init(
-    adListerner, -- Listerner. Required.
+    adListerner, -- Listener. Required.
         {
             key=<replace with your key>, -- Your ironsource app key. Required.
             showDebugLog=false, -- Optional debug param. Defaults to false. Show extended logs.
@@ -66,10 +64,10 @@ ironsource.init(
 
 5. Show.
 ```
-    ironsource.show("<adtype>", -- Ad type. Valid values are: "interstitial", "rewardedVideo", "banner", "offerWall","consentView"
+    ironsource.show("<adtype>", -- Ad type. Valid values are: "interstitial", "rewardedVideo", "banner", "consentView"
         {
             y=<bannerPosition>, -- Optional. Valid for banner. Valid values are "top" and "bottom". Defaults to "bottom".
-            placementName=<placement name> -- Optional. Valid for "rewardedVideo", "offerwall", "interstitial".
+            placementName=<placement name> -- Optional. Valid for "rewardedVideo", "interstitial".
         } -- Optional table.
     )
 ```
@@ -93,7 +91,7 @@ ironsource.init(
    ironsource.load( "<adType>", -- Ad type. Valid values are: "interstitial", "banner". 
         "<network>" -- Optional. Only one supported is "aps". Amazon ads have to be loaded intentionally.
     ) 
-   -- Ironsource autoloads rewarded ads and the offerwall.
+   -- Ironsource autoloads rewarded.
 ```   
 Load all ads network except Amazon:   
 ```
@@ -123,24 +121,24 @@ ironsource:	{
     "provider":"ironsource",
     "response":"", -- If error. The error reason would be here.
     "type":"<adType>",
-    "isError":false -- Always true for show and offerwalls.
+    "isError":false -- Always true for show.
 }
 ```
 
-show ("offerwall"-on error, "rewardedVideo"-on error, "interstitial")
+show ("rewardedVideo"-on error, "interstitial")
 ```
 ironsource:	{
     "data":"",
     "name":"ironsource",
     "phase":"show",
     "provider":"ironsource",
-    "response":"", -- If error. The error reason would be here. Always populated for rewarded and offerwall.
+    "response":"", -- If error. The error reason would be here. Always populated for rewarded.
     "type":"<adType>",
-    "isError":false -- Always true for rewarded and offerwall.
+    "isError":false -- Always true for rewarded.
 }
 ```
 
-available ("rewardedVideo", "offerWall")
+available ("rewardedVideo")
 ```
 ironsource:	{
     "data":"",
@@ -153,22 +151,22 @@ ironsource:	{
 }
 ```
 
-reward ( "offerWall", "rewardedVideo )
+reward ( "rewardedVideo" )
 ```
 ironsource:	{
     "data":"",
     "name":"ironsource",
     "phase":"reward",
     "provider":"ironsource",
-    "response":"<>", -- error string if isError = true or awarded credit as string. Only populated for offerwall.
+    "response":"<>", -- error string if isError = true or awarded credit as string.
     "type":"<adtype>",
     "isError":false -- No error available for rewardedVideo.
 }
 ```
 
-opened      ("rewardedVideo", "interstitial", "offerWall")
+opened      ("rewardedVideo", "interstitial")
 
-closed      ("rewardedVideo", "interstitial", "offerWall")
+closed      ("rewardedVideo", "interstitial")
 
 started     ("rewardedVideo" ) 
 
@@ -347,7 +345,10 @@ SKAdNetworkItems = {
             },
 ```
 
+
+---------------
 Current versions for android:  
+---------------
 --------------- AppLovin     
 Adapter 4.3.41         
 SDK Version - 12.1.0      
@@ -387,7 +388,7 @@ SDK Version - 7.1.0
 Adapter 4.3.34        
 SDK Version - 4.9.2        
 
-
+---------------
 Current versions for Amazon   
 --------------- APS Network       
 Adapter 4.3.9   
@@ -416,41 +417,39 @@ SDK Version - 6.12.1
 Adapter 4.1.25      
 SDK Version - 13.0.1      
 
-Current version for iOS       
-AppLovin     
-     SDK - Version 12.1.0    
+---------------
+Current version for iOS  
+---------------     
+--------------- AppLovin     
+     SDK - Version 12.4.0    
      Adapter - Version 4.3.40   
 
-Chartboost    
-     SDK - Version 9.6.0    
-     Adapter - Version 4.3.14     
+--------------- Chartboost    
+     SDK - Version 9.7.0    
+     Adapter - Version 4.3.15     
 
-APS    
+--------------- APS    
      SDK - Version 4.6.0     
      Adapter - Version 4.3.7    
 
-Google (AdMob and Ad Manager)     
-     SDK - Version afma-sdk-i-v10.12.0     
-     Adapter - Version 4.3.43     
+--------------- Google (AdMob and Ad Manager)     
+     SDK - Version 11.3.0     
+     Adapter - Version 4.3.46     
 
-IronSource     
-     SDK - Version 7.6.0    
-     Adapter - Version 7.6.0     
+--------------- IronSource     
+     SDK - Version 8.1.0   
+     Adapter - Version 8.1.0     
 
-Meta     
+--------------- Meta     
      SDK - Version 6.12.0     
      Adapter - Version 4.3.39        
 
-Smaato   
-     SDK - Version 22.5.0   
-     Adapter - 4.3.10
+--------------- UnityAds     
+     SDK - Version 4.12.2   
+     Adapter - Version 4.3.31    
 
-UnityAds     
-     SDK - Version 4.9.2   
-     Adapter - Version 4.3.30     
-
-Vungle     
-     SDK - Version 7.1.0    
-     Adapter - Version 4.3.27  
+--------------- Liftoff (Vungle)
+     SDK - Version 7.3.2  
+     Adapter - Version 4.3.29 
 
 

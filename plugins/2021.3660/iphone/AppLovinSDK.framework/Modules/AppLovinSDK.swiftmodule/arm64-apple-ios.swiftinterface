@@ -38,6 +38,11 @@ import _StringProcessing
   public init(adapter: T, delegate: AppLovinSDK.MAAdViewAdapterDelegate, adFormat: AppLovinSDK.MAAdFormat, parameters: AppLovinSDK.MAAdapterResponseParameters)
   @objc deinit
 }
+@_inheritsConvenienceInitializers open class NativeAdViewAdapterDelegate<T> : AppLovinSDK.AdViewAdapterDelegate<T> where T : AppLovinSDK.ALMediationAdapter {
+  final public let templateName: Swift.String?
+  override public init(adapter: T, delegate: AppLovinSDK.MAAdViewAdapterDelegate, adFormat: AppLovinSDK.MAAdFormat, parameters: AppLovinSDK.MAAdapterResponseParameters)
+  @objc deinit
+}
 @_hasMissingDesignatedInitializers open class NativeAdAdapterDelegate<T> : AppLovinSDK.AdapterDelegate<T, AppLovinSDK.MANativeAdAdapterDelegate> where T : AppLovinSDK.ALMediationAdapter {
   final public let templateName: Swift.String?
   public init(adapter: T, delegate: AppLovinSDK.MANativeAdAdapterDelegate, parameters: AppLovinSDK.MAAdapterResponseParameters)

@@ -34,11 +34,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (class, nonatomic, strong, readonly) ALAdSize *interstitial;
 
 /**
- * Represents the size of a cross promo advertisement.
- */
-@property (class, nonatomic, strong, readonly) ALAdSize *crossPromo;
-
-/**
  * Represents a native ad which can be integrated seemlessly into the environment of your app.
  */
 @property (class, nonatomic, strong, readonly) ALAdSize *native;

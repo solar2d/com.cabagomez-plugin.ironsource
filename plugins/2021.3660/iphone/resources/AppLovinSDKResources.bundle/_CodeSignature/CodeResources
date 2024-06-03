@@ -26,7 +26,7 @@
 		</data>
 		<key>ALConsentFlowUnifiedCMP.json</key>
 		<data>
-		Yup5kD+D8zwkgGUeCv+TCtg5VNU=
+		3pB6zSdaV+Z8cSBJ0rdpDjBeQ+s=
 		</data>
 		<key>ALDDetailTableViewCell.nib</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		V6J+gdCXCKsSA/wIVzdrkRd6MKY=
+		ZZDbNZBSNTGLdGCwNgJsyVjDK4c=
 		</data>
 		<key>Base.lproj/Localizable.strings</key>
 		<data>
@@ -66,7 +66,7 @@
 		</data>
 		<key>MANativeAdLeaderView.nib</key>
 		<data>
-		97TuT8pra/sWMMYqslkQ0q+ESPY=
+		fiHJw4uW3xHxQeCuXQcwvBypCB4=
 		</data>
 		<key>MANativeAdMRecView.nib</key>
 		<data>
@@ -74,7 +74,7 @@
 		</data>
 		<key>MANativeAdMediaBannerView.nib</key>
 		<data>
-		gYumziNQAvoWQqqa1axuJfJnvQM=
+		eG1jYt+NxwWwELPqLAIeqDCskP8=
 		</data>
 		<key>MANativeAdMediumTemplate1.nib</key>
 		<data>
@@ -99,10 +99,6 @@
 		<key>OMLICENSE</key>
 		<data>
 		Eq/AvBcL2+jfm6NHJidXNHfgAcM=
-		</data>
-		<key>PrivacyInfo.xcprivacy</key>
-		<data>
-		jR5kks/wyXPVXeOvTLbLYPKn2g0=
 		</data>
 		<key>de.lproj/Localizable.strings</key>
 		<dict>
@@ -162,9 +158,9 @@
 		<data>
 		xrLmOHGKRkA1PdlxjX8QdhUlYC8=
 		</data>
-		<key>omsdk-v1.4.9.js</key>
+		<key>omsdk-v1.4.12.js</key>
 		<data>
-		u6QABCiS4yxxy9R6Q/2gQPUpFQM=
+		xFoo41tIvFKNNRq9NwW500wQtM8=
 		</data>
 		<key>zh-Hans.lproj/Localizable.strings</key>
 		<dict>
@@ -246,11 +242,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Yup5kD+D8zwkgGUeCv+TCtg5VNU=
+			3pB6zSdaV+Z8cSBJ0rdpDjBeQ+s=
 			</data>
 			<key>hash2</key>
 			<data>
-			M5NNPjdglXqoHBYY3rJZZ8TYM5uo/tnPAUnOVvFL1to=
+			MAubWAHFLBEYGMvyipzwZAuZt/SFoln0bAupnAD3OWw=
 			</data>
 		</dict>
 		<key>ALDDetailTableViewCell.nib</key>
@@ -312,11 +308,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			V6J+gdCXCKsSA/wIVzdrkRd6MKY=
+			ZZDbNZBSNTGLdGCwNgJsyVjDK4c=
 			</data>
 			<key>hash2</key>
 			<data>
-			38vj9I8s+IzlM0WanuATKIMT3ZKPgT5T6QlDq8TeiLY=
+			/XVWnAgtoYgxmK6gHAHu7J5w6iAot3i846V8Sul1JFE=
 			</data>
 		</dict>
 		<key>Base.lproj/Localizable.strings</key>
@@ -356,11 +352,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			97TuT8pra/sWMMYqslkQ0q+ESPY=
+			fiHJw4uW3xHxQeCuXQcwvBypCB4=
 			</data>
 			<key>hash2</key>
 			<data>
-			MPvPTIgDwySe0ZMSqMkUUk+5ivfn/L7uot82DIo7Faw=
+			trCRZ277wITPK5PWarelJW3HcXQLC1DZOLMwKmlq1Ms=
 			</data>
 		</dict>
 		<key>MANativeAdMRecView.nib</key>
@@ -378,11 +374,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			gYumziNQAvoWQqqa1axuJfJnvQM=
+			eG1jYt+NxwWwELPqLAIeqDCskP8=
 			</data>
 			<key>hash2</key>
 			<data>
-			24woNasyGnCDjVfkk94r6iKeN3cXNc9mIVBhVXLKbwA=
+			UcTGZ6teP0ingM9Dq3x3YPLIHNOjfFw6m+9e88yvayc=
 			</data>
 		</dict>
 		<key>MANativeAdMediumTemplate1.nib</key>
@@ -449,17 +445,6 @@
 			<key>hash2</key>
 			<data>
 			YeXJiTAU447VjJbPUiB4yoLGGli+nQlwWl1J5cZT9+I=
-			</data>
-		</dict>
-		<key>PrivacyInfo.xcprivacy</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			jR5kks/wyXPVXeOvTLbLYPKn2g0=
-			</data>
-			<key>hash2</key>
-			<data>
-			gOOIgdv7OxZfnvNc+kOyjqwA1bGAWKEnWIwpQZOEHJ8=
 			</data>
 		</dict>
 		<key>de.lproj/Localizable.strings</key>
@@ -551,15 +536,15 @@
 			WUTtOynoFPERt7tbMpqwDPv3YX9EfZjQDLz1X3hRVww=
 			</data>
 		</dict>
-		<key>omsdk-v1.4.9.js</key>
+		<key>omsdk-v1.4.12.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			u6QABCiS4yxxy9R6Q/2gQPUpFQM=
+			xFoo41tIvFKNNRq9NwW500wQtM8=
 			</data>
 			<key>hash2</key>
 			<data>
-			fGbAzuXnvBlyUql88tAJqU5hVmCWGyL78Q2Fy/3VGSU=
+			iWz5BbK1YoGNpY4Z4ltSUIPxhjj2ubDXxq6kEamQdYU=
 			</data>
 		</dict>
 		<key>zh-Hans.lproj/Localizable.strings</key>

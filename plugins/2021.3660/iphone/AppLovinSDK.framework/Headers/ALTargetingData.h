@@ -6,7 +6,14 @@
 //  Copyright © 2022 AppLovin Corporation. All rights reserved.
 //
 
+@class ALTargetingDataBuilder;
+
 NS_ASSUME_NONNULL_BEGIN
+
+/**
+ *  Builder block used to create an ALSdkInitializationConfiguration object.
+ */
+typedef void (^ALTargetingDataBuilderBlock) (ALTargetingDataBuilder *builder);
 
 /**
  * This enumeration represents content ratings for the ads shown to users.
@@ -35,6 +42,47 @@ typedef NS_ENUM(NSInteger, ALGender)
  * This class allows you to provide user or app data that will improve how we target ads.
  */
 @interface ALTargetingData : NSObject
+
+@property (nonatomic, assign) ALGender gender __deprecated_msg("This setter is deprecated and will be removed in a future SDK version. Please build a ALTargetingData instance in ALSdkInitializationConfiguration");
+@property (nonatomic, assign) ALAdContentRating maximumAdContentRating __deprecated_msg("This setter is deprecated and will be removed in a future SDK version. Please build a ALTargetingData instance in ALSdkInitializationConfiguration");
+
+@property (nonatomic, strong, nullable) NSNumber *yearOfBirth __deprecated_msg("This setter is deprecated and will be removed in a future SDK version. Please build a ALTargetingData instance in ALSdkInitializationConfiguration");
+
+@property (nonatomic, copy, nullable) NSString *email __deprecated_msg("This setter is deprecated and will be removed in a future SDK version. Please build a ALTargetingData instance in ALSdkInitializationConfiguration");
+@property (nonatomic, copy, nullable) NSString *phoneNumber __deprecated_msg("This setter is deprecated and will be removed in a future SDK version. Please build a ALTargetingData instance in ALSdkInitializationConfiguration");
+@property (nonatomic, copy, nullable) NSArray<NSString *> *keywords __deprecated_msg("This setter is deprecated and will be removed in a future SDK version. Please build a ALTargetingData instance in ALSdkInitializationConfiguration");
+@property (nonatomic, copy, nullable) NSArray<NSString *> *interests __deprecated_msg("This setter is deprecated and will be removed in a future SDK version. Please build a ALTargetingData instance in ALSdkInitializationConfiguration");
+
+- (void)clearAll __deprecated_msg("This method is deprecated and will be removed in a future SDK version.");
+
+#pragma mark - Initialization
+
+/**
+ * Creates a @c ALTargetingData object from the builder in the builderBlock.
+ *
+ * @return a @c ALTargetingData object.
+ */
++ (instancetype)dataWithBuilderBlock:(NS_NOESCAPE ALTargetingDataBuilderBlock)builderBlock;
+
+/**
+ * Creates a builder object for @c ALTargetingData.
+ * Please call @c -build to create a @c ALTargetingData object.
+ *
+ * @return a @c ALTargetingDataBuilder object.
+ */
++ (ALTargetingDataBuilder *)builder;
+
+- (instancetype)init __attribute__((unavailable("Please create a ALTargetingData instance in ALSdkInitializationConfiguration")));
+- (instancetype)new NS_UNAVAILABLE;
+
+@end
+
+#pragma mark - ALTargetingData Builder
+
+/**
+ * Builder class used to create an ALTargetingData object.
+ */
+@interface ALTargetingDataBuilder : NSObject
 
 /**
  * The year of birth of the user.
@@ -78,14 +126,17 @@ typedef NS_ENUM(NSInteger, ALGender)
  */
 @property (nonatomic, copy, nullable) NSArray<NSString *> *interests;
 
+#pragma mark - Build
+
 /**
- * Clear all saved data from this class.
+ * Builds a @c ALTargetingData object from the builder properties' values.
+ *
+ * @return a @c ALTargetingData object.
  */
-- (void)clearAll;
+- (ALTargetingData *)build;
 
 - (instancetype)init NS_UNAVAILABLE;
-- (instancetype)new NS_UNAVAILABLE;
-
++ (instancetype)new NS_UNAVAILABLE;
 @end
 
 NS_ASSUME_NONNULL_END
