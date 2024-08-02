@@ -1,9 +1,10 @@
 # com.cabagomez-plugin.ironsource
 Solar2d Ironsource Plugin.
 
--- The iOS version only supports iOS 12 and after. 
+-- The iOS version min OS is iOS 12. 
+-- The Amazon/Android min OS is Android 21 before Solar2d 3707 and Android 24 after Solar2d 3706
 -- The frameworks for the networks have been bitcode and anything other than arm64 stripped.
--- User messaging platform (UMP) for consent is now integrated into the plugin.
+-- User messaging platform (UMP) for consent is integrated into the plugin.
 
 -- If you find an issue please submit an issue on this repo. If I am able to reproduce it and impacts me, I will try to resolve it. If you need more support than this or want to individually ad plugins, I would recommend the ironsource plugin by Scott Harrison: https://solar2dmarketplace.com/plugins?IronSource_tech-scotth
 
@@ -15,12 +16,12 @@ Solar2d Ironsource Plugin.
             publisherId = "com.cabagomez"
         },
 ```   
-2. Plugin supports Android 21 and iOS 12 and above. Add to your build settings file:   
+2. Add to your build settings file:   
 For android:   
 ```  
 android =
     {
-        minSdkVersion = "21",
+        minSdkVersion = "21", -- or minSdkVersion = "24" please read above.
     }
 ```   
 For iOS:   
@@ -389,34 +390,37 @@ Adapter 4.3.34
 SDK Version - 4.9.2        
 
 ---------------
+---------------
+---------------
+---------------
 Current versions for Amazon   
 --------------- APS Network       
-Adapter 4.3.9   
-SDK Version - 9.8.+    
+Adapter 4.3.13   
+SDK Version - 9.10.+    
 
 --------------- Chartboost    
-Adapter 4.3.12      
-SDK Version - 9.3.1     
+Adapter 4.3.16      
+SDK Version - 9.7.0    
 
 --------------- Facebook   
 Adapter 4.3.44       
 SDK Version - 6.15.0    
 
 --------------- Google (AdMob and Ad Manager)   
-Adapter 4.3.39     
-SDK Version - 22.2.0    
+Adapter 4.3.43     
+SDK Version - 23.0.0    
 
 --------------- IronSource   
-Adapter 7.4.0   
+Adapter 8.2.1   
 
---------------- Vungle       
-Adapter 4.3.21     
-SDK Version - 6.12.1   
+--------------- Vungle/Liftoff       
+Adapter 4.3.25     
+SDK Version - 7.4.0   
 
---------------- Tapjoy       
-Adapter 4.1.25      
-SDK Version - 13.0.1      
 
+---------------
+---------------
+---------------
 ---------------
 Current version for iOS  
 ---------------     
