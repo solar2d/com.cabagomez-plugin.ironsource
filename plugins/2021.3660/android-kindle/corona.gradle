@@ -6,8 +6,8 @@ repositories {
 
 dependencies {
 
-   implementation 'com.ironsource.sdk:mediationsdk:8.2.1' 
-   implementation 'com.ironsource:adqualitysdk:7.20.3'
+   implementation 'com.ironsource.sdk:mediationsdk:8.3.0' 
+   implementation 'com.ironsource:adqualitysdk:7.20.5'
 
    // Add APS Network
    implementation ('com.amazon.android:aps-sdk:9.10.0+') 
@@ -17,8 +17,8 @@ dependencies {
    implementation 'com.ironsource.adapters:chartboostadapter:4.3.16'
    implementation 'com.chartboost:chartboost-sdk:9.7.0'
    // Add AdMob and Ad Manager Network
-   implementation 'com.google.android.gms:play-services-ads:23.0.0'
-   implementation 'com.ironsource.adapters:admobadapter:4.3.43'
+   implementation 'com.google.android.gms:play-services-ads:23.2.0'
+   implementation 'com.ironsource.adapters:admobadapter:4.3.44'
    // Add Vungle Network
    implementation 'com.ironsource.adapters:vungleadapter:4.3.25'
    implementation 'com.vungle:vungle-ads:7.4.0'

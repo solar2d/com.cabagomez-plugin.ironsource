@@ -402,16 +402,12 @@ SDK Version - 9.10.+
 Adapter 4.3.16      
 SDK Version - 9.7.0    
 
---------------- Facebook   
-Adapter 4.3.44       
-SDK Version - 6.15.0    
-
 --------------- Google (AdMob and Ad Manager)   
-Adapter 4.3.43     
-SDK Version - 23.0.0    
+Adapter 4.3.44     
+SDK Version - 23.2.0    
 
 --------------- IronSource   
-Adapter 8.2.1   
+Adapter 8.3.0   
 
 --------------- Vungle/Liftoff       
 Adapter 4.3.25     

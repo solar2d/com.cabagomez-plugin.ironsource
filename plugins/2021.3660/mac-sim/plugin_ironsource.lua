@@ -38,6 +38,11 @@ function lib.load()
     showWarning("ironsource.load()")
 end
 
+function lib.setCustomProperty()
+    showWarning("ironsource.load()")
+end
+
+
 -------------------------------------------------------------------------------
 -- END
 -------------------------------------------------------------------------------
