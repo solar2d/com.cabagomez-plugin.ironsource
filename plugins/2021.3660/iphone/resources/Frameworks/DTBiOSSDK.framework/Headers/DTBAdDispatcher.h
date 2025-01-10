@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
-
 #import "APSOmSdkHelper.h"
 #import "DTBMraidUtils.h"
 
@@ -36,21 +35,21 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) CGSize screenSize;
 
 // Exposure / Viewable Event data structures
-@property (nonatomic) CGSize  currentSize;
+@property (nonatomic) CGSize currentSize;
 
 // Set orientation properties data structure fields
 @property (nonatomic, assign) BOOL pageLoaded;
 
 // Close button
-@property (nonatomic) UIButton *closeButton;
+@property (nonatomic, strong) UIButton *closeButton;
 
-@property (nonatomic) NSString* currentOrientation;
+@property (nonatomic, copy) NSString *currentOrientation;
 
 @property (nonatomic, assign) BOOL useCustomClose;
 
 @property (nonatomic, assign) BOOL ignoreLogEventsForExposureChange;
 
-@property (nonatomic) APSOmSdkHelper *omSdkHelper;
+@property (nonatomic, strong) APSOmSdkHelper *omSdkHelper;
 
 // custom close delegate
 @property (nonatomic, weak) id<DTBUseCustomCloseDelegate> customCloseDelegate;
@@ -63,15 +62,15 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)firePlacementTypeChangeEvent:(DTBAdPlacementType)pType;
 - (void)fireCurrentPositionEvent;
 - (void)fireDefaultPositionEvent;
-- (void)fireSetStateEvent: (DTBAdState)cState;
+- (void)fireSetStateEvent:(DTBAdState)cState;
 - (void)fireSetMaxSizeEvent;
 - (void)fireScreenSizeEvent;
 - (void)fireSetCurrentOrientationEvent;
 
--(void)onOpenUrl:(NSURL * _Nonnull)url;
+- (void)onOpenUrl:(NSURL * _Nonnull)url;
 
 // MRAID State Events JS (error, success, change, etc.)
-- (void)fireErrorEvent:(NSString*)errorMessage forAction:(NSString *)action;
+- (void)fireErrorEvent:(NSString *)errorMessage forAction:(NSString *)action;
 - (void)fireReadyEvent;
 - (void)fireSizeChangeEvent;
 - (void)fireStateChangeEvent;
@@ -81,7 +80,7 @@ NS_ASSUME_NONNULL_BEGIN
 // MRAID Commands
 - (void)executeOpen:(NSString *)url;
 - (void)executeClose;
-- (void)executeResize:(NSDictionary*)params;
+- (void)executeResize:(NSDictionary *)params;
 - (void)executeUnload;
 - (void)executeExpand:(NSDictionary *)params;
 - (void)useCustomClose:(NSDictionary *)params;
@@ -92,7 +91,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)adViewDidDisappear:(DTBAdView *)adview;
 
 // Close helper functions
-- (void)addCloseIndicator:(CGPoint)closeCoordinates toView:(UIView*)supView;
+- (void)addCloseIndicator:(CGPoint)closeCoordinates toView:(UIView *)supView;
 
 // Orientation notification methods
 - (void)updateCurrentOrientationProperties;
@@ -104,14 +103,28 @@ NS_ASSUME_NONNULL_BEGIN
 // JS fired impression
 - (void)impressionFired;
 /**
- Ad click callback
+ * Ad click callback
  */
 - (void)adClicked;
 
 /**
- Video Complete callback
+ * Video Complete callback
  */
 - (void)videoPlaybackCompleted;
+
+/**
+ * Ad Loaded callback
+ */
+- (void)adDidLoad;
+
+/**
+ * Ad failed to load callback
+ */
+- (void)adFailedToLoad;
+
+- (void)startOMSDKSession;
+
+- (void)stopActiveOMSDKSession;
 
 @end
 

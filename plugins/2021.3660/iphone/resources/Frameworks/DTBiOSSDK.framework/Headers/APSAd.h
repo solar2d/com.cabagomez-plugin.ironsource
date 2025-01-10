@@ -14,7 +14,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- Ad lifecycle state.
+ * Ad lifecycle state.
  */
 typedef NS_ENUM(NSInteger, APSAdState) {
     APSAdStateInitialized,
@@ -27,76 +27,76 @@ typedef NS_ENUM(NSInteger, APSAdState) {
 };
 
 /**
- Ad lifecycle delegate calbacks.
+ * Ad lifecycle delegate calbacks.
  */
 @protocol APSAdDelegate;
 
 
 /**
- @abstract The ad domain class.
+ * @abstract The ad domain class.
  */
 @interface APSAd : NSObject
 
 /***
- State of the ad in the lifecycle.
+ * State of the ad in the lifecycle.
  */
 @property (nonatomic, assign, readonly) APSAdState state;
 /**
- Raw ad response.
+ * Raw ad response.
  */
 @property (nonatomic, strong, readonly) NSObject *adResponse;
 /**
- Raw ad error.
+ * Raw ad error.
  */
 @property (nonatomic, strong, readonly) NSObject *adError;
 /**
- Slot UUID of the ad.
+ * Slot UUID of the ad.
  */
 @property (nonatomic, copy, readonly) NSString *slotUUID;
 /**
- Ad format type.
+ * Ad format type.
  */
 @property (nonatomic, assign, readonly) APSAdFormat adFormat;
 /**
- Ad media type.
+ * Ad media type.
  */
 @property (nonatomic, assign, readonly) APSAdMediaType adMediaType;
 /**
- Ad mediation network/server.
+ * Ad mediation network/server.
  */
 @property (nonatomic, assign, readonly) APSAdNetwork adNetwork;
 /**
- Custom targeting dictionary.
+ * Custom targeting dictionary.
  */
 @property (nonatomic, copy, nullable, readonly) NSDictionary<NSString *, NSString *> *customTargeting;
 /**
- Mediation hints for mediation adapters.
+ * Mediation hints for mediation adapters.
  */
 @property (nonatomic, copy, readonly) NSDictionary<NSString *, NSString *> *mediationHints;
 /**
- Amazon slot string.
+ * Amazon slot string.
  */
 @property (nonatomic, copy, readonly) NSString *amznSlots;
 /**
- Ad view is set to nil initially until an ad is fetched and ready to render.
+ * Ad view is set to nil initially until an ad is fetched and ready to render.
  */
 @property (nonatomic, strong, readonly, nullable) UIView *adView;
 /**
- Error code.
+ * Error code.
  */
 @property (nonatomic, assign, readonly) NSInteger errorCode;
 
 /**
- @{ref APSAD} should not be instantiated directly. Use @{ref APSAdRequest} to load an ad.
+ * @{ref APSAD} should not be instantiated directly. Use @{ref APSAdRequest} to load an ad.
  */
 - (instancetype)init NS_UNAVAILABLE;
 
 /**
- @abstract Create a new ad object from an existing ad and clone metadata.
- @description @{ref APSAd} is a stateful object that can hold references to heavyweight ad view and others.
- If we want to cache the ad object without the ad view, use this method to clone the object metadata into a new one.
-
- @param ad The ad object.
+ * @abstract Create a new ad object from an existing ad and clone metadata.
+ * @description @{ref APSAd} is a stateful object that can hold references to heavyweight ad view and others.
+ * If we want to cache the ad object without the ad view, use this method to clone the object metadata into a new one.
+ *
+ * @param ad The ad object.
  */
 + (instancetype)adWithMetadataFromAd:(APSAd *)ad;
 

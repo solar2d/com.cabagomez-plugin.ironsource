@@ -6,10 +6,10 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for DTBiOSSDK.
+// ! Project version number for DTBiOSSDK.
 FOUNDATION_EXPORT double DTBiOSSDKVersionNumber;
 
-//! Project version string for DTBiOSSDK.
+// ! Project version string for DTBiOSSDK.
 FOUNDATION_EXPORT const unsigned char DTBiOSSDKVersionString[];
 
 #import <DTBiOSSDK/APS.h>
@@ -26,6 +26,7 @@ FOUNDATION_EXPORT const unsigned char DTBiOSSDKVersionString[];
 #import <DTBiOSSDK/APSError.h>
 #import <DTBiOSSDK/APSInitConfig.h>
 #import <DTBiOSSDK/APSLogger.h>
+#import <DTBiOSSDK/SKAdNetworkInfo.h>
 #import <DTBiOSSDK/APSStoreKit.h>
 #import <DTBiOSSDK/DTBAds.h>
 #import <DTBiOSSDK/DTBAdLoader.h>
@@ -65,3 +66,5 @@ FOUNDATION_EXPORT const unsigned char DTBiOSSDKVersionString[];
 #import <DTBiOSSDK/OMIDScriptInjector.h>
 #import <DTBiOSSDK/OMIDVASTProperties.h>
 #import <DTBiOSSDK/OMIDVerificationScriptResource.h>
+#import <DTBiOSSDK/APSAdFormatProperties.h>
+#import <DTBiOSSDK/APSAdFormatPropertyBuilder.h>

@@ -8,9 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum{
+typedef enum {
     DTBADNETWORK_GOOGLE_AD_MANAGER,
-    DTBADNETWORK_MOPUB_AD_SERVER,
     DTBADNETWORK_ADMOB,
     DTBADNETWORK_AD_GENERATION,
     DTBADNETWORK_IRON_SOURCE,
@@ -19,43 +18,43 @@ typedef enum{
     DTBADNETWORK_OTHER
 } DTBAdNetwork;
 
-extern NSString * _Nonnull  const FormatType_toString[];
+extern NSString * _Nonnull const FormatType_toString[];
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DTBAdNetworkInfo : NSObject
 
 /**
- An ad network name string.
+ * An ad network name string.
  */
-@property NSString *adNetworkName;
+@property(nonatomic, copy) NSString *adNetworkName;
 
 /**
- An ad network property dictionary.
+ * An ad network property dictionary.
  */
-@property NSMutableDictionary *adNetworkProperties;
+@property(nonatomic, strong) NSMutableDictionary *adNetworkProperties;
 
 /**
-  @param adNetworkName An ad network name enum.
+ * @param adNetworkName An ad network name enum.
  */
 - (instancetype)initWithNetworkName:(DTBAdNetwork)adNetworkName;
 
 /**
-  @return An ad network name string.
+ * @return An ad network name string.
  */
 - (NSString *)getAdNetworkName;
 
 /**
- Set the adNetworkValue in the adNetworkProperties key.
- @param adNetworkProperties A non-null ad network property string key.
- @param adNetworkValue A non-null string value to be set.
+ * Set the adNetworkValue in the adNetworkProperties key.
+ * @param adNetworkProperties A non-null ad network property string key.
+ * @param adNetworkValue A non-null string value to be set.
  */
 - (DTBAdNetworkInfo *)setAdNetworkProperties:(NSString *)adNetworkProperties
                               adNetworkValue:(NSString *)adNetworkValue;
 
 /**
- @param adNetworkProperties An ad network property string key.
- @return A string value of the adNetworkProperties key.
+ * @param adNetworkProperties An ad network property string key.
+ * @return A string value of the adNetworkProperties key.
  */
 - (NSString * _Nullable)getAdNetworkProperties:(NSString *)adNetworkProperties;
 

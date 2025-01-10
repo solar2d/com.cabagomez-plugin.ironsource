@@ -74,7 +74,7 @@ See CHBAdDelegate.h for more info.
 /*!
 Determines if a cached ad exists.
 # Discussion #
--  A return value of YES here indicates that it is safe to call the ``(showFromViewController:)`` method.
+-  A return value of YES here indicates that it is safe to call the ``CHBAd/showFromViewController:`` method.
 - Calling this method when this value is NO will cause the show request to fail with a `CHBShowErrorCodeNoCachedAd` error.
 - returns:YES if there is a cached ad, and NO if not.
 */
@@ -111,7 +111,7 @@ Caches an ad.
 # Discussion #
 - This method will first check if there is a cached ad and, if found, will do nothing.
 - If no cached ad exists the method will attempt to fetch it from the Chartboost server.
-- Implement ``(didCacheAd:error:)`` in your ad delegate to be notified of a cache request result.
+- Implement ``CHBAdDelegate/didCacheAd(_:error:)`` in your ad delegate to be notified of a cache request result.
 */
 - (void)cache;
 
@@ -119,7 +119,7 @@ Caches an ad.
 Caches an ad using an OpenRTB bid response.
 # Discussion #
 Use this method if you want to cache an ad using a winning bid obtained from the Chartboost bidder.
-Use the isCached property or implement ``(didCacheAd:error:)``in your ad delegate to be notified of a cache request result.
+Use the isCached property or implement ``CHBAdDelegate/didCacheAd(_:error:)``in your ad delegate to be notified of a cache request result.
 - parameter bidResponse: A bid response containing information about the ad to cache in OpenRTB format.
 */
 - (void)cacheBidResponse:(NSString *)bidResponse NS_SWIFT_NAME(cache(bidResponse:));
@@ -139,7 +139,7 @@ Shows an ad.
 - This method will first check if there is a cached ad, if found it will present it.
  If no cached ad exists the request will fail with a `CHBShowErrorCodeNoCachedAd` error.
 - Passing a non-nil view controller is required.
-- Implement ``(didShowAd:error:)`` in your ad delegate to be notified of a show request result.
+- Implement ``CHBAdDelegate/didShowAd(_:error:)`` in your ad delegate to be notified of a show request result.
 - parameter viewController: The view controller to present the ad on.
 */
 - (void)showFromViewController:(UIViewController *)viewController;

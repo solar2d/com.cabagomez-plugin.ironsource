@@ -1,6 +1,25 @@
 framework module DTBiOSSDK {
-  umbrella header "DTBiOSSDK.h"
-
-  export *
-  module * { export * }
+    umbrella header "DTBiOSSDK.h"
+    export *
+    exclude header "APSMetricsPerfAdFetchEvent.h"
+    exclude header "NSJSONSerialization+Helpers.h"
+    exclude header "APSMetricsPerfEventModelBuilder.h"
+    exclude header "APSMetricsDataModel.h"
+    exclude header "APSMetricsCustomModel.h"
+    exclude header "APSMetrics.h"
+    exclude header "APSMetricsPerformanceModel.h"
+    exclude header "APSMetricsPerfImpressionFiredEvent.h"
+    exclude header "APSMetricsPerformanceEventBase.h"
+    exclude header "APSMraidVersions.h"
+    exclude header "APSMetricsDeviceInfo.h"
+    exclude header "NSMutableURLRequest+Additions.h"
+    exclude header "APSMetricsPerfVideoCompletedEvent.h"
+    exclude header "APSMetricsPerfAdClickEvent.h"
+    exclude header "APSMetricsSdkInfo.h"
+    exclude header "APSMetricsCustomEventModelBuilder.h"
+    exclude header "APSMetricsCustomEventInfo.h"
+    exclude header "APSMetricsEvent.h"
+    exclude header "APSMetricsPerformanceAaxBidEvent.h"
+    exclude header "APSMetricsPerfAdapterEvent.h"
+    exclude header "APSURLSessionTask.h"
 }

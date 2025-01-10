@@ -22,6 +22,6 @@
   },
   "feature_toggle": {
       "ad_format_from_bid_response": true,
-      "log_api_type_usage": true
+      "restore_audio_session_fix": true
   }
 }

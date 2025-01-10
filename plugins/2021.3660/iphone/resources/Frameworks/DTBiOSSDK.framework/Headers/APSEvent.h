@@ -40,7 +40,14 @@ typedef enum APSEventType {
 
 @interface APSEvent : NSObject
 
-@property NSString *sdkVersion;
+/**
+ * @abstract A version that logs the event.
+ * @description The version is set from @{ref APSAnalytics} with @{ref setSdkVersion:} and optional
+ * @{ref setAdapterVersion:}. If the adapterVersion is set, the version format will be @"sdkVersion_adapterVersion",
+ * for example, @"aps-ios-4.6.0_admob-2.2.1".  If it is not set, the version will be sdkVersion.  If the sdkVersion
+ * is not set, the default value is APS_ANALYTICS_SDK_VERSION.
+ */
+@property NSString *version;
 
 @property NSString *eventType;
 @property NSString *timestamp;

@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
+// swift-compiler-version: Apple Swift version 5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ChartboostSDK
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AVFAudio
@@ -10,6 +10,7 @@ import AppTrackingTransparency
 import CoreGraphics
 import CoreTelephony
 import Foundation
+import ChartboostSDK.Private
 import SafariServices
 import StoreKit
 import Swift
@@ -17,12 +18,688 @@ import UIKit
 import WebKit
 import _Concurrency
 import _StringProcessing
-extension ChartboostSDK.CHBMediation : Swift.Codable {
-  public func encode(to encoder: Swift.Encoder) throws
-  required convenience public init(from decoder: Swift.Decoder) throws
-  @objc override dynamic open func isEqual(_ object: Any?) -> Swift.Bool
+import _SwiftConcurrencyShims
+import os.log
+import os
+@_inheritsConvenienceInitializers @_documentation(visibility: internal) @objc(CHBAPIConstants) public class APIConstants : ObjectiveC.NSObject {
+  @objc public static let methodPost: Swift.String
+  @objc public static let methodGet: Swift.String
+  @objc public static let methodPut: Swift.String
+  @objc public static let methodDelete: Swift.String
+  @objc public static let defaultTimeout: Swift.Int
+  @objc public static let apiVersion: Swift.String
+  @objc override dynamic public init()
+  @objc deinit
 }
-public typealias RedirectionURLFinished = (url: Foundation.URL, redirected: Swift.Bool)
+@_documentation(visibility: internal) @objc(CHBAdConfiguration) public class AdConfiguration : ObjectiveC.NSObject {
+  @objc public var baseURL: Foundation.URL
+  @objc public var html: Swift.String
+  @objc weak public var webViewDelegate: (any ChartboostSDK.WebViewDelegate)?
+  @objc public var suppressIncrementalRendering: Swift.Bool
+  @objc public init(html: Swift.String, baseURL: Foundation.URL, webViewDelegate: (any ChartboostSDK.WebViewDelegate)?, suppressIncrementalRendering: Swift.Bool)
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBAdFreezeInfoRepository) public protocol AdFreezeInfoRepository {
+  @objc var adShowStartEventContext: ChartboostSDK.CHBTrackingEventContext? { get set }
+  @objc var adDidShow: Swift.Bool { get set }
+  @objc var appTerminationDate: Foundation.Date? { get }
+  @objc func persistCurrentDateAsAppTerminationDate()
+  @objc func removeAppTerminationDate()
+}
+@_documentation(visibility: internal) @objc(CHBHTMLBuilder) public protocol HTMLBuilder {
+  @objc func html(adUnit: ChartboostSDK.CHBAdUnit, adTraits: ChartboostSDK.CHBAdTraits, nativeVideo: Swift.Bool) -> Swift.String?
+  @objc func htmlWebViewHTML(adUnit: ChartboostSDK.CHBAdUnit) -> Swift.String?
+}
+@_inheritsConvenienceInitializers @_documentation(visibility: internal) @objc(CHBAdHTMLBuilder) public class AdHTMLBuilder : ObjectiveC.NSObject, ChartboostSDK.HTMLBuilder {
+  @objc public func html(adUnit: ChartboostSDK.CHBAdUnit, adTraits: ChartboostSDK.CHBAdTraits, nativeVideo: Swift.Bool) -> Swift.String?
+  @objc public func htmlWebViewHTML(adUnit: ChartboostSDK.CHBAdUnit) -> Swift.String?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBAdNetworkIdentifierRepository) public protocol AdNetworkIdentifierRepository {
+  @objc func getAdNetworkIdentifiers() -> [Swift.String]
+}
+@_inheritsConvenienceInitializers @_documentation(visibility: internal) @objc(CHBAdNetworkIdentifierRepositoryFactory) public class AdNetworkIdentifierRepositoryFactory : ObjectiveC.NSObject {
+  @objc public static func makeAdNetworkIdentifierRepository() -> any ChartboostSDK.AdNetworkIdentifierRepository
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBAdUnitType) public enum AdUnitType : Swift.UInt, Swift.Codable {
+  case interstitial
+  case rewarded
+  case banner
+  public init?(rawValue: Swift.UInt)
+  public typealias RawValue = Swift.UInt
+  public var rawValue: Swift.UInt {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers @_documentation(visibility: internal) @objc public class CHBAdTraits : ObjectiveC.NSObject {
+  @objc public var adType: ChartboostSDK.AdUnitType {
+    @objc get
+  }
+  @objc public var location: Swift.String {
+    @objc get
+  }
+  @objc public var size: CoreFoundation.CGSize {
+    @objc get
+  }
+  @objc public var mediation: ChartboostSDK.CHBMediation? {
+    @objc get
+  }
+  @objc public var requiresCustomDisplayView: Swift.Bool {
+    @objc get
+  }
+  @objc public var supportsImplicitCaching: Swift.Bool {
+    @objc get
+  }
+  @objc public init(adType: ChartboostSDK.AdUnitType, location: Swift.String?, size: CoreFoundation.CGSize, mediation: ChartboostSDK.CHBMediation?)
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @_documentation(visibility: internal) @objc public class CHBAdUnit : ObjectiveC.NSObject {
+  @objc public var assets: [Swift.String : ChartboostSDK.CHBAsset]? {
+    @objc get
+  }
+  @objc public var parameters: [Swift.String : Swift.String]? {
+    @objc get
+  }
+  @objc public var templateAsset: ChartboostSDK.CHBAsset? {
+    @objc get
+  }
+  @objc public var adId: Swift.String? {
+    @objc get
+  }
+  @objc public var cgn: Swift.String? {
+    @objc get
+  }
+  @objc public var creative: Swift.String? {
+    @objc get
+  }
+  @objc public var impressionID: Swift.String? {
+    @objc get
+  }
+  @objc public var link: Swift.String? {
+    @objc get
+  }
+  @objc public var rewardAmount: Foundation.NSNumber? {
+    @objc get
+  }
+  @objc public var rewardCurrency: Swift.String? {
+    @objc get
+  }
+  @objc public var to: Swift.String? {
+    @objc get
+  }
+  @objc public var iTunesId: Swift.String? {
+    @objc get
+  }
+  @objc public var events: [Swift.String]? {
+    @objc get
+  }
+  @objc public var videoURL: Foundation.URL? {
+    @objc get
+  }
+  @objc public var storeKitRenderedAdParameters: ChartboostSDK.CHBSKANAttributionParameters? {
+    @objc get
+  }
+  @objc public var viewThroughAdParameters: ChartboostSDK.CHBSKANAttributionParameters? {
+    @objc get
+  }
+  @objc public var showLoading: Swift.Bool {
+    @objc get
+  }
+  @objc public var hasFrames: Swift.Bool {
+    @objc get
+  }
+  @objc public var creativeID: Swift.String? {
+    @objc get
+  }
+  @objc public var overlayConfiguration: ChartboostSDK.CHBSKANOverlayConfiguration? {
+    @objc get
+  }
+  @objc public var mType: Foundation.NSNumber? {
+    @objc get
+  }
+  @objc public var clkp: Foundation.NSNumber? {
+    @objc get
+  }
+  @objc public var renderingEngine: ChartboostSDK.RenderingEngine {
+    @objc get
+  }
+  @objc public var baseURL: Foundation.URL? {
+    @objc get
+  }
+  @objc public var scripts: [Swift.String] {
+    @objc get
+  }
+  @objc public var adm: Swift.String? {
+    @objc get
+  }
+  @objc public var ids: ChartboostSDK.CHBAdUnitIdentifiers? {
+    @objc get
+  }
+  @objc public var templateURL: Swift.String? {
+    @objc get
+  }
+  @objc public func adUnitIsReady() -> Swift.Bool
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @_documentation(visibility: internal) @objc public class CHBAdUnitIdentifiers : ObjectiveC.NSObject {
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_documentation(visibility: internal) @objc(CHBAdUnitIdentifiersExtractor) public class AdUnitIdentifiersExtractor : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBAdWebViewController) public protocol AdWebViewController : ChartboostSDK.VideoPlayerDelegate, ChartboostSDK.WebViewDelegate {
+  @objc weak var videoPlayerDataSource: (any ChartboostSDK.VideoPlayerDataSource)? { get set }
+  @objc func pause()
+  @objc func resume()
+  @objc func overlayDisplayed()
+}
+@_documentation(visibility: internal) @objc(CHBAdWebViewControllerConfiguration) public protocol AdWebViewControllerConfiguration {
+  @objc static var webViewRequestSchemeBlacklist: [Swift.String] { get }
+  @objc static var bannerIgnoreFrameLoadInterruptedErrors: Swift.Bool { get }
+}
+@_documentation(visibility: internal) @objc(CHBApplicationStateObserver) public protocol ApplicationStateObserver {
+}
+@_documentation(visibility: internal) @objc(CHBApplicationActivationObserver) public protocol ApplicationActivationObserver : ChartboostSDK.ApplicationStateObserver {
+  @objc func applicationDidBecomeActive()
+}
+@_documentation(visibility: internal) @objc(CHBApplicationInactivationObserver) public protocol ApplicationInactivationObserver : ChartboostSDK.ApplicationStateObserver {
+  @objc func applicationWillBecomeInactive()
+}
+@_documentation(visibility: internal) @objc(CHBApplicationTerminationObserver) public protocol ApplicationTerminationObserver : ChartboostSDK.ApplicationStateObserver {
+  @objc func applicationWillTerminate()
+}
+@_documentation(visibility: internal) @objc(CHBApplication) public protocol Application {
+  @objc var applicationState: UIKit.UIApplication.State { get }
+  @objc var statusBarHidden: Swift.Bool { get set }
+  @objc func canOpenURL(_ url: Foundation.URL) -> Swift.Bool
+  @objc func openURL(_ url: Foundation.URL, completionHandler: @escaping (Swift.Bool) -> Swift.Void)
+  @objc func addApplicationStateObserver(_ observer: any ChartboostSDK.ApplicationStateObserver)
+}
+@_inheritsConvenienceInitializers @_documentation(visibility: internal) @objc(CHBSharedApplication) public class SharedApplication : ObjectiveC.NSObject, ChartboostSDK.Application {
+  @objc public var statusBarHidden: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public func openURL(_ url: Foundation.URL, completionHandler: @escaping (Swift.Bool) -> Swift.Void)
+  @objc public func canOpenURL(_ url: Foundation.URL) -> Swift.Bool
+  @objc public var applicationState: UIKit.UIApplication.State {
+    @objc get
+  }
+  @objc public func addApplicationStateObserver(_ observer: any ChartboostSDK.ApplicationStateObserver)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @_documentation(visibility: internal) @objc public class CHBAsset : ObjectiveC.NSObject {
+  @objc public var directory: Swift.String? {
+    @objc get
+  }
+  @objc public var filename: Swift.String? {
+    @objc get
+  }
+  @objc public var url: Swift.String? {
+    @objc get
+  }
+  @objc public init(fileName: Swift.String?, directory: Swift.String?, url: Swift.String?)
+  @objc public func fullPath() -> Foundation.URL?
+  @objc public func assetIsReady() -> Swift.Bool
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBAudioOutputType) public enum AudioOutputType : Swift.Int, Swift.Codable {
+  case speaker = 0
+  case wiredHeadphones = 1
+  case bluetooth = 2
+  case other = 3
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @_documentation(visibility: internal) @objc(CHBBidderTokenConstants) public class BidderTokenConstants : ObjectiveC.NSObject {
+  @objc public static let ifv: Swift.String
+  @objc public static let atts: Swift.String
+  @objc public static let package: Swift.String
+  @objc public static let tokenVersionKey: Swift.String
+  @objc public static let omidPartnerName: Swift.String
+  @objc public static let omidPartnerVersion: Swift.String
+  @objc public static let tokenVersion: Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBClickType) public enum ClickType : Swift.UInt, Swift.Codable {
+  case cbClick
+  case mRAIDOpen
+  public init?(rawValue: Swift.UInt)
+  public typealias RawValue = Swift.UInt
+  public var rawValue: Swift.UInt {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_documentation(visibility: internal) @objc public class CHBClick : ObjectiveC.NSObject {
+  @objc public var playbackTime: Foundation.NSNumber? {
+    @objc get
+    @objc set
+  }
+  @objc public var totalTime: Foundation.NSNumber? {
+    @objc get
+    @objc set
+  }
+  @objc public var clickedX: Foundation.NSNumber? {
+    @objc get
+    @objc set
+  }
+  @objc public var clickedY: Foundation.NSNumber? {
+    @objc get
+    @objc set
+  }
+  @objc public var shouldDismiss: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var type: ChartboostSDK.ClickType {
+    @objc get
+    @objc set
+  }
+  @objc public var displayRequest: ChartboostSDK.CHBDisplayRequest? {
+    @objc get
+    @objc set
+  }
+  @objc public var url: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var userAgent: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var didSendApiClickRequest: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init()
+  @objc public init(url: Swift.String?, type: ChartboostSDK.ClickType)
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBClickManagerProtocol) public protocol ClickManagerProtocol {
+  @objc func clicked(_ click: ChartboostSDK.CHBClick, overrideOpener: Swift.Bool)
+}
+@_documentation(visibility: internal) @objc(CHBConfigResponseParser) public protocol ConfigResponseParser {
+  @objc func parse(_ dictionary: [Swift.AnyHashable : Any]?) throws -> [Swift.AnyHashable : Any]
+}
+@_inheritsConvenienceInitializers @_documentation(visibility: internal) @objc(CHBAdServerConfigResponseParser) public class AdServerConfigResponseParser : ObjectiveC.NSObject, ChartboostSDK.ConfigResponseParser {
+  @objc public func parse(_ dictionary: [Swift.AnyHashable : Any]?) throws -> [Swift.AnyHashable : Any]
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBConfigUpdaterProtocol) public protocol ConfigUpdaterProtocol {
+  @objc var needsToUpdate: Swift.Bool { get }
+  @objc func updateConfig(completion: ((ChartboostSDK.StartError?) -> Swift.Void)?)
+  @objc func clearData()
+}
+@_documentation(visibility: internal) @objc(CHBConfigApiClient) public protocol ConfigApiClient {
+  @objc func loadConfig(completion: @escaping ([Swift.String : Any]?, (any Swift.Error)?) -> Swift.Void)
+}
+@_inheritsConvenienceInitializers @_documentation(visibility: internal) @objc(CHBConfigUpdaterFactory) public class ConfigUpdaterFactory : ObjectiveC.NSObject {
+  @objc public func makeConfigUpdater(apiClient: any ChartboostSDK.ConfigApiClient) -> any ChartboostSDK.ConfigUpdaterProtocol
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBConsentRepository) public protocol ConsentRepository : ObjectiveC.NSObjectProtocol {
+  @objc var tcf: Swift.String? { get }
+  @objc var gpp: Swift.String? { get }
+  @objc var gppSID: Swift.String? { get }
+}
+@_inheritsConvenienceInitializers @_documentation(visibility: internal) @objc(CHBUserDefaultsConsentRepository) public class UserDefaultsConsentRepository : ObjectiveC.NSObject, ChartboostSDK.ConsentRepository {
+  @objc public var tcf: Swift.String? {
+    @objc get
+  }
+  @objc public var gpp: Swift.String? {
+    @objc get
+  }
+  @objc public var gppSID: Swift.String? {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+public typealias ObjCConfigurationsAggregate = any (ChartboostSDK.AdWebViewControllerConfiguration & ChartboostSDK.IAPPaymentObserverConfiguration & ChartboostSDK.OcurrenceLimitEventThrottlerConfiguration & ChartboostSDK.OmSdkProtocol & ChartboostSDK.SnapshotTakerConfiguration & ChartboostSDK.ThrottlingEventTrackerConfiguration & ChartboostSDK.TrackEventRepositoryConfiguration).Type
+@_documentation(visibility: internal) @objc(CHBObjCDependenciesContainer) public protocol ObjCDependenciesContainer {
+  @objc var application: any ChartboostSDK.Application { get }
+  @objc var currentEnvironment: any ChartboostSDK.Environment { get }
+  @objc var currentSession: any ChartboostSDK.Session { get }
+  @objc var objcConfiguration: ChartboostSDK.ObjCConfigurationsAggregate { get }
+  @objc var eventTracker: any ChartboostSDK.EventTracker { get }
+  @objc var impressionTracker: (any ChartboostSDK.ImpressionCounter & ChartboostSDK.ImpressionTracker) { get }
+  @objc var paymentObserver: any ChartboostSDK.PaymentObserver { get }
+  @objc var measurementManager: any ChartboostSDK.MeasurementManagerProtocol { get }
+  @objc var queueDispatcher: any ChartboostSDK.QueueDispatcher { get }
+  @objc var sdkSettings: any ChartboostSDK.SDKSettings { get }
+  @objc var snapshotTaker: any ChartboostSDK.SnapshotTaker { get }
+  @objc var userAgentFetcher: any ChartboostSDK.UserAgentFetcher { get }
+  @objc var userDefaults: any ChartboostSDK.UserDefaultsProtocol { get }
+  @objc var userDefaultsLegacy: any ChartboostSDK.UserDefaultsProtocol { get }
+  @objc var viewControllerPresenter: any ChartboostSDK.CHBViewControllerPresenter { get }
+  @objc var wkWebViewFactory: ChartboostSDK.WKWebViewFactory { get }
+}
+@_documentation(visibility: internal) @objc(CHBObjCDependenciesContainerProvider) public protocol ObjCDependenciesContainerProvider {
+  @objc static var dependenciesContainer: any ChartboostSDK.ObjCDependenciesContainer { get }
+}
+@_documentation(visibility: internal) @objc(CHBDisplayLifeCycleDelegate) public protocol DisplayLifeCycleDelegate {
+  @objc func willDisplayRequest(_ displayRequest: ChartboostSDK.CHBDisplayRequest)
+  @objc func didShowDisplayRequest(_ displayRequest: ChartboostSDK.CHBDisplayRequest)
+  @objc func didRecordImpression(_ displayRequest: ChartboostSDK.CHBDisplayRequest)
+  @objc func didFailToShowDisplayRequest(_ displayRequest: ChartboostSDK.CHBDisplayRequest)
+  @objc func close(_ displayRequest: ChartboostSDK.CHBDisplayRequest, withError: (any Swift.Error)?)
+  @objc func dismiss(_ displayRequest: ChartboostSDK.CHBDisplayRequest)
+  @objc func didCompleteRewardedDisplayRequest(_ displayRequest: ChartboostSDK.CHBDisplayRequest)
+  @objc func didStartRenderingContentForRequest(_ displayRequest: ChartboostSDK.CHBDisplayRequest)
+  @objc func didFinishLoadingContentForRequest(_ displayRequest: ChartboostSDK.CHBDisplayRequest, success: Swift.Bool, webView: WebKit.WKWebView?)
+  @objc func playVideo()
+  @objc func pauseVideo()
+  @objc func closeVideo()
+  @objc func setMuted(_ muted: Swift.Bool)
+  @objc func displayAppSheet()
+  @objc func handleClick(_ displayRequest: ChartboostSDK.CHBDisplayRequest, url: Foundation.URL, shouldDismiss: Swift.Bool, overrideOpener: Swift.Bool, completion: @escaping ((Swift.Bool, Swift.String) -> Swift.Void))
+}
+@_hasMissingDesignatedInitializers @_documentation(visibility: internal) @objc public class CHBDisplayRequest : ObjectiveC.NSObject {
+  @objc public var adUnit: ChartboostSDK.CHBAdUnit? {
+    @objc get
+    @objc set
+  }
+  @objc public var adTraits: ChartboostSDK.CHBAdTraits? {
+    @objc get
+  }
+  @objc public var presenterViewController: UIKit.UIViewController? {
+    @objc get
+    @objc set
+  }
+  @objc public var customDisplayView: (any ChartboostSDK.DisplayViewProtocol)? {
+    @objc get
+    @objc set
+  }
+  @objc public var ad: Swift.AnyObject? {
+    @objc get
+    @objc set
+  }
+  @objc public var startEvent: ChartboostSDK.CHBTrackingEvent? {
+    @objc get
+    @objc set
+  }
+  @objc public var video: (any ChartboostSDK.Video)? {
+    @objc get
+    @objc set
+  }
+  @objc public var skAdImpression: Any? {
+    @objc get
+    @objc set
+  }
+  @objc public var overlay: (any ChartboostSDK.OverlayDisplayable)? {
+    @objc get
+  }
+  @objc public init(adUnit: ChartboostSDK.CHBAdUnit?, adTraits: ChartboostSDK.CHBAdTraits?, presenterViewController: UIKit.UIViewController?, customDisplayView: (any ChartboostSDK.DisplayViewProtocol)?, ad: Swift.AnyObject?, video: (any ChartboostSDK.Video)?, skAdImpression: Any?, startEvent: ChartboostSDK.CHBTrackingEvent?, overlay: (any ChartboostSDK.OverlayDisplayable)?)
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBDisplayViewProtocol) public protocol DisplayViewProtocol {
+  @objc var webViewFactory: (any ChartboostSDK.WebViewFactory)? { get set }
+  @objc var suppressWebViewIncrementalRendering: Swift.Bool { get }
+  @objc var window: UIKit.UIWindow? { get }
+  @objc func load(_ config: ChartboostSDK.AdConfiguration)
+  @objc func unload()
+  @objc func didStartRenderingContent()
+  @objc func didFinishLoadingContent(success: Swift.Bool, webView: WebKit.WKWebView?)
+  @objc func removeBackgroundView()
+}
+@_inheritsConvenienceInitializers @_documentation(visibility: internal) @objc(CHBEndpointConstants) public class EndpointConstants : ObjectiveC.NSObject {
+  @objc public static let install: Swift.String?
+  @objc public static let config: Swift.String?
+  @objc public static let interstitialShow: Swift.String?
+  @objc public static let bannerShow: Swift.String?
+  @objc public static let rewardedShow: Swift.String?
+  @objc public static let webPrefetch: Swift.String?
+  @objc public static let videoComplete: Swift.String?
+  @objc public static let click: Swift.String?
+  @objc public static let defaultEventTrack: Swift.String?
+  @objc public static let postInstallEventIAP: Swift.String?
+  @objc public static var rewardedGet: Swift.String? {
+    @objc get
+  }
+  @objc public static var interstitialGet: Swift.String? {
+    @objc get
+  }
+  @objc public static var bannerGet: Swift.String? {
+    @objc get
+  }
+  @objc public static let dummy: Swift.String
+  public static func urlString(_ component: Foundation.URLComponents) -> Swift.String?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBDeviceType) public enum DeviceType : Swift.Int, Swift.Codable {
+  case iPhone
+  case iPad
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_documentation(visibility: internal) @objc(CHBEnvironment) public protocol Environment {
+  @objc var screenPixelWidth: Swift.Double { get }
+  @objc var screenPixelHeight: Swift.Double { get }
+  @objc var screenPointWidth: Swift.Double { get }
+  @objc var screenPointHeight: Swift.Double { get }
+  @objc var pixelRatio: Swift.Double { get }
+  @objc var isPortrait: Swift.Bool { get }
+  @objc var limitAdTracking: Swift.Bool { get }
+  @objc var make: Swift.String? { get }
+  @objc var deviceModel: Swift.String? { get }
+  @objc var deviceModelName: Swift.String? { get }
+  @objc var osVersion: Swift.String? { get }
+  @objc var appBundle: Swift.String { get }
+  @objc var appVersion: Swift.String { get }
+  @objc var currentUserAgent: Swift.String? { get }
+  @objc var carrierName: Swift.String? { get }
+  @objc var carrierISOCountryCode: Swift.String? { get }
+  @objc var carrierMobileCountryCode: Swift.String? { get }
+  @objc var carrierNetworkCode: Swift.String? { get }
+  @objc var radioAccessTechnologies: [Swift.String]? { get }
+  @objc var currentRadioAccessTechnology: Swift.String? { get }
+  @objc var connectionType: ChartboostSDK.NetworkStatus { get }
+  @objc var language: Swift.String? { get }
+  @objc var localeCountry: Swift.String? { get }
+  @objc var timeZone: Swift.String? { get }
+  @objc var ifa: Swift.String? { get }
+  @objc var ifv: Swift.String? { get }
+  @objc var chartboostID: Swift.String? { get }
+  @objc var deviceType: ChartboostSDK.DeviceType { get }
+  @objc var userInterfaceIdiom: Swift.Int { get }
+  @objc var usesMetricSystem: Foundation.NSNumber? { get }
+  @objc var currencyCode: Swift.String? { get }
+  @objc var calendarIdentifier: Swift.String? { get }
+  @objc var screenBrightness: Foundation.NSNumber? { get }
+  @objc var numberOfScreens: Foundation.NSNumber? { get }
+  @objc var screenMaxFramesPerSecond: Foundation.NSNumber? { get }
+  @objc var screenCalibratedLatency: Foundation.NSNumber? { get }
+  @objc var batteryLevel: Foundation.NSNumber? { get }
+  @objc var batteryCharging: Foundation.NSNumber? { get }
+  @objc var darkModeEnabled: Foundation.NSNumber? { get }
+  @objc var audioOutputTypes: [Swift.String]? { get }
+  @objc var audioInputTypes: [Swift.String]? { get }
+  @objc var audioVolume: Foundation.NSNumber? { get }
+  @objc var availableAdNetworkIdentifiers: [Swift.String]? { get }
+  @objc var currentTimestamp: Foundation.TimeInterval { get }
+  @objc var trackingStatus: Foundation.NSNumber? { get }
+  @objc var lastLowMemoryWarningDate: Foundation.Date? { get }
+  @objc var textSize: Foundation.NSNumber? { get }
+  @objc var boldTextEnabled: Foundation.NSNumber? { get }
+  @objc var closedCaptioningEnabled: Foundation.NSNumber? { get }
+  @objc var increasedContrastEnabled: Foundation.NSNumber? { get }
+  @objc var videoAutoplayEnabled: Foundation.NSNumber? { get }
+}
+@_hasMissingDesignatedInitializers @_documentation(visibility: internal) @objc public class CHBEnvironmentSnapshot : ObjectiveC.NSObject, ChartboostSDK.Environment {
+  @objc public var screenPixelWidth: Swift.Double {
+    @objc get
+  }
+  @objc public var screenPixelHeight: Swift.Double {
+    @objc get
+  }
+  @objc public var screenPointWidth: Swift.Double {
+    @objc get
+  }
+  @objc public var screenPointHeight: Swift.Double {
+    @objc get
+  }
+  @objc public var pixelRatio: Swift.Double {
+    @objc get
+  }
+  @objc public var isPortrait: Swift.Bool {
+    @objc get
+  }
+  @objc public var limitAdTracking: Swift.Bool {
+    @objc get
+  }
+  @objc public var make: Swift.String? {
+    @objc get
+  }
+  @objc public var deviceModel: Swift.String? {
+    @objc get
+  }
+  @objc public var deviceModelName: Swift.String? {
+    @objc get
+  }
+  @objc public var osVersion: Swift.String? {
+    @objc get
+  }
+  @objc public var appBundle: Swift.String {
+    @objc get
+  }
+  @objc public var appVersion: Swift.String {
+    @objc get
+  }
+  @objc public var currentUserAgent: Swift.String? {
+    @objc get
+  }
+  @objc public var carrierName: Swift.String? {
+    @objc get
+  }
+  @objc public var carrierISOCountryCode: Swift.String? {
+    @objc get
+  }
+  @objc public var carrierMobileCountryCode: Swift.String? {
+    @objc get
+  }
+  @objc public var carrierNetworkCode: Swift.String? {
+    @objc get
+  }
+  @objc public var radioAccessTechnologies: [Swift.String]? {
+    @objc get
+  }
+  @objc public var currentRadioAccessTechnology: Swift.String? {
+    @objc get
+  }
+  @objc public var connectionType: ChartboostSDK.NetworkStatus {
+    @objc get
+  }
+  @objc public var language: Swift.String? {
+    @objc get
+  }
+  @objc public var localeCountry: Swift.String? {
+    @objc get
+  }
+  @objc public var timeZone: Swift.String? {
+    @objc get
+  }
+  @objc public var ifa: Swift.String? {
+    @objc get
+  }
+  @objc public var ifv: Swift.String? {
+    @objc get
+  }
+  @objc public var chartboostID: Swift.String? {
+    @objc get
+  }
+  @objc public var deviceType: ChartboostSDK.DeviceType {
+    @objc get
+  }
+  @objc public var userInterfaceIdiom: Swift.Int {
+    @objc get
+  }
+  @objc public var usesMetricSystem: Foundation.NSNumber? {
+    @objc get
+  }
+  @objc public var currencyCode: Swift.String? {
+    @objc get
+  }
+  @objc public var calendarIdentifier: Swift.String? {
+    @objc get
+  }
+  @objc public var screenBrightness: Foundation.NSNumber? {
+    @objc get
+  }
+  @objc public var numberOfScreens: Foundation.NSNumber? {
+    @objc get
+  }
+  @objc public var screenMaxFramesPerSecond: Foundation.NSNumber? {
+    @objc get
+  }
+  @objc public var screenCalibratedLatency: Foundation.NSNumber? {
+    @objc get
+  }
+  @objc public var batteryLevel: Foundation.NSNumber? {
+    @objc get
+  }
+  @objc public var batteryCharging: Foundation.NSNumber? {
+    @objc get
+  }
+  @objc public var darkModeEnabled: Foundation.NSNumber? {
+    @objc get
+  }
+  @objc public var audioOutputTypes: [Swift.String]? {
+    @objc get
+  }
+  @objc public var audioInputTypes: [Swift.String]? {
+    @objc get
+  }
+  @objc public var audioVolume: Foundation.NSNumber? {
+    @objc get
+  }
+  @objc public var availableAdNetworkIdentifiers: [Swift.String]? {
+    @objc get
+  }
+  @objc public var currentTimestamp: Foundation.TimeInterval {
+    @objc get
+  }
+  @objc public var trackingStatus: Foundation.NSNumber? {
+    @objc get
+  }
+  @objc public var lastLowMemoryWarningDate: Foundation.Date? {
+    @objc get
+  }
+  @objc public var textSize: Foundation.NSNumber? {
+    @objc get
+  }
+  @objc public var boldTextEnabled: Foundation.NSNumber? {
+    @objc get
+  }
+  @objc public var closedCaptioningEnabled: Foundation.NSNumber? {
+    @objc get
+  }
+  @objc public var increasedContrastEnabled: Foundation.NSNumber? {
+    @objc get
+  }
+  @objc public var videoAutoplayEnabled: Foundation.NSNumber? {
+    @objc get
+  }
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+}
 @objc(CHBCacheErrorCode) public enum CacheErrorCode : Swift.Int {
   case internalError
   case internetUnavailable
@@ -45,6 +722,8 @@ public typealias RedirectionURLFinished = (url: Foundation.URL, redirected: Swif
   public var cacheCode: ChartboostSDK.CacheErrorCode? {
     get
   }
+  @objc public static func errorWith(code: ChartboostSDK.CacheErrorCode) -> ChartboostSDK.CacheError
+  @objc public static func errorWith(code: ChartboostSDK.CacheErrorCode, underlyingError: Foundation.NSError?) -> ChartboostSDK.CacheError
   @objc override dynamic public init(domain: Swift.String, code: Swift.Int, userInfo dict: [Swift.String : Any]? = nil)
   @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
@@ -71,6 +750,12 @@ public typealias RedirectionURLFinished = (url: Foundation.URL, redirected: Swif
   public var showCode: ChartboostSDK.ShowErrorCode? {
     get
   }
+  @objc public var spendsAdUnit: Swift.Bool {
+    get
+  }
+  @objc public static func errorWith(code: ChartboostSDK.ShowErrorCode) -> ChartboostSDK.ShowError
+  @objc public static func errorWith(code: ChartboostSDK.ShowErrorCode, spendsAdUnit: Swift.Bool) -> ChartboostSDK.ShowError
+  @objc public static func errorWith(code: ChartboostSDK.ShowErrorCode, underlyingError: Foundation.NSError?) -> ChartboostSDK.ShowError
   @objc override dynamic public init(domain: Swift.String, code: Swift.Int, userInfo dict: [Swift.String : Any]? = nil)
   @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
@@ -92,6 +777,8 @@ public typealias RedirectionURLFinished = (url: Foundation.URL, redirected: Swif
   public var clickCode: ChartboostSDK.ClickErrorCode? {
     get
   }
+  @objc public static func errorWith(code: ChartboostSDK.ClickErrorCode) -> ChartboostSDK.ClickError
+  @objc public static func errorWith(code: ChartboostSDK.ClickErrorCode, underlyingError: Foundation.NSError?) -> ChartboostSDK.ClickError
   @objc override dynamic public init(domain: Swift.String, code: Swift.Int, userInfo dict: [Swift.String : Any]? = nil)
   @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
@@ -113,13 +800,770 @@ public typealias RedirectionURLFinished = (url: Foundation.URL, redirected: Swif
   public var startCode: ChartboostSDK.StartErrorCode? {
     get
   }
+  @objc public var startDescription: Swift.String? {
+    @objc get
+  }
+  @objc public static func errorWith(code: ChartboostSDK.StartErrorCode) -> ChartboostSDK.StartError
+  @objc public static func errorWith(code: ChartboostSDK.StartErrorCode, underlyingError: Foundation.NSError?) -> ChartboostSDK.StartError
   @objc override dynamic public init(domain: Swift.String, code: Swift.Int, userInfo dict: [Swift.String : Any]? = nil)
   @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBEventTracker) public protocol EventTracker {
+  @objc func track(_ event: ChartboostSDK.CHBTrackingEvent)
+  @objc func track(eventContext: ChartboostSDK.CHBTrackingEventContext)
+}
+@_documentation(visibility: internal) @objc(CHBThrottlingEventTrackerConfiguration) public protocol ThrottlingEventTrackerConfiguration {
+  @objc static var trackingEnabled: Swift.Bool { get }
+  @objc static var trackingPersistenceEnabled: Swift.Bool { get }
+  @objc static var blacklist: [Swift.String]? { get }
+}
+@_documentation(visibility: internal) @objc(CHBTrackerAPIClientProtocol) public protocol TrackerAPIClientProtocol {
+  typealias APISendEventsCompletion = ([ChartboostSDK.CHBTrackingEventContext]?, Swift.Bool) -> Swift.Void
+  @objc func sendEvents(_ events: [ChartboostSDK.CHBTrackingEventContext]?, completion: @escaping Self.APISendEventsCompletion)
+}
+@_documentation(visibility: internal) @objc(CHBEventBodyBuilder) public class EventBodyBuilder : ObjectiveC.NSObject {
+  @objc public init(context: ChartboostSDK.CHBTrackingEventContext, settings: any ChartboostSDK.SDKSettings, consents: [Swift.String : Swift.String])
+  @objc public func buildBodyDictionary(eventName: Swift.String) -> [Swift.String : Swift.AnyObject]?
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_documentation(visibility: internal) @objc(CHBEventStoreFactory) public class EventStoreFactory : ObjectiveC.NSObject {
+  @objc public func makeTrackEventFileStoreRepository() -> any ChartboostSDK.TrackEventRepository
+  @objc public func makeAdFreezeInfoFileStoreRepository() -> any ChartboostSDK.AdFreezeInfoRepository
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBOcurrenceLimitEventThrottlerConfiguration) public protocol OcurrenceLimitEventThrottlerConfiguration {
+  @objc static var eventLimit: Swift.Int { get set }
+  @objc static var windowDuration: Foundation.TimeInterval { get set }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_documentation(visibility: internal) @objc(CHBEventTrackerFactory) public class EventTrackerFactory : ObjectiveC.NSObject {
+  @objc public func makeEventTrackerWith(apiClient: any ChartboostSDK.TrackerAPIClientProtocol, eventRepository: any ChartboostSDK.TrackEventRepository) -> any ChartboostSDK.EventTracker
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBFailableQueueDispatcher) public protocol FailableQueueDispatcher {
+  @objc func executeOnBackgroundQueue(_ block: @escaping () -> Swift.Void)
+  @objc func execute(withDelay delay: Foundation.TimeInterval, onBackgroundQueue block: @escaping () -> Swift.Void)
+}
+@_documentation(visibility: internal) @objc(CHBHTMLWebViewController) public class HTMLWebViewController : ObjectiveC.NSObject, ChartboostSDK.AdWebViewController {
+  @objc weak public var videoPlayerDataSource: (any ChartboostSDK.VideoPlayerDataSource)?
+  @objc public init(displayLifeCycle: any ChartboostSDK.DisplayLifeCycleDelegate, displayRequest: ChartboostSDK.CHBDisplayRequest, clickManager: any ChartboostSDK.ClickManagerProtocol, measurementTracker: any ChartboostSDK.MeasurementTrackerProtocol, viewableTracker: any ChartboostSDK.VisibilityTracker)
+  @objc deinit
+  @objc public func pause()
+  @objc public func resume()
+  @objc public func overlayDisplayed()
+}
+extension ChartboostSDK.HTMLWebViewController {
+  @objc dynamic public func webView(_ webView: ChartboostSDK.WebView, shouldStartLoadWithRequest request: Foundation.URLRequest, navigationType: ChartboostSDK.WebViewNavigationType) -> Swift.Bool
+  @objc dynamic public func webViewDidStartLoad(_ webView: ChartboostSDK.WebView)
+  @objc dynamic public func webViewDidStartRendering(_ webView: ChartboostSDK.WebView)
+  @objc dynamic public func webViewDidFinishLoad(_ webView: ChartboostSDK.WebView)
+  @objc dynamic public func webView(_ webView: ChartboostSDK.WebView, didFailLoadWithError error: any Swift.Error)
+}
+extension ChartboostSDK.HTMLWebViewController {
+  @objc dynamic public func didStartPlayingVideo(_ video: any ChartboostSDK.Video)
+  @objc dynamic public func didFinishPlayingVideo(_ video: any ChartboostSDK.Video)
+  @objc dynamic public func didFailToPlayVideo(_ video: any ChartboostSDK.Video, error: (any Swift.Error)?)
+  @objc dynamic public func didChangeVideoPlaybackTime(_ video: any ChartboostSDK.Video, playbackTime: Foundation.TimeInterval)
+  @objc dynamic public func volumeChangeTo(_ playerVolume: CoreFoundation.CGFloat)
+  @objc dynamic public func didBufferStart()
+  @objc dynamic public func didBufferEnd()
+}
+extension ChartboostSDK.HTMLWebViewController : ChartboostSDK.WebViewOverlayDelegate {
+  @objc dynamic public func webViewOverlayInfoIconClicked(with url: Foundation.URL)
+}
+extension ChartboostSDK.HTMLWebViewController : UIKit.UIGestureRecognizerDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+}
+@_inheritsConvenienceInitializers @_documentation(visibility: internal) @objc(CHBHeaderConstants) public class HeaderConstants : ObjectiveC.NSObject {
+  @objc public static let reachabilityHeaderKey: Swift.String
+  @objc public static let clientHeaderKey: Swift.String
+  @objc public static let apiHeaderKey: Swift.String
+  @objc public static let testHeaderKey: Swift.String
+  @objc public static let dspHeaderKey: Swift.String
+  @objc public static let acceptHeaderKey: Swift.String
+  @objc public static let contentTypeHeaderKey: Swift.String
+  @objc public static let appHeaderKey: Swift.String
+  @objc public static let signatureHeaderKey: Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBIdentifierProvider) public protocol IdentifierProvider {
+  @objc var ifa: Swift.String? { get }
+  @objc var isAdTrackingLimited: Swift.Bool { get }
+  @objc var ifv: Swift.String? { get }
+  @objc var chartboostID: Swift.String { get }
+  @objc var trackingStatus: Foundation.NSNumber? { get }
+}
+@_inheritsConvenienceInitializers @_documentation(visibility: internal) @objc(CHBDeviceIdentifierProviderFactory) public class DeviceIdentifierProviderFactory : ObjectiveC.NSObject {
+  @objc public func makeDeviceIdentifierProvider() -> any ChartboostSDK.IdentifierProvider
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @_documentation(visibility: internal) @objc public class CHBImpressionCounterSnapshot : ObjectiveC.NSObject, ChartboostSDK.ImpressionCounter {
+  @objc public func numberOfImpressions(for adType: ChartboostSDK.AdUnitType) -> Foundation.NSNumber?
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBImpressionCounter) public protocol ImpressionCounter {
+  @objc(numberOfImpressionsForAdType:) func numberOfImpressions(for adType: ChartboostSDK.AdUnitType) -> Foundation.NSNumber?
+}
+@_documentation(visibility: internal) @objc(CHBImpressionTracker) public protocol ImpressionTracker {
+  @objc(trackImpression:) func trackImpression(_ request: ChartboostSDK.CHBDisplayRequest)
+}
+@_inheritsConvenienceInitializers @_documentation(visibility: internal) @objc(CHBLoadAdResponseParser) public class LoadAdResponseParser : ObjectiveC.NSObject {
+  @objc public static func adUnit(fromDictionary dictionary: [Swift.String : Any], response: Foundation.URLResponse, adTraits: ChartboostSDK.CHBAdTraits) throws -> ChartboostSDK.CHBAdUnit
+  @objc public static func adUnit(fromOpenRTBResponse response: [Swift.String : Any], adTraits: ChartboostSDK.CHBAdTraits) -> ChartboostSDK.CHBAdUnit?
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension ChartboostSDK.CHBMediation : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  required convenience public init(from decoder: any Swift.Decoder) throws
+  @objc override dynamic open func isEqual(_ object: Any?) -> Swift.Bool
+}
+@_documentation(visibility: internal) @objc public protocol CHBViewControllerPresenter {
+  @objc func presentViewController(_ presentedController: UIKit.UIViewController?, from presentingController: UIKit.UIViewController?, animated: Swift.Bool, presentationStyle: UIKit.UIModalPresentationStyle, completion: ((Swift.Bool) -> Swift.Void)?)
+  @objc func dismissViewController(_ presentedController: UIKit.UIViewController?, animated: Swift.Bool, completion: (() -> Swift.Void)?)
+}
+@_inheritsConvenienceInitializers @_documentation(visibility: internal) @objc public class CHBModalViewControllerPresenter : ObjectiveC.NSObject, ChartboostSDK.CHBViewControllerPresenter {
+  @objc override dynamic public init()
+  @objc public func presentViewController(_ presentedController: UIKit.UIViewController?, from presentingController: UIKit.UIViewController?, animated: Swift.Bool, presentationStyle: UIKit.UIModalPresentationStyle, completion: ((Swift.Bool) -> Swift.Void)?)
+  @objc public func dismissViewController(_ presentedController: UIKit.UIViewController?, animated: Swift.Bool, completion: (() -> Swift.Void)?)
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBNetworkStatus) public enum NetworkStatus : Swift.Int, Swift.Codable {
+  case unknown = -1
+  case notReachable = 0
+  case reachableViaWiFi = 1
+  case reachableViaWWAN = 2
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @_documentation(visibility: internal) @objc(CHBObjCLogLevelWrapper) public class ObjCLogLevelWrapper : ObjectiveC.NSObject {
+  @objc public static func setLoggingLevel(_ loggingLevel: ChartboostSDK.CBLoggingLevel)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBOpenMeasurementTrackerFactoryProtocol) public protocol OpenMeasurementTrackerFactoryProtocol {
+  @objc func makeTracker(with adUnit: ChartboostSDK.CHBAdUnit) -> (any ChartboostSDK.MeasurementTrackerProtocol)?
+}
+@_inheritsConvenienceInitializers @_documentation(visibility: internal) @objc(CHBOpenMeasurementManagerFactory) public class OpenMeasurementManagerFactory : ObjectiveC.NSObject {
+  @objc public func makeManager() -> any ChartboostSDK.MeasurementManagerProtocol
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_documentation(visibility: internal) @objc(CHBOpenMeasurementTrackerFactory) public class OpenMeasurementTrackerFactory : ObjectiveC.NSObject, ChartboostSDK.OpenMeasurementTrackerFactoryProtocol {
+  @objc public func makeTracker(with adUnit: ChartboostSDK.CHBAdUnit) -> (any ChartboostSDK.MeasurementTrackerProtocol)?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBFriendlyObstructionType) public enum FriendlyObstructionType : Swift.UInt {
+  case mediaControls
+  case closeAd
+  case notVisible
+  case other
+  public init?(rawValue: Swift.UInt)
+  public typealias RawValue = Swift.UInt
+  public var rawValue: Swift.UInt {
+    get
+  }
+}
+@_documentation(visibility: internal) @objc(CHBMeasurementTrackerProtocol) public protocol MeasurementTrackerProtocol {
+  @objc func clicked()
+  @objc func setupSession(webView: WebKit.WKWebView, verificationsScripts: [[Swift.String : Any]])
+  @objc func startSession()
+  @objc func stopSession()
+  @objc func signalLoadAdEvent(skipOffset: Foundation.NSNumber?)
+  @objc func signalImpressionAdEvent()
+  @objc func start(duration: CoreFoundation.CGFloat, mediaPlayerVolume: CoreFoundation.CGFloat)
+  @objc func measureQuartileChange(playBackTime: Foundation.TimeInterval, totalDuration: Foundation.TimeInterval)
+  @objc func complete()
+  @objc func pause()
+  @objc func resume()
+  @objc func skipped()
+  @objc func bufferStart()
+  @objc func bufferFinish()
+  @objc func volumeChangeTo(playerVolume: CoreFoundation.CGFloat)
+  @objc func addFriendlyObstruction(_ obstruction: UIKit.UIView, type: ChartboostSDK.FriendlyObstructionType, reason: Swift.String?)
+}
+@_documentation(visibility: internal) @objc(CHBOmSdkProtocol) public protocol OmSdkProtocol {
+  @objc static var omSdkEnabled: Swift.Bool { get }
+  @objc static var omSdkVerificationEnabled: Swift.Bool { get }
+  @objc static var omSdkVerification: [ChartboostSDK.OpenMeasurementVerificationModel]? { get }
+}
+@_documentation(visibility: internal) @objc(CHBMeasurementManagerProtocol) public protocol MeasurementManagerProtocol {
+  @objc var omidJSResource: Swift.String? { get }
+  @objc var omidPartnerName: Swift.String { get }
+  @objc var omidVersionString: Swift.String { get }
+  @objc var isActive: Swift.Bool { get }
+  @objc func activateMeasurement()
+  @objc func injectJS(html: Swift.String) -> Swift.String
+}
+@_documentation(visibility: internal) @objc(CHBOpenMeasurementVerificationModel) public class OpenMeasurementVerificationModel : ObjectiveC.NSObject {
+  @objc public init(url: Swift.String?, vendor: Swift.String?, params: Swift.String?)
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBOpenRTBConnectionType) public enum OpenRTBConnectionType : Swift.UInt {
+  case unknown = 0
+  case ethernet = 1
+  case wifi = 2
+  case cellularUnknown = 3
+  case cellular2G = 4
+  case cellular3G = 5
+  case cellular4G = 6
+  case cellular5G = 7
+  public init?(rawValue: Swift.UInt)
+  public typealias RawValue = Swift.UInt
+  public var rawValue: Swift.UInt {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @_documentation(visibility: internal) @objc(CHBOpenRTBConnectionTypeParser) public class OpenRTBConnectionTypeParser : ObjectiveC.NSObject {
+  @objc(parseNetworkStatus:radioAccessTechnology:) public static func parse(networkStatus: ChartboostSDK.NetworkStatus, radioAccessTechnology: Swift.String?) -> ChartboostSDK.OpenRTBConnectionType
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBURLOpener) public protocol Opener {
+  @objc var isHandlingClick: Swift.Bool { get set }
+  @objc var canBeClosedBeforeHand: Swift.Bool { get }
+  @objc var iTunesId: Swift.String? { get set }
+  @objc var url: Foundation.URL? { get }
+  @objc func openURL(_ url: Foundation.URL?, from viewController: UIKit.UIViewController?, viewerPresentation: ((Swift.Bool) -> Swift.Void)?, viewerDismissal: ((Swift.Bool) -> Swift.Void)?)
+  @objc func closeOpener()
+  @objc func loadOpener()
+}
+@_documentation(visibility: internal) @objc(CHBOverlayDisplayable) public protocol OverlayDisplayable {
+  @objc func presentOverlay(window: UIKit.UIWindow, overlayPresented: (((any Swift.Error)?) -> Swift.Void)?, overlayDismissed: (() -> Swift.Void)?)
+  @objc func dismissOverlay()
+}
+@_inheritsConvenienceInitializers @available(iOS 14.3, *)
+@_documentation(visibility: internal) @objc(CHBOverlayDisplayableFactory) public class OverlayDisplayableFactory : ObjectiveC.NSObject {
+  @objc public func makeOverlayDisplayableWith(adUnit: ChartboostSDK.CHBAdUnit) -> (any ChartboostSDK.OverlayDisplayable)?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_documentation(visibility: internal) @objc(CHBParamConstants) public class ParamConstants : ObjectiveC.NSObject {
+  @objc public static let containerAd: Swift.String
+  @objc public static let containerApp: Swift.String
+  @objc public static let containerDevice: Swift.String
+  @objc public static let containerSDK: Swift.String
+  @objc public static let cache: Swift.String
+  @objc public static let raw: Swift.String
+  @objc public static let identity: Swift.String
+  @objc public static let limitAdTrackingOSLevel: Swift.String
+  @objc public static let dataUseConsent: Swift.String
+  @objc public static let privacy: Swift.String
+  @objc public static let model: Swift.String
+  @objc public static let make: Swift.String
+  @objc public static let ui: Swift.String
+  @objc public static let os: Swift.String
+  @objc public static let country: Swift.String
+  @objc public static let language: Swift.String
+  @objc public static let sdk: Swift.String
+  @objc public static let mediation: Swift.String
+  @objc public static let mediationVersion: Swift.String
+  @objc public static let adapterVersion: Swift.String
+  @objc public static let timestamp: Swift.String
+  @objc public static let timezone: Swift.String
+  @objc public static let retina: Swift.String
+  @objc public static let deviceType: Swift.String
+  @objc public static let deviceFamily: Swift.String
+  @objc public static let deviceDimension: Swift.String
+  @objc public static let deviceScale: Swift.String
+  @objc public static let deviceWidth: Swift.String
+  @objc public static let deviceHeight: Swift.String
+  @objc public static let applicationWidth: Swift.String
+  @objc public static let applicationHeight: Swift.String
+  @objc public static let screenPointWidth: Swift.String
+  @objc public static let screenPointHeight: Swift.String
+  @objc public static let isPortrait: Swift.String
+  @objc public static let session: Swift.String
+  @objc public static let commitHash: Swift.String
+  @objc public static let configVariant: Swift.String
+  @objc public static let bundleID: Swift.String
+  @objc public static let testMode: Swift.String
+  @objc public static let carrier: Swift.String
+  @objc public static let localVideos: Swift.String
+  @objc public static let adUnits: Swift.String
+  @objc public static let cacheAssets: Swift.String
+  @objc public static let location: Swift.String
+  @objc public static let cached: Swift.String
+  @objc public static let reinstall: Swift.String
+  @objc public static let userAgent: Swift.String
+  @objc public static let freeStorage: Swift.String
+  @objc public static let totalStorage: Swift.String
+  @objc public static let sessionDuration: Swift.String
+  @objc public static let usesMetricSystem: Swift.String
+  @objc public static let currencyCode: Swift.String
+  @objc public static let calendarType: Swift.String
+  @objc public static let screenBrightness: Swift.String
+  @objc public static let screenMaxFramesSec: Swift.String
+  @objc public static let batteryLevel: Swift.String
+  @objc public static let darkMode: Swift.String
+  @objc public static let keyboardLanguages: Swift.String
+  @objc public static let audioOutputTypes: Swift.String
+  @objc public static let audioInputTypes: Swift.String
+  @objc public static let audioVolume: Swift.String
+  @objc public static let textSize: Swift.String
+  @objc public static let boldText: Swift.String
+  @objc public static let closedCaption: Swift.String
+  @objc public static let increasedContrast: Swift.String
+  @objc public static let videoAutoplay: Swift.String
+  @objc public static let screenCalibratedLatency: Swift.String
+  @objc public static let batteryCharging: Swift.String
+  @objc public static let skAvailableNetworkIds: Swift.String
+  @objc public static let numScreens: Swift.String
+  @objc public static let trackingStatus: Swift.String
+  @objc public static let impDepth: Swift.String
+  @objc public static let connectionType: Swift.String
+  @objc public static let omidPartnerName: Swift.String
+  @objc public static let omidPartnerVersion: Swift.String
+  @objc public static let bundle: Swift.String
+  @objc public static let sessionID: Swift.String
+  @objc public static let retryCount: Swift.String
+  @objc public static let amount: Swift.String
+  @objc public static let app: Swift.String
+  @objc public static let configCertificationProvidersMainKey: Swift.String
+  @objc public static let consent: Swift.String
+  @objc public static let gpp: Swift.String
+  @objc public static let gppSID: Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_documentation(visibility: internal) @objc public class CHBParsingError : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBParsingErrorType) public enum ParsingErrorType : Swift.Int {
+  case unknown
+  case forbidden
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @_documentation(visibility: internal) @objc(CHBPartialSnapshotTaker) public class PartialSnapshotTaker : ObjectiveC.NSObject, ChartboostSDK.SnapshotPropertyCensor, ChartboostSDK.SnapshotTaker {
+  @objc public func isEnabled(_ field: Swift.String) -> Swift.Bool
+  @objc public func takeEnvironmentSnapshot(completion: @escaping (ChartboostSDK.CHBEnvironmentSnapshot) -> Swift.Void)
+  @objc public func takeImpressionCounterSnapshot() -> ChartboostSDK.CHBImpressionCounterSnapshot
+  @objc public func takeSessionSnapshot() -> ChartboostSDK.CHBSessionSnapshot
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_documentation(visibility: internal) @objc(CHBPathConstants) public class PathConstants : ObjectiveC.NSObject {
+  @objc public static let templates: Swift.String
+  @objc public static let videos: Swift.String
+  @objc public static let images: Swift.String
+  @objc public static let prefetchCache: Swift.String
+  @objc public static let chartboostLibrary: Swift.String
+  @objc public static let preCachedVideos: Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBIAPPaymentObserverConfiguration) public protocol IAPPaymentObserverConfiguration {
+  @objc static var autoIAPTrackingEnabled: Swift.Bool { get }
+}
+@_documentation(visibility: internal) @objc(CHBProductsRequest) public protocol ProductsRequest {
+  @objc func start()
+  @objc init(productIdentifiers: Swift.Set<Swift.String>)
+  @objc var delegate: (any StoreKit.SKProductsRequestDelegate)? { get set }
+}
+@_documentation(visibility: internal) @objc(CHBPaymentObserverApiClient) public protocol PaymentObserverApiClient {
+  @objc func sendInAppPurchaseTrack(_ event: [Swift.String : Any])
+}
+@_documentation(visibility: internal) @objc(CHBPaymentObserver) public protocol PaymentObserver {
+  @objc func startObservingTransactions()
+}
+@_documentation(visibility: internal) @objc(CHBStoreKitPaymentObserver) public class StoreKitPaymentObserver : ObjectiveC.NSObject, StoreKit.SKPaymentTransactionObserver, ChartboostSDK.PaymentObserver {
+  @objc public init(apiClient: any ChartboostSDK.PaymentObserverApiClient, productsRequestType: any ChartboostSDK.ProductsRequest.Type, queue: StoreKit.SKPaymentQueue)
+  @objc public func startObservingTransactions()
+  @objc public func paymentQueue(_ queue: StoreKit.SKPaymentQueue, updatedTransactions transactions: [StoreKit.SKPaymentTransaction])
+  @objc deinit
+}
+extension StoreKit.SKProductsRequest : ChartboostSDK.ProductsRequest {
+}
+@_documentation(visibility: internal) @objc(CHBOperation) public protocol QueueOperation {
+  @objc func cancel()
+}
+@_documentation(visibility: internal) @objc(CHBQueueDispatcher) public protocol QueueDispatcher {
+  @objc func executeOnMainQueue(_ block: @escaping () -> Swift.Void)
+  @objc func executeAsyncOnMainQueue(_ block: @escaping () -> Swift.Void)
+  @objc func executeOnBackgroundQueue(_ block: @escaping () -> Swift.Void)
+  @objc func execute(withDelay delay: Foundation.TimeInterval, onMainQueue block: @escaping () -> Swift.Void)
+  @objc func execute(withDelay delay: Foundation.TimeInterval, onBackgroundQueue block: @escaping () -> Swift.Void)
+  @objc func executeOperation(withDelay delay: Foundation.TimeInterval, onMainQueue block: @escaping () -> Swift.Void) -> any ChartboostSDK.QueueOperation
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_documentation(visibility: internal) @objc(CHBQueueDispatcherFactory) public class QueueDispatcherFactory : ObjectiveC.NSObject {
+  @objc public static func makeQueueDispatcher() -> any ChartboostSDK.QueueDispatcher
+  @objc public static func makeFailableQueueDispatcher() -> any ChartboostSDK.FailableQueueDispatcher
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBRenderingEngine) public enum RenderingEngine : Swift.Int, Swift.Decodable {
+  case html
+  case mraid
+  case vast
+  public init(from decoder: any Swift.Decoder) throws
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_documentation(visibility: internal) @objc(CHBResolverProtocol) public protocol ResolverProtocol {
+  @objc func resolve(adUnit: ChartboostSDK.CHBAdUnit, url: Foundation.URL?, completion: @escaping (((any ChartboostSDK.Opener)?, (any Swift.Error)?) -> Swift.Void))
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_documentation(visibility: internal) @objc(CHBResolver) public class Resolver : ObjectiveC.NSObject, ChartboostSDK.ResolverProtocol {
+  @objc override dynamic public init()
+  @objc public func resolve(adUnit: ChartboostSDK.CHBAdUnit, url: Foundation.URL?, completion: @escaping (((any ChartboostSDK.Opener)?, (any Swift.Error)?) -> Swift.Void))
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_documentation(visibility: internal) @objc(CHBSDKConstants) public class SDKConstants : ObjectiveC.NSObject {
+  @objc public static let sdkVersion: Swift.String
+  @objc public static let sdkUserAgent: Swift.String
+  @objc public static let minimumOSVersion: Swift.String
+  @objc public static let certificationProvidersMainKey: Swift.String
+  @objc public static let defaultLocation: Swift.String
+  @objc public static let chartboostNetworkIdentifier: Swift.String
+  @objc override dynamic public init()
   @objc deinit
 }
 extension Foundation.NSError {
   @objc dynamic public func trackDescription() -> Swift.String
 }
+@_documentation(visibility: internal) @objc(CHBSDKSettings) public protocol SDKSettings {
+  @objc var appId: Swift.String { get }
+  @objc var appSignature: Swift.String { get }
+  @objc var sdkUserAgent: Swift.String { get }
+  @objc var apiVersion: Swift.String { get }
+  @objc var sdkName: Swift.String { get }
+  @objc var sdkVersion: Swift.String { get }
+  @objc var isSandboxed: Swift.Bool { get }
+  @objc var useDummyAPI: Swift.Bool { get }
+  @objc var debugUserProvidedJSON: Swift.String? { get }
+  @objc func setDSPCode(_ dspCode: Swift.String?, creatives: [Foundation.NSNumber]?)
+  @objc var dspSettings: [Swift.AnyHashable : Any]? { get }
+  @objc var baseURL: Swift.String? { get set }
+  @objc var configPath: Swift.String? { get set }
+}
+@_hasMissingDesignatedInitializers @_documentation(visibility: internal) @objc public class CHBSKANAttributionParameters : ObjectiveC.NSObject {
+  @objc public var adNetworkID: Swift.String? {
+    @objc get
+  }
+  @objc public var attributionSignature: Swift.String? {
+    @objc get
+  }
+  @objc public var campaignID: Foundation.NSNumber? {
+    @objc get
+  }
+  @objc public var nonce: Foundation.UUID? {
+    @objc get
+  }
+  @objc public var timestamp: Foundation.NSNumber? {
+    @objc get
+  }
+  @objc public var advertiserAppStoreID: Swift.String? {
+    @objc get
+  }
+  @objc public var sourceAppStoreID: Foundation.NSNumber? {
+    @objc get
+  }
+  @objc public var adNetworkVersion: Swift.String? {
+    @objc get
+  }
+  @objc public var productpageid: Swift.String? {
+    @objc get
+  }
+  @objc public var sourceidentifier: Foundation.NSNumber? {
+    @objc get
+  }
+  @objc public init(adNetworkID: Swift.String?, attributionSignature: Swift.String?, campaignID: Foundation.NSNumber?, nonce: Foundation.UUID?, timestamp: Foundation.NSNumber?, advertiserAppStoreID: Swift.String?, sourceAppStoreID: Foundation.NSNumber?, adNetworkVersion: Swift.String?, productpageid: Swift.String?, sourceidentifier: Foundation.NSNumber?)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @_documentation(visibility: internal) @objc public class CHBSKANOverlayConfiguration : ObjectiveC.NSObject {
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBSession) public protocol Session {
+  @objc var identifier: Swift.String { get }
+  @objc var count: Swift.Int { get }
+  @objc var duration: Foundation.NSNumber? { get }
+  @objc static func resetSessionCount()
+}
+@_hasMissingDesignatedInitializers @_documentation(visibility: internal) @objc public class CHBSessionSnapshot : ObjectiveC.NSObject, ChartboostSDK.Session {
+  @objc public var identifier: Swift.String {
+    @objc get
+  }
+  @objc public var count: Swift.Int {
+    @objc get
+  }
+  @objc public var duration: Foundation.NSNumber? {
+    @objc get
+  }
+  @objc public static func resetSessionCount()
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBSnapshotTakerConfiguration) public protocol SnapshotTakerConfiguration {
+  @objc static var environmentDisabledFields: [Swift.String] { get set }
+}
+@_documentation(visibility: internal) @objc(CHBSnapshotPropertyCensor) public protocol SnapshotPropertyCensor {
+  @objc func isEnabled(_ property: Swift.String) -> Swift.Bool
+}
+@_documentation(visibility: internal) @objc(CHBSnapshotTaker) public protocol SnapshotTaker {
+  @objc func takeEnvironmentSnapshot(completion: @escaping (ChartboostSDK.CHBEnvironmentSnapshot) -> Swift.Void)
+  @objc func takeImpressionCounterSnapshot() -> ChartboostSDK.CHBImpressionCounterSnapshot
+  @objc func takeSessionSnapshot() -> ChartboostSDK.CHBSessionSnapshot
+}
+@_documentation(visibility: internal) @objc(CHBTrackEventRepositoryConfiguration) public protocol TrackEventRepositoryConfiguration {
+  @objc static var maxEventsInFile: Swift.Int { get }
+}
+@_documentation(visibility: internal) @objc(CHBTrackEventRepository) public protocol TrackEventRepository {
+  @objc func persistTrackEvent(_ context: ChartboostSDK.CHBTrackingEventContext)
+  @objc func removeTrackEvents(_ contexts: [ChartboostSDK.CHBTrackingEventContext])
+  @objc var persistedTrackEvents: [ChartboostSDK.CHBTrackingEventContext] { get }
+}
+@_hasMissingDesignatedInitializers @_documentation(visibility: internal) @objc public class CHBTrackingEvent : ObjectiveC.NSObject {
+  @objc public var name: Swift.String {
+    @objc get
+  }
+  @objc public var message: Swift.String? {
+    @objc get
+  }
+  @objc public var type: Swift.String {
+    @objc get
+  }
+  @objc public var timestamp: Foundation.TimeInterval {
+    @objc get
+  }
+  @objc public var latency: Foundation.TimeInterval {
+    @objc get
+  }
+  @objc public var adTraits: ChartboostSDK.CHBAdTraits? {
+    @objc get
+  }
+  @objc public var adUnitIDs: ChartboostSDK.CHBAdUnitIdentifiers? {
+    @objc get
+  }
+  @objc public var isDelayed: Swift.Bool {
+    @objc get
+  }
+  @objc public var templateURL: Swift.String? {
+    @objc get
+  }
+  @objc public class func event(name: Swift.String, message: Swift.String?) -> Self
+  @objc public class func event(name: Swift.String, message: Swift.String?, adTraits: ChartboostSDK.CHBAdTraits?, adUnitIDs: ChartboostSDK.CHBAdUnitIdentifiers?) -> Self
+  @objc public class func event(name: Swift.String, message: Swift.String?, adTraits: ChartboostSDK.CHBAdTraits?, adUnitIDs: ChartboostSDK.CHBAdUnitIdentifiers?, referenceEvent: ChartboostSDK.CHBTrackingEvent?) -> Self
+  @objc public class func event(name: Swift.String, message: Swift.String?, adTraits: ChartboostSDK.CHBAdTraits?, adUnitIDs: ChartboostSDK.CHBAdUnitIdentifiers?, referenceEvent: ChartboostSDK.CHBTrackingEvent?, fallbackLatency: Foundation.TimeInterval) -> Self
+  @objc public class func event(name: Swift.String, message: Swift.String?, adTraits: ChartboostSDK.CHBAdTraits?, adUnitIDs: ChartboostSDK.CHBAdUnitIdentifiers?, referenceEvent: ChartboostSDK.CHBTrackingEvent?, timestamp: Foundation.TimeInterval) -> Self
+  @objc public class func event(name: Swift.String, message: Swift.String?, adTraits: ChartboostSDK.CHBAdTraits?, adUnitIDs: ChartboostSDK.CHBAdUnitIdentifiers?, referenceEvent: ChartboostSDK.CHBTrackingEvent?, timestamp: Foundation.TimeInterval, templateURL: Swift.String) -> Self
+  @objc public class func event(name: Swift.String, message: Swift.String?, adTraits: ChartboostSDK.CHBAdTraits?, adUnitIDs: ChartboostSDK.CHBAdUnitIdentifiers?, referenceEvent: ChartboostSDK.CHBTrackingEvent?, templateURL: Swift.String) -> Self
+  @objc public class func event(name: Swift.String, message: Swift.String?, adTraits: ChartboostSDK.CHBAdTraits?, adUnitIDs: ChartboostSDK.CHBAdUnitIdentifiers?, referenceEvent: ChartboostSDK.CHBTrackingEvent?, fallbackLatency: Foundation.TimeInterval, templateURL: Swift.String?) -> Self
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_documentation(visibility: internal) @objc public class CHBCriticalEvent : ChartboostSDK.CHBTrackingEvent {
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_documentation(visibility: internal) @objc public class CHBErrorEvent : ChartboostSDK.CHBTrackingEvent {
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_documentation(visibility: internal) @objc public class CHBInfoEvent : ChartboostSDK.CHBTrackingEvent {
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_documentation(visibility: internal) @objc public class CHBDelayedEvent : ChartboostSDK.CHBTrackingEvent {
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @_documentation(visibility: internal) @objc public class CHBTrackingEventContext : ObjectiveC.NSObject {
+  @objc public var event: ChartboostSDK.CHBTrackingEvent {
+    @objc get
+  }
+  @objc public var environment: ChartboostSDK.CHBEnvironmentSnapshot {
+    @objc get
+  }
+  @objc public var session: ChartboostSDK.CHBSessionSnapshot {
+    @objc get
+  }
+  @objc public var impressionCounter: ChartboostSDK.CHBImpressionCounterSnapshot {
+    @objc get
+  }
+  @objc public init(event: ChartboostSDK.CHBTrackingEvent, environment: ChartboostSDK.CHBEnvironmentSnapshot, session: ChartboostSDK.CHBSessionSnapshot, impressionCounter: ChartboostSDK.CHBImpressionCounterSnapshot)
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBUserAgentFetcher) public protocol UserAgentFetcher {
+  @objc var userAgent: Swift.String? { get }
+  @objc func updateUserAgent(webView: ChartboostSDK.WebView?, completion: (() -> Swift.Void)?)
+  @objc func resetUserAgent()
+}
+@_documentation(visibility: internal) @objc(CHBUserAgentRepository) public protocol UserAgentRepository {
+  @objc var userAgent: Swift.String? { get set }
+}
+@_documentation(visibility: internal) @objc(CHBUserAgentDefaultsRepository) public class UserAgentDefaultsRepository : ObjectiveC.NSObject, ChartboostSDK.UserAgentRepository {
+  @objc public var userAgent: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public init(userDefaults: any ChartboostSDK.UserDefaultsProtocol, environment: any ChartboostSDK.Environment)
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBUserDefaultsProtocol) public protocol UserDefaultsProtocol {
+  @objc func object(forKey key: Swift.String) -> Any?
+  @objc func object(forKey key: Swift.String, default defaultValue: Any) -> Any
+  @objc func set(_ value: Any?, forKey key: Swift.String)
+  @objc func removeAllObjectsInNamespace()
+}
+@_documentation(visibility: internal) @objc(CHBVideoLoadedState) public enum VideoLoadedState : Swift.Int, Swift.Codable {
+  case zero, quartile1, quartile2, quartile3, quartile4, full
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_documentation(visibility: internal) @objc(CHBVideoLoadDelegate) public protocol VideoLoadDelegate : ChartboostSDK.VideoPlayDelegate {
+  @objc func didFinishLoadingVideo(_ video: any ChartboostSDK.Video, asset: AVFoundation.AVURLAsset, error: (any Swift.Error)?)
+}
+@_documentation(visibility: internal) @objc(CHBVideoPlayDelegate) public protocol VideoPlayDelegate {
+  @objc func didStartPlayingVideo(_ video: any ChartboostSDK.Video, error: (any Swift.Error)?)
+  @objc func didFinishPlayingVideo(_ video: any ChartboostSDK.Video, error: (any Swift.Error)?)
+  @objc func didBufferStart()
+  @objc func didBufferEnd()
+}
+@_documentation(visibility: internal) @objc(CHBVideo) public protocol Video {
+  @objc var url: Foundation.URL { get }
+  @objc var duration: Foundation.TimeInterval { get }
+  @objc var loadedTimeRanges: [Foundation.NSValue] { get }
+  @objc var loadedState: ChartboostSDK.VideoLoadedState { get }
+  @objc var muted: Swift.Bool { get set }
+  @objc var audioLevel: CoreFoundation.CGFloat { get set }
+  @objc weak var playDelegate: (any ChartboostSDK.VideoPlayDelegate)? { get set }
+  @objc func play()
+  @objc func pause()
+  @objc func prepareToPlayOnLayer(_ layer: AVFoundation.AVPlayerLayer)
+  @objc func isPreparedToPlayOnLayer(_ layer: AVFoundation.AVPlayerLayer) -> Swift.Bool
+  @objc func addObserverForPlaybackTimeWithFrequency(_ frequency: Foundation.TimeInterval, usingBlock: @escaping (Foundation.TimeInterval) -> Swift.Void) -> Any
+  @objc func removePlaybackTimeObserver(_ observer: Any)
+}
+@_documentation(visibility: internal) @objc(CHBVideoPlayerDataSource) public protocol VideoPlayerDataSource {
+  @objc func videoDuration() -> Foundation.TimeInterval
+  @objc func audioLevel() -> CoreFoundation.CGFloat
+}
+@_documentation(visibility: internal) @objc(CHBVideoPlayerDelegate) public protocol VideoPlayerDelegate {
+  @objc func didStartPlayingVideo(_ video: any ChartboostSDK.Video)
+  @objc func didFinishPlayingVideo(_ video: any ChartboostSDK.Video)
+  @objc func didFailToPlayVideo(_ video: any ChartboostSDK.Video, error: (any Swift.Error)?)
+  @objc func didChangeVideoPlaybackTime(_ video: any ChartboostSDK.Video, playbackTime: Foundation.TimeInterval)
+  @objc func volumeChangeTo(_ playerVolume: CoreFoundation.CGFloat)
+  @objc func didBufferStart()
+  @objc func didBufferEnd()
+}
+@_documentation(visibility: internal) @objc(CHBVisibilityTracker) public protocol VisibilityTracker {
+  @objc var isTracking: Swift.Bool { get }
+  @objc func startTracking(_ view: UIKit.UIView, completion: @escaping () -> Swift.Void)
+  @objc func stopTracking()
+}
+@_documentation(visibility: internal) @objc(CHBVisibilityTrackerConfiguration) public protocol VisibilityTrackerConfiguration {
+  @objc static var minimumVisibleSeconds: Foundation.TimeInterval { get }
+  @objc static var minimumVisiblePoints: CoreFoundation.CGFloat { get }
+  @objc static var pollInterval: Foundation.TimeInterval { get }
+  @objc static var traversalLimit: Swift.UInt { get }
+}
+@_documentation(visibility: internal) @objc(CHBPixelByTimeVisibilityTracker) final public class PixelByTimeVisibilityTracker : ObjectiveC.NSObject, ChartboostSDK.VisibilityTracker {
+  @objc final public var isTracking: Swift.Bool {
+    @objc get
+  }
+  @objc public init(configuration: any ChartboostSDK.VisibilityTrackerConfiguration.Type, app: any ChartboostSDK.Application)
+  @objc deinit
+  @objc final public func startTracking(_ view: UIKit.UIView, completion: @escaping () -> Swift.Void)
+  @objc final public func stopTracking()
+}
+@_inheritsConvenienceInitializers @_documentation(visibility: internal) @objc(CHBWKWebViewFactory) public class WKWebViewFactory : ObjectiveC.NSObject {
+  @objc public func webView(with frame: CoreFoundation.CGRect, suppressingIncrementalRendering: Swift.Bool) -> WebKit.WKWebView
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBWebProxy) public protocol WebProxy {
+  @objc var webview: ChartboostSDK.WebView? { get }
+  @objc func load(_ config: ChartboostSDK.AdConfiguration)
+  @objc func unLoad()
+  @objc func loadContentsInWebView()
+}
+@_documentation(visibility: internal) @objc(CHBWebViewNavigationType) public enum WebViewNavigationType : Swift.Int {
+  case linkActivated = 0
+  case formSubmitted = 1
+  case backForward = 2
+  case reload = 3
+  case formResubmitted = 4
+  case other = -1
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers @_documentation(visibility: internal) @objc(CHBWebView) @_Concurrency.MainActor(unsafe) public class WebView : UIKit.UIView {
+  @objc deinit
+  @objc @_Concurrency.MainActor(unsafe) public func destroy()
+  @objc @_Concurrency.MainActor(unsafe) public func loadHtml(_ html: Foundation.URL, assetsURL: Foundation.URL)
+  @objc @_Concurrency.MainActor(unsafe) public func loadHtmlString(_ htmlString: Swift.String, baseURL: Foundation.URL)
+  @objc @_Concurrency.MainActor(unsafe) public func evaluateJavaScript(_ javascript: Swift.String, completionHandler: ((Any?, (any Swift.Error)?) -> Swift.Void)? = nil)
+  @objc @_Concurrency.MainActor(unsafe) public func stopLoading()
+  @objc @_Concurrency.MainActor(unsafe) public var nativeWebView: WebKit.WKWebView? {
+    @objc get
+  }
+}
+extension ChartboostSDK.WebView : WebKit.WKUIDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, createWebViewWith configuration: WebKit.WKWebViewConfiguration, for navigationAction: WebKit.WKNavigationAction, windowFeatures: WebKit.WKWindowFeatures) -> WebKit.WKWebView?
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, runJavaScriptAlertPanelWithMessage message: Swift.String, initiatedByFrame frame: WebKit.WKFrameInfo, completionHandler: @escaping () -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, runJavaScriptConfirmPanelWithMessage message: Swift.String, initiatedByFrame frame: WebKit.WKFrameInfo, completionHandler: @escaping (Swift.Bool) -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: Swift.String, defaultText: Swift.String?, initiatedByFrame frame: WebKit.WKFrameInfo, completionHandler: @escaping (Swift.String?) -> Swift.Void)
+}
+extension ChartboostSDK.WebView : WebKit.WKNavigationDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, didStartProvisionalNavigation navigation: WebKit.WKNavigation!)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFailProvisionalNavigation navigation: WebKit.WKNavigation!, withError error: any Swift.Error)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, didCommit navigation: WebKit.WKNavigation!)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFail navigation: WebKit.WKNavigation!, withError error: any Swift.Error)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func webViewWebContentProcessDidTerminate(_ webView: WebKit.WKWebView)
+}
+@_documentation(visibility: internal) @objc(CHBWebViewDelegate) public protocol WebViewDelegate {
+  @objc func webView(_ webView: ChartboostSDK.WebView, shouldStartLoadWithRequest request: Foundation.URLRequest, navigationType: ChartboostSDK.WebViewNavigationType) -> Swift.Bool
+  @objc func webViewDidStartLoad(_ webView: ChartboostSDK.WebView)
+  @objc func webViewDidStartRendering(_ webView: ChartboostSDK.WebView)
+  @objc func webViewDidFinishLoad(_ webView: ChartboostSDK.WebView)
+  @objc func webView(_ webView: ChartboostSDK.WebView, didFailLoadWithError error: any Swift.Error)
+}
+@_documentation(visibility: internal) @objc(CHBWebViewFactory) public protocol WebViewFactory {
+  @objc func makeWebProxy(with frame: CoreFoundation.CGRect) -> any ChartboostSDK.WebProxy
+  @objc func makeWebView(with frame: CoreFoundation.CGRect, suppressingIncrementalRendering: Swift.Bool) -> ChartboostSDK.WebView
+}
+@_inheritsConvenienceInitializers @_documentation(visibility: internal) @objc(CHBDefaultWebViewFactory) public class DefaultWebViewFactory : ObjectiveC.NSObject, ChartboostSDK.WebViewFactory {
+  @objc public func makeWebProxy(with frame: CoreFoundation.CGRect) -> any ChartboostSDK.WebProxy
+  @objc public func makeWebView(with frame: CoreFoundation.CGRect, suppressingIncrementalRendering: Swift.Bool) -> ChartboostSDK.WebView
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_documentation(visibility: internal) @objc(CHBWebViewOverlayDelegate) public protocol WebViewOverlayDelegate {
+  @objc func webViewOverlayInfoIconClicked(with url: Foundation.URL)
+}
+extension ChartboostSDK.AdUnitType : Swift.Equatable {}
+extension ChartboostSDK.AdUnitType : Swift.Hashable {}
+extension ChartboostSDK.AdUnitType : Swift.RawRepresentable {}
+extension ChartboostSDK.AudioOutputType : Swift.Equatable {}
+extension ChartboostSDK.AudioOutputType : Swift.Hashable {}
+extension ChartboostSDK.AudioOutputType : Swift.RawRepresentable {}
+extension ChartboostSDK.ClickType : Swift.Equatable {}
+extension ChartboostSDK.ClickType : Swift.Hashable {}
+extension ChartboostSDK.ClickType : Swift.RawRepresentable {}
+extension ChartboostSDK.DeviceType : Swift.Equatable {}
+extension ChartboostSDK.DeviceType : Swift.Hashable {}
+extension ChartboostSDK.DeviceType : Swift.RawRepresentable {}
 extension ChartboostSDK.CacheErrorCode : Swift.Equatable {}
 extension ChartboostSDK.CacheErrorCode : Swift.Hashable {}
 extension ChartboostSDK.CacheErrorCode : Swift.RawRepresentable {}
@@ -132,3 +1576,24 @@ extension ChartboostSDK.ClickErrorCode : Swift.RawRepresentable {}
 extension ChartboostSDK.StartErrorCode : Swift.Equatable {}
 extension ChartboostSDK.StartErrorCode : Swift.Hashable {}
 extension ChartboostSDK.StartErrorCode : Swift.RawRepresentable {}
+extension ChartboostSDK.NetworkStatus : Swift.Equatable {}
+extension ChartboostSDK.NetworkStatus : Swift.Hashable {}
+extension ChartboostSDK.NetworkStatus : Swift.RawRepresentable {}
+extension ChartboostSDK.FriendlyObstructionType : Swift.Equatable {}
+extension ChartboostSDK.FriendlyObstructionType : Swift.Hashable {}
+extension ChartboostSDK.FriendlyObstructionType : Swift.RawRepresentable {}
+extension ChartboostSDK.OpenRTBConnectionType : Swift.Equatable {}
+extension ChartboostSDK.OpenRTBConnectionType : Swift.Hashable {}
+extension ChartboostSDK.OpenRTBConnectionType : Swift.RawRepresentable {}
+extension ChartboostSDK.ParsingErrorType : Swift.Equatable {}
+extension ChartboostSDK.ParsingErrorType : Swift.Hashable {}
+extension ChartboostSDK.ParsingErrorType : Swift.RawRepresentable {}
+extension ChartboostSDK.RenderingEngine : Swift.Equatable {}
+extension ChartboostSDK.RenderingEngine : Swift.Hashable {}
+extension ChartboostSDK.RenderingEngine : Swift.RawRepresentable {}
+extension ChartboostSDK.VideoLoadedState : Swift.Equatable {}
+extension ChartboostSDK.VideoLoadedState : Swift.Hashable {}
+extension ChartboostSDK.VideoLoadedState : Swift.RawRepresentable {}
+extension ChartboostSDK.WebViewNavigationType : Swift.Equatable {}
+extension ChartboostSDK.WebViewNavigationType : Swift.Hashable {}
+extension ChartboostSDK.WebViewNavigationType : Swift.RawRepresentable {}

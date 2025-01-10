@@ -8,7 +8,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-#define kAmazonAdsDomain @"com.amazon.ads"
+#define kAmazonAdsDomain        @"com.amazon.ads"
 
 #define kAmazonServerError      100
 #define kAmazonErrorNoSlot      150

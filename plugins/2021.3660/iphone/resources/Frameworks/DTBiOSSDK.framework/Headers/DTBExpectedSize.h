@@ -11,8 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol DTBExpectedSize <NSObject>
 
-@property(nonatomic)NSNumber * _Nullable APS_targetWidth APS_DEPRECATED_MESSAGE(); // append prefix to prevent name clashes (APS-TTT-6968)
-@property(nonatomic)NSNumber * _Nullable APS_targetHeight APS_DEPRECATED_MESSAGE();
+@property(nonatomic, copy) NSNumber *_Nullable APS_targetWidth APS_DEPRECATED_MESSAGE(); // append prefix to prevent name clashes (APS-TTT-6968)
+@property(nonatomic, copy) NSNumber *_Nullable APS_targetHeight APS_DEPRECATED_MESSAGE();
 
 @end
 

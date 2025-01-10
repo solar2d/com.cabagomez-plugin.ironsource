@@ -8,8 +8,9 @@
 #define APSAnalyticsNetworkManager_h
 
 #import <Foundation/Foundation.h>
-
 #import "APSEvent.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 #define APS_ANALYTICS_CONTENT_TYPE_HEADER @"Content-Type"
 #define APS_ANALYTICS_CONTENT_TYPE_VALUE  @"application/json"
@@ -24,5 +25,6 @@
 
 @end
 
+NS_ASSUME_NONNULL_END
 
 #endif /* APSAnalyticsNetworkManager_h */

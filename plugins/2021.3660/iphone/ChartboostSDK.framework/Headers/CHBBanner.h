@@ -142,7 +142,7 @@ Shows an ad.
 - This method will first check if there is a cached ad, if found it will present it.
 - If no cached ad exists the method will attempt to fetch it from the Chartboost server first.
 - Passing a non-nil view controller is required.
-- Implement ``(didShowAd:error:)`` in your ad delegate to be notified of a show request result, and ``(didCacheAd:error:)``  to be notified of the result of a cache request triggered by showing a non-cached banner.
+- Implement ``CHBAdDelegate/didShowAd(_:error:)`` in your ad delegate to be notified of a show request result, and ``CHBAdDelegate/didCacheAd(_:error:)``  to be notified of the result of a cache request triggered by showing a non-cached banner.
 - parameter viewController: The view controller to present the ad on.
 */
 - (void)showFromViewController:(UIViewController *)viewController;

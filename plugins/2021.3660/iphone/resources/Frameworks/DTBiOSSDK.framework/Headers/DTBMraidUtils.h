@@ -12,14 +12,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DTBMraidUtils : NSObject
 
-+ (NSString*)placementTypeAsString:(DTBAdPlacementType)placementType;
-+ (NSString*)stateTypeToString:(DTBAdState)adStatusType;
-+ (NSString*)mraidEnvParametersAsString:(NSDictionary *)params;
-+ (NSString*)mraidSupportObjectAsJSONString;
++ (NSString *)placementTypeAsString:(DTBAdPlacementType)placementType;
++ (NSString *)stateTypeToString:(DTBAdState)adStatusType;
++ (NSString *)mraidEnvParametersAsString:(NSDictionary *)params;
++ (NSString *)mraidSupportObjectAsJSONString;
 + (DTBAdOrientation)orientationFromForceOrientationString:(NSString *)orientationString;
 + (NSString *)orientationTypeToString:(DTBAdOrientation)orientation;
 + (UIInterfaceOrientation)dtbOrientationToUIOrientationState:(DTBAdOrientation)orientation;
-+ (DTBAdOrientation) UIOrientationStateToDTBOrientationState:(UIInterfaceOrientation)orientation;
++ (DTBAdOrientation)UIOrientationStateToDTBOrientationState:(UIInterfaceOrientation)orientation;
 + (BOOL)isAppOrientationLocked;
 + (NSArray *)supportedOrientationsAsArray;
 

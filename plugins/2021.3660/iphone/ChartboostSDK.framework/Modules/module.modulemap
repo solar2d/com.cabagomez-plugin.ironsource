@@ -5,6 +5,11 @@ framework module ChartboostSDK {
   export *
   module * { export * }
   
+  explicit module Private {
+    umbrella header "OMSDKImports.h"
+    link "libAppVerificationLibrary"
+    export *
+  }
   
   link framework "UIKit"
   link framework "WebKit"
@@ -18,6 +23,7 @@ framework module ChartboostSDK {
   link framework "CoreFoundation"
   link framework "SystemConfiguration"
 }
+
 module ChartboostSDK.Swift {
   header "ChartboostSDK-Swift.h"
   requires objc

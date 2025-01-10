@@ -11,8 +11,8 @@
 #import <Foundation/Foundation.h>
 
 /**
- @abstract Ad media type.
- @description APS supports both display and video.
+ * @abstract Ad media type.
+ * @description APS supports both display and video.
  */
 typedef NS_ENUM(NSInteger, APSAdMediaType) {
     APSAdMediaTypeDisplay,

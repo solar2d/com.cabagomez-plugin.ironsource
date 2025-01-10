@@ -73,4 +73,7 @@
 /// Called when ad is estimated to have earned money. Available for allowlisted accounts only.
 @property(nonatomic, nullable, copy) GADPaidEventHandler paidEventHandler;
 
+/// Indicates whether the last loaded ad is a collapsible banner.
+@property(nonatomic, readonly) BOOL isCollapsible;
+
 @end

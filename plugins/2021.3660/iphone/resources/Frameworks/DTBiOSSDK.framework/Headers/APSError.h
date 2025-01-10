@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString * const APSErrorAdDomain;
 
 /**
- Enums to specify error codes.
+ * Enums to specify error codes.
  */
 typedef NS_ENUM(NSInteger, APSErrorCode) {
     APSErrorCodeServerError,
@@ -22,13 +22,13 @@ typedef NS_ENUM(NSInteger, APSErrorCode) {
 };
 
 /**
- An APS Error class.
+ * An APS Error class.
  */
 @interface APSError : NSObject
 
 /**
- A utility method to create an NSError from an errorCode.
- @param errorCode An error code of @{ref APSErrorcode}.
+ * A utility method to create an NSError from an errorCode.
+ * @param errorCode An error code of @{ref APSErrorcode}.
  */
 + (NSError *)errorWithCode:(APSErrorCode)errorCode;
 

@@ -10,12 +10,18 @@
 
 #define APS_DEPRECATED_MESSAGE(msg)
 
-/* Uncomment this to enable the macro.
 #ifdef APS_INTERNAL
-#define APS_DEPRECATED_MESSAGE(msg)
+#define APS_NON_IAB_DEPRECATED_MESSAGE(msg)
 #else
-#define APS_DEPRECATED_MESSAGE(msg) __attribute((deprecated(msg)))
+#define APS_NON_IAB_DEPRECATED_MESSAGE(msg) __attribute((deprecated(msg)))
 #endif
-*/
+
+/* Uncomment this to enable the macro.
+ #ifdef APS_INTERNAL
+ #define APS_DEPRECATED_MESSAGE(msg)
+ #else
+ #define APS_DEPRECATED_MESSAGE(msg) __attribute((deprecated(msg)))
+ #endif
+ */
 
 #endif /* APSDeprecatedMessage_h */

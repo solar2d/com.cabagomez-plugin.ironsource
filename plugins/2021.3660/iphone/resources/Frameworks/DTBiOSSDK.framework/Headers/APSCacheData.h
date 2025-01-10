@@ -15,14 +15,14 @@
 
 @interface APSCacheData : NSObject
 
-@property (nonatomic) DTBAdLoader *adLoaderReq;
-@property (nonatomic) DTBAdResponse *adResponse;
-@property (nonatomic) NSNumber *timestamp;
-@property (nonatomic) NSString *requestId;
-@property (nonatomic) NSString *serverParameter;
-@property (nonatomic) id request;
+@property (nonatomic, strong) DTBAdLoader *adLoaderReq;
+@property (nonatomic, strong) DTBAdResponse *adResponse;
+@property (nonatomic, copy) NSNumber *timestamp;
+@property (nonatomic, copy) NSString *requestId;
+@property (nonatomic, copy) NSString *serverParameter;
+@property (nonatomic, strong) id request;
 
-- (id) initWithRequestId:(NSString *)requestId adLoaderReq:(DTBAdLoader *)adLoaderReq;
+- (id)initWithRequestId:(NSString *)requestId adLoaderReq:(DTBAdLoader *)adLoaderReq;
 
 @end
 

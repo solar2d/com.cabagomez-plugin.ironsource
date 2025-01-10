@@ -20,6 +20,7 @@ framework module GoogleMobileAds {
   link framework "MediaPlayer"
   link framework "MessageUI"
   link framework "MobileCoreServices"
+  link framework "Network"
   link framework "QuartzCore"
   link framework "SafariServices"
   link framework "Security"

@@ -11,10 +11,10 @@
 
 #import <WebKit/WebKit.h>
 
-#define INTEGRATED_OM_VERSION @"1_3_28"
-#define DEFAULT_OMSDK_PARTNER_NAME @"Amazon1"
+#define INTEGRATED_OM_VERSION           @"1_3_28"
+#define DEFAULT_OMSDK_PARTNER_NAME      @"Amazon1"
 
-#define OM_SDK_PARTNER_KEY_NAME @"omidPartnerName"
+#define OM_SDK_PARTNER_KEY_NAME         @"omidPartnerName"
 #define OM_SDK_PARTNER_VERSION_KEY_NAME @"omidPartnerVersion"
 
 @interface APSOmSdkHelper : NSObject

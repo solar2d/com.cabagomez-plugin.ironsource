@@ -17,9 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property DTBAdError dtbAdError;
 
-@property DTBAdLoader * _Nullable dtbAdLoader;
+@property(nonatomic, strong) DTBAdLoader * _Nullable dtbAdLoader;
 
--(DTBAdLoader *_Nullable) getAdLoader;
+- (DTBAdLoader *_Nullable)getAdLoader;
 
 @end
 

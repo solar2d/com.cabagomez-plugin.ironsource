@@ -1,10 +1,10 @@
 # com.cabagomez-plugin.ironsource
 Solar2d Ironsource Plugin.
 
--- The iOS version min OS is iOS 12. 
--- The Amazon/Android min OS is Android 21 before Solar2d 3707 and Android 24 after Solar2d 3706
--- The frameworks for the networks have been bitcode and anything other than arm64 stripped.
--- User messaging platform (UMP) for consent is integrated into the plugin.
+-- The iOS version min OS is iOS 12.   
+-- The Amazon/Android min OS is Android 21 before Solar2d 3707 and Android 24 after Solar2d 3706   
+-- The frameworks for the networks have been bitcode and anything other than arm64 stripped.      
+-- User messaging platform (UMP) for consent is integrated into the plugin.     
 
 -- If you find an issue please submit an issue on this repo. If I am able to reproduce it and impacts me, I will try to resolve it. If you need more support than this or want to individually ad plugins, I would recommend the ironsource plugin by Scott Harrison: https://solar2dmarketplace.com/plugins?IronSource_tech-scotth
 
@@ -349,7 +349,7 @@ SKAdNetworkItems = {
 
 ---------------
 Current versions for android:  
----------------
+---------------   
 --------------- AppLovin     
 Adapter 4.3.41         
 SDK Version - 12.1.0      
@@ -389,10 +389,10 @@ SDK Version - 7.1.0
 Adapter 4.3.34        
 SDK Version - 4.9.2        
 
----------------
----------------
----------------
----------------
+---------------   
+---------------   
+---------------   
+---------------   
 Current versions for Amazon   
 --------------- APS Network       
 Adapter 4.3.13   
@@ -414,31 +414,26 @@ Adapter 4.3.25
 SDK Version - 7.4.0   
 
 
----------------
----------------
----------------
----------------
+---------------   
+---------------   
+---------------   
+---------------   
 Current version for iOS  
----------------     
---------------- AppLovin     
-     SDK - Version 12.4.0    
-     Adapter - Version 4.3.40   
-
 --------------- Chartboost    
-     SDK - Version 9.7.0    
+     SDK - Version 9.8.0    
      Adapter - Version 4.3.15     
 
 --------------- APS    
-     SDK - Version 4.6.0     
+     SDK - Version 4.10.1    
      Adapter - Version 4.3.7    
 
 --------------- Google (AdMob and Ad Manager)     
-     SDK - Version 11.3.0     
+     SDK - Version 11.5.0     
      Adapter - Version 4.3.46     
 
 --------------- IronSource     
-     SDK - Version 8.1.0   
-     Adapter - Version 8.1.0     
+     SDK - Version 8.1.1  
+     Adapter - Version 8.1.1     
 
 --------------- Meta     
      SDK - Version 6.12.0     

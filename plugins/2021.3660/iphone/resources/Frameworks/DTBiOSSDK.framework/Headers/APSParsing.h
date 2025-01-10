@@ -44,11 +44,11 @@ NSString *APSParsingGetStringFromDictionary(NSDictionary * _Nullable dictionary,
 BOOL APSParsingIsEmptyString(NSString * _Nullable string);
 
 /**
- @description Return the non-null value of the input string or the default value.
-
- @param string The input string. Can be nil or NSNull.null
- @param defaultValue The default string.  Cannot be nil.
- @return The input string or if the input string is nil or NSNull, return the defaultValue.
+ * @description Return the non-null value of the input string or the default value.
+ *
+ * @param string The input string. Can be nil or NSNull.null
+ * @param defaultValue The default string.  Cannot be nil.
+ * @return The input string or if the input string is nil or NSNull, return the defaultValue.
  */
 NSString *APSParsingStringWithDefault(NSString * _Nullable string, NSString *defaultValue);
 

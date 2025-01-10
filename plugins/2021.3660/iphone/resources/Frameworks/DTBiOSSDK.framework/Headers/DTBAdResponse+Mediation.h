@@ -9,21 +9,19 @@
 #import "DTBAdResponse.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DTBAdResponse(Mediation)
+@interface DTBAdResponse (Mediation)
 
-- (NSString * _Nonnull)bidInfo APS_DEPRECATED_MESSAGE();
+- (NSString *_Nonnull) bidInfo APS_DEPRECATED_MESSAGE();
 
-- (NSString * _Nonnull)amznSlots APS_DEPRECATED_MESSAGE("Use -[APSAd amznSlots] instead.");
+- (NSString *_Nonnull) amznSlots APS_DEPRECATED_MESSAGE("Use -[APSAd amznSlots] instead.");
 
-- (DTBAdSize * _Nonnull)adSize APS_DEPRECATED_MESSAGE();
+- (NSDictionary * _Nonnull)mediationHints:(BOOL) isSmartBanner APS_DEPRECATED_MESSAGE();
 
-- (NSDictionary * _Nonnull)mediationHints:(BOOL)isSmartBanner APS_DEPRECATED_MESSAGE();
+- (NSDictionary *_Nonnull) mediationHints APS_DEPRECATED_MESSAGE("Use -[APSAd mediationHints] instead.");
 
-- (NSDictionary * _Nonnull)mediationHints APS_DEPRECATED_MESSAGE("Use -[APSAd mediationHints] instead.");
+- (void)setHostName:(NSString *_Nonnull) hostName APS_DEPRECATED_MESSAGE();
 
-- (void)setHostName:(NSString * _Nonnull)hostName APS_DEPRECATED_MESSAGE();
-
-- (void)setCrid:(NSString * _Nonnull)crid APS_DEPRECATED_MESSAGE();
+- (void)setCrid:(NSString *_Nonnull) crid APS_DEPRECATED_MESSAGE();
 
 @end
 

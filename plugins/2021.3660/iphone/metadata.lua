@@ -22,9 +22,6 @@ local metadata =
 			-- APS
 			'DTBiOSSDK',
 			'ISAPSAdapter',
-			-- Applovin
-			'AppLovinSDK',
-			'ISAppLovinAdapter',
 			-- Chartboost
 			'ISChartboostAdapter',
 			'ChartboostSDK',

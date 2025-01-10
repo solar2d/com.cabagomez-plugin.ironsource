@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, weak) DTBAdView *adView APS_DEPRECATED_MESSAGE();
 
-@property(nonatomic) id<DTBAdInterstitialDispatcherDelegate> dispatcherDelegate APS_DEPRECATED_MESSAGE();
+@property(nonatomic, strong) id<DTBAdInterstitialDispatcherDelegate> dispatcherDelegate APS_DEPRECATED_MESSAGE();
 
 @end
 
